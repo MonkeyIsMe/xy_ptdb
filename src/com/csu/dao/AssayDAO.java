@@ -12,5 +12,5 @@ public interface AssayDAO {
 	
 	public boolean Update(Assay assay);
 	
-	public List<Assay> getAssay();
+	public List<Assay> getAllAssay();
 }

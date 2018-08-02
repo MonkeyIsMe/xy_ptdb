@@ -39,8 +39,9 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
 <mapping class="com.csu.entity.Assay" />
-
+<mapping class="com.csu.entity.PatientInfo" />
 </session-factory>
+
 
 
 </hibernate-configuration>

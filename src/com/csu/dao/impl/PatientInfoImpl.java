@@ -6,22 +6,22 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.csu.dao.AssayDAO;
-import com.csu.entity.Assay;
+import com.csu.dao.PatientInfoDAO;
+import com.csu.entity.PatientInfo;
 import com.csu.utils.HibernateUtil;
 
-
-public class AssayImpl implements AssayDAO{
+public class PatientInfoImpl implements PatientInfoDAO{
 
 	@Override
-	public boolean add(Assay assay) {
+	public boolean add(PatientInfo pi) {
 		// TODO Auto-generated method stub
+		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.save(assay);
+			session.save(pi);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -34,15 +34,14 @@ public class AssayImpl implements AssayDAO{
 	}
 
 	@Override
-	public boolean delete(Assay assay) {
+	public boolean update(PatientInfo pi) {
 		// TODO Auto-generated method stub
-		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(assay);
+			session.update(pi);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -55,13 +54,14 @@ public class AssayImpl implements AssayDAO{
 	}
 
 	@Override
-	public boolean Update(Assay assay) {
+	public boolean delete(PatientInfo pi) {
+		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(assay);
+			session.delete(pi);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -74,16 +74,16 @@ public class AssayImpl implements AssayDAO{
 	}
 
 	@Override
-	public List<Assay> getAllAssay() {
+	public List<PatientInfo> getAllPatientInfo() {
 		// TODO Auto-generated method stub
 		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<Assay> list = null;
+		List<PatientInfo> list = null;
 		
 		try {
 			session.beginTransaction();
-			String hql = "from Assay";
+			String hql = "from PatientInfo";
 			Query query = session.createQuery(hql);
 			list = query.list();
 			session.getTransaction().commit();
