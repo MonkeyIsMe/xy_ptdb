@@ -40,6 +40,8 @@
 
 <mapping class="com.csu.entity.Assay" />
 <mapping class="com.csu.entity.PatientInfo" />
+<mapping class="com.csu.entity.Report" />
+
 </session-factory>
 
 
