@@ -1,12 +1,15 @@
 package com.csu.entity;
 
 import org.json.JSONObject;
+
+import java.io.Serializable;
+
 import javax.persistence.*;
 //题目选项表：该表主要用于存储每一个题目的选项
 
 @Entity
 @Table(name="tab_choice")
-public class Choice {
+public class Choice implements Serializable{
 	
 	@Id
 	@Column(name="I_id")
