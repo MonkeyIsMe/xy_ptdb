@@ -1,17 +1,21 @@
 package com.csu.entity;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.json.JSONObject;
 
 @Entity
 @Table(name="tab_patientinfo")
-public class PatientInfo {
+public class PatientInfo implements Serializable{
+	
 	@Id
 	@Column(name="u_id")
 	private int u_id;
@@ -73,7 +77,17 @@ public class PatientInfo {
 	@Column(name="builderId")
 	private String builderId;  //´´½¨ÕßId
 	
+	@OneToMany(mappedBy="patientinfo",cascade={CascadeType.ALL})
+	private Set<Record> record = new HashSet<Record>();
 	
+	
+	
+	public Set<Record> getRecord() {
+		return record;
+	}
+	public void setRecord(Set<Record> record) {
+		this.record = record;
+	}
 	public int getU_id() {
 		return u_id;
 	}

@@ -36,11 +36,50 @@
 		#hibernate.hbm2ddl.auto update(推荐使用) 自动生成表.如果已经存在不会再生成.如果表有变动.自动更新表(不会删除任何数据).
 		#hibernate.hbm2ddl.auto validate	校验.不自动生成表.每次启动会校验数据库中表是否正确.校验失败.
 		 -->
+		 
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
 <mapping class="com.csu.entity.Assay" />
 <mapping class="com.csu.entity.PatientInfo" />
 <mapping class="com.csu.entity.Report" />
+<mapping class="com.csu.entity.Fileinfo" />
+<mapping class="com.csu.entity.Fkind" />
+<mapping class="com.csu.entity.Skind" />
+<mapping class="com.csu.entity.Topic" />
+<mapping class="com.csu.entity.TopicScale" />
+<mapping class="com.csu.entity.Options"/>
+<mapping class="com.csu.entity.MentalScale"/>
+<mapping class="com.csu.entity.Menu"/>
+<mapping class="com.csu.entity.Items"/>
+<mapping class="com.csu.entity.Item_Topic"/>
+<mapping class="com.csu.entity.PatientTopic"/>
+<mapping class="com.csu.entity.Permissions"/>
+<mapping class="com.csu.entity.Result"/>
+<mapping class="com.csu.entity.Dept"/>
+<mapping class="com.csu.entity.DiagRule"/>
+<mapping class="com.csu.entity.Role"/>
+<mapping class="com.csu.entity.Specimen"/>
+<mapping class="com.csu.entity.SysUserTopic"/>
+<mapping class="com.csu.entity.Unit"/>
+<mapping class="com.csu.entity.User"/>
+<mapping class="com.csu.entity.Reference"/>
+<mapping class="com.csu.entity.Uresult"/>
+<mapping class="com.csu.entity.Tresult"/>
+<mapping class="com.csu.entity.SubChoice"/>
+<mapping class="com.csu.entity.Comment"/>
+<mapping class="com.csu.entity.ScaleItem"/>
+<mapping class="com.csu.entity.Choice"/>
+<mapping class="com.csu.entity.Factor"/>
+<mapping class="com.csu.entity.DiagType"/>
+<mapping class="com.csu.entity.DiagName"/>
+<mapping class="com.csu.entity.DiagClass"/>
+<mapping class="com.csu.entity.SysUser"/>
+<mapping class="com.csu.entity.UserMsg"/>
+<mapping class="com.csu.entity.CheckSerial"/>
+<mapping class="com.csu.entity.RoleMenu"/>
+<mapping class="com.csu.entity.RolePermission"/>
+<mapping class="com.csu.entity.UserRole"/>
+<mapping class="com.csu.entity.Record"/>
 
 </session-factory>
 
