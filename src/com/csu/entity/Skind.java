@@ -1,12 +1,15 @@
 package com.csu.entity;
 
 import org.json.JSONObject;
+
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 
 @Entity
 @Table(name="tab_skind")
-public class Skind {
+public class Skind implements Serializable{
 	
 	@Id
 	@Column(name="sk_id")

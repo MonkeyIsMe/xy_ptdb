@@ -11,7 +11,7 @@ import com.csu.entity.Fkind;
 import com.csu.entity.Skind;
 import com.csu.utils.HibernateUtil;
 
-public class KindImpl implements KindDAO{
+public class KindDAOImpl implements KindDAO{
 
 	@Override
 	public boolean addFKind(Fkind fk) {

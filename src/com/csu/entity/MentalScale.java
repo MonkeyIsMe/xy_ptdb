@@ -1,5 +1,6 @@
 package com.csu.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +10,7 @@ import org.json.JSONObject;
 
 @Entity
 @Table(name="tab_mentalscale")
-public class MentalScale {
+public class MentalScale implements Serializable{
 	
 	@Id
 	@Column(name="S_ID")

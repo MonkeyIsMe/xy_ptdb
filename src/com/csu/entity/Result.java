@@ -2,13 +2,15 @@ package com.csu.entity;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 //测试结果表：该表主要用于保存患者每一次心理测评的结果，具体字段信息
 
 @Entity
 @Table(name="tab_result")
-public class Result {
+public class Result implements Serializable{
 	
 	@Id
 	@Column(name="Id")

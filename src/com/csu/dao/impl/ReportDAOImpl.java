@@ -6,14 +6,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.csu.dao.PatientInfoDAO;
-import com.csu.entity.PatientInfo;
+import com.csu.dao.ReportDAO;
+import com.csu.entity.Report;
 import com.csu.utils.HibernateUtil;
 
-public class PatientInfoImpl implements PatientInfoDAO{
+public class ReportDAOImpl implements ReportDAO{
 
 	@Override
-	public boolean add(PatientInfo pi) {
+	public boolean add(Report re) {
 		// TODO Auto-generated method stub
 		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -21,7 +21,7 @@ public class PatientInfoImpl implements PatientInfoDAO{
 		
 		try {
 			session.beginTransaction();
-			session.save(pi);
+			session.save(re);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -34,14 +34,14 @@ public class PatientInfoImpl implements PatientInfoDAO{
 	}
 
 	@Override
-	public boolean update(PatientInfo pi) {
+	public boolean update(Report re) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(pi);
+			session.update(re);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -54,14 +54,14 @@ public class PatientInfoImpl implements PatientInfoDAO{
 	}
 
 	@Override
-	public boolean delete(PatientInfo pi) {
+	public boolean delete(Report re) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(pi);
+			session.delete(re);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -74,26 +74,24 @@ public class PatientInfoImpl implements PatientInfoDAO{
 	}
 
 	@Override
-	public List<PatientInfo> getAllPatientInfo() {
+	public List<Report> getAllReport() {
 		// TODO Auto-generated method stub
-		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<PatientInfo> list = null;
+		List<Report> result = null;
 		
 		try {
 			session.beginTransaction();
-			String hql = "from PatientInfo";
+			String hql = "from Report";
 			Query query = session.createQuery(hql);
-			list = query.list();
-			session.getTransaction().commit();
+			result = query.list();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return list;
+			return result;
 		}
 		
-		return list;
+		return result;
 	}
 
 }

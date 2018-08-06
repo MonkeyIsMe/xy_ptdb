@@ -11,7 +11,7 @@ import com.csu.entity.Topic;
 import com.csu.entity.TopicScale;
 import com.csu.utils.HibernateUtil;
 
-public class TopicImpl implements TopicDAO{
+public class TopicDAOImpl implements TopicDAO{
 
 	@Override
 	public boolean addTopic(Topic topic) {

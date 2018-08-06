@@ -1,10 +1,13 @@
 package com.csu.entity;
 
 import org.json.JSONObject;
+
+import java.io.Serializable;
+
 import javax.persistence.*;
 @Entity
 @Table(name="tab_fkind")
-public class Fkind {
+public class Fkind implements Serializable {
 	@Id
 	@Column(name="f_id")
 	private int f_id;

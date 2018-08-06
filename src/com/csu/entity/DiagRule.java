@@ -1,5 +1,6 @@
 package com.csu.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="tab_diag_rule")
-public class DiagRule {
+public class DiagRule implements Serializable{
 	
 	@Id
 	@Column(name="diagRuleId")

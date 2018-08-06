@@ -1,11 +1,14 @@
 package com.csu.entity;
 
 import org.json.JSONObject;
+
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="tab_specimen")
-public class Specimen {
+public class Specimen implements Serializable{
 	
 	@Id
 	@Column(name="Id")

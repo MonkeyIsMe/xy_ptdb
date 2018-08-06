@@ -2,6 +2,7 @@ package com.csu.entity;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="tab_menu")
-public class Menu {
+public class Menu implements Serializable{
 	
 	@Id
 	@Column(name="m_id")

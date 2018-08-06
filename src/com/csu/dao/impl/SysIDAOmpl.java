@@ -6,21 +6,22 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.csu.dao.ChoiceDAO;
-import com.csu.entity.Choice;
-import com.csu.entity.SubChoice;
+import com.csu.dao.SysDAO;
+import com.csu.entity.SysUser;
+import com.csu.entity.SysUserTopic;
 import com.csu.utils.HibernateUtil;
 
-public class ChoiceImpl implements ChoiceDAO{
+public class SysIDAOmpl implements SysDAO{
 
 	@Override
-	public boolean addChoice(Choice ch) {
+	public boolean addSysUser(SysUser su) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
+		
 		try {
 			session.beginTransaction();
-			session.save(ch);
+			session.save(su);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -28,17 +29,19 @@ public class ChoiceImpl implements ChoiceDAO{
 			session.getTransaction().rollback();
 			return false;
 		}
+		
 		return true;
 	}
 
 	@Override
-	public boolean deleteChoice(Choice ch) {
+	public boolean deleteSysUser(SysUser su) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
+		
 		try {
 			session.beginTransaction();
-			session.delete(ch);
+			session.delete(su);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -46,17 +49,19 @@ public class ChoiceImpl implements ChoiceDAO{
 			session.getTransaction().rollback();
 			return false;
 		}
+		
 		return true;
 	}
 
 	@Override
-	public boolean updateChoice(Choice ch) {
+	public boolean updateSysUser(SysUser su) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
+		
 		try {
 			session.beginTransaction();
-			session.update(ch);
+			session.update(su);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -64,55 +69,41 @@ public class ChoiceImpl implements ChoiceDAO{
 			session.getTransaction().rollback();
 			return false;
 		}
+		
 		return true;
 	}
 
 	@Override
-	public List<Choice> QueryChoice() {
+	public List<SysUser> querySysUser() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<Choice> ch = null;
+		List<SysUser> list = null;
+		
 		try {
 			session.beginTransaction();
-			String hql = "from Choice";
+			String hql = "from SysUser";
 			Query query = session.createQuery(hql);
-			ch = query.list();
+			list = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return ch;
+			return list;
 		}
-		return ch;
+		
+		return list;
 	}
 
 	@Override
-	public boolean addSubChoice(SubChoice ch) {
+	public boolean addSysUserTopic(SysUserTopic sut) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
+		
 		try {
 			session.beginTransaction();
-			session.save(ch);
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			session.getTransaction().rollback();
-			return false;
-		}
-		return true;
-	}
-
-	@Override
-	public boolean deleteSubChoice(SubChoice ch) {
-		// TODO Auto-generated method stub
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = sessionFactory.getCurrentSession();
-		try {
-			session.beginTransaction();
-			session.delete(ch);
+			session.save(sut);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -120,17 +111,19 @@ public class ChoiceImpl implements ChoiceDAO{
 			session.getTransaction().rollback();
 			return false;
 		}
+		
 		return true;
 	}
 
 	@Override
-	public boolean updateSubChoice(SubChoice ch) {
+	public boolean deleteSysUserTopic(SysUserTopic sut) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
+		
 		try {
 			session.beginTransaction();
-			session.update(ch);
+			session.delete(sut);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -138,27 +131,50 @@ public class ChoiceImpl implements ChoiceDAO{
 			session.getTransaction().rollback();
 			return false;
 		}
+		
 		return true;
 	}
 
 	@Override
-	public List<SubChoice> QuerySubChoice() {
+	public boolean updateSysUserTopic(SysUserTopic sut) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<SubChoice> ch = null;
+		
 		try {
 			session.beginTransaction();
-			String hql = "from SubChoice";
+			session.update(sut);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public List<SysUserTopic> querySysUserTopic() {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<SysUserTopic> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from SysUser";
 			Query query = session.createQuery(hql);
-			ch = query.list();
+			list = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return ch;
+			return list;
 		}
-		return ch;
+		
+		return list;
 	}
 
 }

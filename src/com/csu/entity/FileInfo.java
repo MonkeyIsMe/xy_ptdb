@@ -1,12 +1,14 @@
 package com.csu.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 import org.json.JSONObject;
 //文件信息表：该表主要用于需要保存的文件
 @Entity
 @Table(name="tab_fileinfo")
-public class Fileinfo {
+public class FileInfo implements Serializable{
 	
 	@Id
 	@Column(name="file_id")

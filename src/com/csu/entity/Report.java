@@ -1,5 +1,6 @@
 package com.csu.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 import org.json.JSONObject;
 @Entity
 @Table(name="tab_report")
-public class Report {
+public class Report implements Serializable{
 	
 	@Id
 	@Column(name="id")

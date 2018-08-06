@@ -42,7 +42,7 @@
 <mapping class="com.csu.entity.Assay" />
 <mapping class="com.csu.entity.PatientInfo" />
 <mapping class="com.csu.entity.Report" />
-<mapping class="com.csu.entity.Fileinfo" />
+<mapping class="com.csu.entity.FileInfo" />
 <mapping class="com.csu.entity.Fkind" />
 <mapping class="com.csu.entity.Skind" />
 <mapping class="com.csu.entity.Topic" />

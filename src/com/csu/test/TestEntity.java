@@ -134,6 +134,20 @@ public class TestEntity {
 	}
 	
 	@Test
+	public void getFileInfo() {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session s = sf.getCurrentSession();
+		s.beginTransaction();
+		String hql = "from FileInfo";
+		Query query = s.createQuery(hql);
+		List<FileInfo> list = query.list();
+		System.out.println(list.size());
+		for(FileInfo pi : list) {
+			System.out.println(pi.toString());
+		}
+	}
+	
+	@Test
 	public void getChoice() {
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.getCurrentSession();

@@ -6,22 +6,21 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.csu.dao.ReportDAO;
-import com.csu.entity.Report;
+import com.csu.dao.OptionsDAO;
+import com.csu.entity.Options;
 import com.csu.utils.HibernateUtil;
 
-public class ReportImpl implements ReportDAO{
+public class OptionsDAOImpl implements OptionsDAO{
 
 	@Override
-	public boolean add(Report re) {
+	public boolean add(Options op) {
 		// TODO Auto-generated method stub
-		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.save(re);
+			session.save(op);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -34,14 +33,14 @@ public class ReportImpl implements ReportDAO{
 	}
 
 	@Override
-	public boolean update(Report re) {
+	public boolean update(Options op) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(re);
+			session.update(op);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -54,14 +53,14 @@ public class ReportImpl implements ReportDAO{
 	}
 
 	@Override
-	public boolean delete(Report re) {
+	public boolean delete(Options op) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(re);
+			session.delete(op);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -74,24 +73,26 @@ public class ReportImpl implements ReportDAO{
 	}
 
 	@Override
-	public List<Report> getAllReport() {
+	public List<Options> query() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<Report> result = null;
+		
+		List<Options> list = null;
 		
 		try {
 			session.beginTransaction();
-			String hql = "from Report";
+			String hql = "from Options";
 			Query query = session.createQuery(hql);
-			result = query.list();
+			list = query.list();
+			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return result;
+			return list;
 		}
 		
-		return result;
+		return list;
 	}
 
 }

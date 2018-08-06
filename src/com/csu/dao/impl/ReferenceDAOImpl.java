@@ -10,7 +10,7 @@ import com.csu.dao.ReferenceDAO;
 import com.csu.entity.Reference;
 import com.csu.utils.HibernateUtil;
 
-public class ReferenceImpl implements ReferenceDAO{
+public class ReferenceDAOImpl implements ReferenceDAO{
 
 	@Override
 	public boolean add(Reference refer) {

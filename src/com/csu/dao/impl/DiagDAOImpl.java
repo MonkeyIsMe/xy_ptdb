@@ -6,23 +6,24 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.csu.dao.ResultDAO;
-import com.csu.entity.Result;
-import com.csu.entity.Tresult;
-import com.csu.entity.Uresult;
+import com.csu.dao.DiagDAO;
+import com.csu.entity.DiagClass;
+import com.csu.entity.DiagName;
+import com.csu.entity.DiagRule;
+import com.csu.entity.DiagType;
 import com.csu.utils.HibernateUtil;
 
-public class ResultImpl implements ResultDAO{
+public class DiagDAOImpl implements DiagDAO{
 
 	@Override
-	public boolean addResult(Result result) {
+	public boolean addDiagClass(DiagClass diagclass) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.save(result);
+			session.save(diagclass);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -35,14 +36,14 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public boolean updateResult(Result result) {
+	public boolean updateDiagClass(DiagClass diagclass) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(result);
+			session.update(diagclass);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -55,14 +56,14 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public boolean deleteResult(Result result) {
+	public boolean deleteDiagClass(DiagClass diagclass) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(result);
+			session.delete(diagclass);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -75,14 +76,15 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public List<Result> queryResult() {
+	public List<DiagClass> queryDiagClass() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<Result> list = null;
+		List<DiagClass> list = null;
+		
 		try {
 			session.beginTransaction();
-			String hql = "from Result";
+			String hql = "from DiagClass";
 			Query query = session.createQuery(hql);
 			list = query.list();
 			session.getTransaction().commit();
@@ -96,14 +98,14 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public boolean addUresult(Uresult result) {
+	public boolean addDiagName(DiagName diagname) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.save(result);
+			session.save(diagname);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -116,14 +118,14 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public boolean updateUresult(Uresult result) {
+	public boolean updateDiagName(DiagName diagname) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(result);
+			session.update(diagname);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -136,14 +138,14 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public boolean deleteUresult(Uresult result) {
+	public boolean deleteDiagName(DiagName diagname) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(result);
+			session.delete(diagname);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -156,14 +158,15 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public List<Uresult> queryUresult() {
+	public List<DiagName> queryDiagName() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<Uresult> list = null;
+		List<DiagName> list = null;
+		
 		try {
 			session.beginTransaction();
-			String hql = "from Uresult";
+			String hql = "from DiagName";
 			Query query = session.createQuery(hql);
 			list = query.list();
 			session.getTransaction().commit();
@@ -177,14 +180,14 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public boolean addTresult(Tresult result) {
+	public boolean addDiagRule(DiagRule diagrule) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.save(result);
+			session.save(diagrule);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -197,14 +200,14 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public boolean updateTresult(Tresult result) {
+	public boolean updateDiagRule(DiagRule diagrule) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(result);
+			session.update(diagrule);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -217,14 +220,14 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public boolean deleteTresult(Tresult result) {
+	public boolean deleteDiagRule(DiagRule diagrule) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(result);
+			session.delete(diagrule);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -237,14 +240,97 @@ public class ResultImpl implements ResultDAO{
 	}
 
 	@Override
-	public List<Tresult> queryTresult() {
+	public List<DiagRule> queryDiagRule() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<Tresult> list = null;
+		List<DiagRule> list = null;
+		
 		try {
 			session.beginTransaction();
-			String hql = "from Tresult";
+			String hql = "from DiagRule";
+			Query query = session.createQuery(hql);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public boolean addDiagClass(DiagType diagtype) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.save(diagtype);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean updateDiagType(DiagClass diagtype) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.update(diagtype);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean deleteDiagType(DiagClass diagtype) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.delete(diagtype);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public List<DiagType> querDiagType() {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<DiagType> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from DiagType";
 			Query query = session.createQuery(hql);
 			list = query.list();
 			session.getTransaction().commit();

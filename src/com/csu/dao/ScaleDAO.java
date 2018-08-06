@@ -1,0 +1,34 @@
+package com.csu.dao;
+
+import java.util.List;
+
+import com.csu.entity.ItemTopic;
+import com.csu.entity.Items;
+import com.csu.entity.ScaleItem;
+
+public interface ScaleDAO {
+	
+	public boolean addItems(Items item);
+	
+	public boolean deleteItems(Items item);
+	
+	public boolean updateItems(Items item);
+	
+	public List<Items> queryItems();
+	
+	public boolean addItemTopic(ItemTopic it);
+	
+	public boolean deleteItemTopic(ItemTopic it);
+	
+	public boolean updateItemTopic(ItemTopic it);
+	
+	public List<ItemTopic> queryItemTopic();
+	
+	public boolean addScaleItem(ScaleItem si);
+	
+	public boolean updateScaleItem(ScaleItem si);
+	
+	public boolean deleteScaleItem(ScaleItem si);
+	
+	public List<ScaleItem> queryScaleItem();
+}

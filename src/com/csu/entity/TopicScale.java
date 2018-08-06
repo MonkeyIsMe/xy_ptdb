@@ -2,11 +2,13 @@ package com.csu.entity;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="tab_topic_scale")
-public class TopicScale {
+public class TopicScale implements Serializable{
 	
 	@Id
 	@Column(name="Id")
