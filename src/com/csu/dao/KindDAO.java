@@ -22,4 +22,6 @@ public interface KindDAO {
 	public boolean deleteSKind(Skind sk);
 	
 	public List<Skind> querySKind();
+	
+	public List<Skind> getSkindsByfid(int f_id);
 }

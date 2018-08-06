@@ -13,4 +13,6 @@ public interface PatientInfoDAO {
 	public boolean delete(PatientInfo pi);
 	
 	public List<PatientInfo> getAllPatientInfo();
+	
+	public List<PatientInfo> getPatientInfo(int u_id);
 }

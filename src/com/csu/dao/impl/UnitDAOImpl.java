@@ -6,21 +6,21 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.csu.dao.MentalScaleDAO;
-import com.csu.entity.MentalScale;
+import com.csu.dao.UnitDAO;
+import com.csu.entity.Unit;
 import com.csu.utils.HibernateUtil;
 
-public class MentalScaleDAOImpl implements MentalScaleDAO{
+public class UnitDAOImpl implements UnitDAO{
 
 	@Override
-	public boolean add(MentalScale ms) {
+	public boolean add(Unit unit) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.save(ms);
+			session.save(unit);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -33,14 +33,14 @@ public class MentalScaleDAOImpl implements MentalScaleDAO{
 	}
 
 	@Override
-	public boolean delete(MentalScale ms) {
+	public boolean delete(Unit unit) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(ms);
+			session.delete(unit);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -53,14 +53,14 @@ public class MentalScaleDAOImpl implements MentalScaleDAO{
 	}
 
 	@Override
-	public boolean update(MentalScale ms) {
+	public boolean update(Unit unit) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(ms);
+			session.update(unit);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -73,15 +73,15 @@ public class MentalScaleDAOImpl implements MentalScaleDAO{
 	}
 
 	@Override
-	public List<MentalScale> query() {
+	public List<Unit> query() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<MentalScale> list = null;
-
+		List<Unit> list = null;
+		
 		try {
 			session.beginTransaction();
-			String hql = "from MentalScale";
+			String hql = "from Unit";
 			Query query = session.createQuery(hql);
 			list = query.list();
 			session.getTransaction().commit();
@@ -93,29 +93,6 @@ public class MentalScaleDAOImpl implements MentalScaleDAO{
 		}
 		
 		return list;
-	}
-
-	@Override
-	public boolean checkSname(String s_name) {
-		// TODO Auto-generated method stub
-		
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = sessionFactory.getCurrentSession();
-		boolean isExist = false;
-		try {
-			session.beginTransaction();
-			String sql = "select * from tab_mentalscale where s_name='"+s_name+"'";
-			Query query = session.createSQLQuery(sql);
-			List<MentalScale> ms = query.list();
-			if(ms.size() != 0 ) isExist = true;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			session.getTransaction().rollback();
-			return isExist;
-		}
-		
-		return isExist;
 	}
 
 }

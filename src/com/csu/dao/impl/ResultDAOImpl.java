@@ -1,5 +1,6 @@
 package com.csu.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -7,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.csu.dao.ResultDAO;
+import com.csu.entity.Assay;
 import com.csu.entity.Result;
 import com.csu.entity.Tresult;
 import com.csu.entity.Uresult;
@@ -251,9 +253,33 @@ public class ResultDAOImpl implements ResultDAO{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			session.getTransaction().rollback();
 			return list;
 		}
 		
+		return list;
+	}
+
+	@Override
+	public List<Result> queryResultsByRecordId(int recordId) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<Result> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from Result where recordId = :recordId";
+			Query query = session.createQuery(hql);
+			query.setParameter("recordId", recordId);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
 		return list;
 	}
 

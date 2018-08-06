@@ -13,4 +13,6 @@ public interface ReportDAO {
 	public boolean delete(Report re);
 	
 	public List<Report> getAllReport();
+	
+	public Report queryReportById(int id);
 }

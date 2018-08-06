@@ -300,4 +300,18 @@ public class TestEntity {
 			System.out.println(pi.toString());
 		}
 	}
+	
+	@Test
+	public void getSpecimen() {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session s = sf.getCurrentSession();
+		s.beginTransaction();
+		String hql = "from Specimen";
+		Query query = s.createQuery(hql);
+		List<Specimen> list = query.list();
+		System.out.println(list.size());
+		for(Specimen pi : list) {
+			System.out.println(pi.toString());
+		}
+	}
 }

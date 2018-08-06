@@ -13,4 +13,6 @@ public interface SpecimenDAO {
 	public boolean delete(Specimen sp);
 	
 	public List<Specimen> Query();
+	
+	public List<Specimen> getSpecimenByUid(int patientId);
 }

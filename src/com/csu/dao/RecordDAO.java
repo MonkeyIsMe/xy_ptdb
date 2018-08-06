@@ -13,4 +13,8 @@ public interface RecordDAO {
 	public boolean delete(Record r);
 	
 	public List<Record> Query();
+	
+	public Record queryRecordById(int id);
+	
+	public List<Record> queryRecordListByPatientId(int patientId);
 }

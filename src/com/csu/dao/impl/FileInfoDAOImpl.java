@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.csu.dao.FileInfoDAO;
+import com.csu.entity.Assay;
 import com.csu.entity.FileInfo;
 import com.csu.utils.HibernateUtil;
 
@@ -91,6 +92,29 @@ public class FileInfoDAOImpl implements FileInfoDAO{
 			return list;
 		}
 		
+		return list;
+	}
+
+	@Override
+	public List<FileInfo> getFileByUid(int userID) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<FileInfo> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from FileInfo where UserID = :userID";
+			Query query = session.createQuery(hql);
+			query.setParameter("userID", userID);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
 		return list;
 	}
 

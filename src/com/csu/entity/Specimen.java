@@ -35,8 +35,6 @@ public class Specimen implements Serializable{
 	@Column(name="patientId")
 	private int patientId;          //患者ID
 	
-	@Column(name="desc")
-	private String desc;            //备注
 	
 	@Column(name="latestTime")
 	private String latestTime;      //最近使用日期
@@ -89,12 +87,6 @@ public class Specimen implements Serializable{
 	public void setPatientId(int patientId) {
 		this.patientId = patientId;
 	}
-	public String getDesc() {
-		return desc;
-	}
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
 	public String getLatestTime() {
 		return latestTime;
 	}
@@ -112,7 +104,6 @@ public class Specimen implements Serializable{
 		jo.put("specimen_num", this.specimen_num);
 		jo.put("concentration", this.concentration);
 		jo.put("patientId", this.patientId);
-		jo.put("desc", this.desc);
 		jo.put("latestTime", this.latestTime);
 		return jo;
 	}

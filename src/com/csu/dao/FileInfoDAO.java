@@ -13,4 +13,6 @@ public interface FileInfoDAO {
 	public boolean update(FileInfo fi);
 	
 	public List<FileInfo> query();
+	
+	public List<FileInfo> getFileByUid(int userID);
 }

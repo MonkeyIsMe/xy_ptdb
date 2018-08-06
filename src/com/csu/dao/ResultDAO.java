@@ -1,5 +1,6 @@
 package com.csu.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.csu.entity.Result;
@@ -31,4 +32,6 @@ public interface ResultDAO {
 	public boolean deleteTresult(Tresult result);
 	
 	public List<Tresult> queryTresult();
+	
+	public List<Result> queryResultsByRecordId(int recordId);
 }

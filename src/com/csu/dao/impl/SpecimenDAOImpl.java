@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.csu.dao.SpecimenDAO;
+import com.csu.entity.Assay;
 import com.csu.entity.Specimen;
 import com.csu.utils.HibernateUtil;
 
@@ -89,6 +90,29 @@ public class SpecimenDAOImpl implements SpecimenDAO{
 			return sp;
 		}
 		return sp;
+	}
+
+	@Override
+	public List<Specimen> getSpecimenByUid(int patientId) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<Specimen> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from Specimen where patientId = :patientId";
+			Query query = session.createQuery(hql);
+			query.setParameter("patientId", patientId);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
+		return list;
 	}
 
 }

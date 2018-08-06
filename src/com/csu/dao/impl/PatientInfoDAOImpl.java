@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.csu.dao.PatientInfoDAO;
+import com.csu.entity.Assay;
 import com.csu.entity.PatientInfo;
 import com.csu.utils.HibernateUtil;
 
@@ -93,6 +94,28 @@ public class PatientInfoDAOImpl implements PatientInfoDAO{
 			return list;
 		}
 		
+		return list;
+	}
+
+	@Override
+	public List<PatientInfo> getPatientInfo(int u_id) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<PatientInfo> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from PatientInfo where u_id = :u_id";
+			Query query = session.createQuery(hql);
+			query.setParameter("u_id", u_id);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
 		return list;
 	}
 

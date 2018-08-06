@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.csu.dao.RecordDAO;
+import com.csu.entity.Assay;
 import com.csu.entity.Record;
 import com.csu.utils.HibernateUtil;
 
@@ -90,6 +91,50 @@ public class RecordDAOImpl implements RecordDAO{
 			return list;
 		}
 		
+		return list;
+	}
+
+	@Override
+	public Record queryRecordById(int id) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		Record list = null;
+		
+		try {
+			session.beginTransaction();
+//			String hql = "from Record where id = :id";
+//			Query query = session.createQuery(hql);
+//			query.setParameter("id", id);
+//			list = query.list();
+			list = session.get(Record.class, id);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
+		return list;
+	}
+
+	@Override
+	public List<Record> queryRecordListByPatientId(int patientId) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<Record> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from Record where patientId = :patientId";
+			Query query = session.createQuery(hql);
+			query.setParameter("patientId", patientId);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return list;
 	}
 

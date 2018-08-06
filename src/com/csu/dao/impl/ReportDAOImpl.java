@@ -94,4 +94,28 @@ public class ReportDAOImpl implements ReportDAO{
 		return result;
 	}
 
+	@Override
+	public Report queryReportById(int id) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		Report list = null;
+		
+		try {
+			session.beginTransaction();
+//			String hql = "from Report where id = :id";
+//			Query query = session.createQuery(hql);
+//			query.setParameter("id", id);
+//			list = query.list();
+			list = session.get(Report.class, id);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
+		return list;
+	}
+
 }

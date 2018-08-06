@@ -51,7 +51,7 @@
 <mapping class="com.csu.entity.MentalScale"/>
 <mapping class="com.csu.entity.Menu"/>
 <mapping class="com.csu.entity.Items"/>
-<mapping class="com.csu.entity.Item_Topic"/>
+<mapping class="com.csu.entity.ItemTopic"/>
 <mapping class="com.csu.entity.PatientTopic"/>
 <mapping class="com.csu.entity.Permissions"/>
 <mapping class="com.csu.entity.Result"/>

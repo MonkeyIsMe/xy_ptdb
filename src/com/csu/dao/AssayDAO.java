@@ -13,4 +13,6 @@ public interface AssayDAO {
 	public boolean Update(Assay assay);
 	
 	public List<Assay> getAllAssay();
+	
+	public List<Assay> getAssayById(int userid);
 }

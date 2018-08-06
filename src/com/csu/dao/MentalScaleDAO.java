@@ -13,4 +13,6 @@ public interface MentalScaleDAO {
 	public boolean update(MentalScale ms);
 	
 	public List<MentalScale> query();
+	
+	public boolean checkSname(String s_name);
 }
