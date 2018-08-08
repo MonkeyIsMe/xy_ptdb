@@ -6,22 +6,23 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.csu.dao.SysDAO;
-import com.csu.entity.SysUser;
-import com.csu.entity.SysUserTopic;
+import com.csu.dao.ScaleDAO;
+import com.csu.entity.ItemTopic;
+import com.csu.entity.Items;
+import com.csu.entity.ScaleItem;
 import com.csu.utils.HibernateUtil;
 
-public class SysIDAOmpl implements SysDAO{
+public class ScaleDAOImpl implements ScaleDAO{
 
 	@Override
-	public boolean addSysUser(SysUser su) {
+	public boolean addItems(Items item) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.save(su);
+			session.save(item);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -34,14 +35,14 @@ public class SysIDAOmpl implements SysDAO{
 	}
 
 	@Override
-	public boolean deleteSysUser(SysUser su) {
+	public boolean deleteItems(Items item) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(su);
+			session.delete(item);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -54,14 +55,14 @@ public class SysIDAOmpl implements SysDAO{
 	}
 
 	@Override
-	public boolean updateSysUser(SysUser su) {
+	public boolean updateItems(Items item) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(su);
+			session.update(item);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -74,15 +75,15 @@ public class SysIDAOmpl implements SysDAO{
 	}
 
 	@Override
-	public List<SysUser> querySysUser() {
+	public List<Items> queryItems() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<SysUser> list = null;
+		List<Items> list = null;
 		
 		try {
 			session.beginTransaction();
-			String hql = "from SysUser";
+			String hql = "from Items";
 			Query query = session.createQuery(hql);
 			list = query.list();
 			session.getTransaction().commit();
@@ -96,14 +97,14 @@ public class SysIDAOmpl implements SysDAO{
 	}
 
 	@Override
-	public boolean addSysUserTopic(SysUserTopic sut) {
+	public boolean addItemTopic(ItemTopic it) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.save(sut);
+			session.save(it);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -116,14 +117,14 @@ public class SysIDAOmpl implements SysDAO{
 	}
 
 	@Override
-	public boolean deleteSysUserTopic(SysUserTopic sut) {
+	public boolean deleteItemTopic(ItemTopic it) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.delete(sut);
+			session.delete(it);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -136,14 +137,14 @@ public class SysIDAOmpl implements SysDAO{
 	}
 
 	@Override
-	public boolean updateSysUserTopic(SysUserTopic sut) {
+	public boolean updateItemTopic(ItemTopic it) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		
 		try {
 			session.beginTransaction();
-			session.update(sut);
+			session.update(it);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -156,16 +157,123 @@ public class SysIDAOmpl implements SysDAO{
 	}
 
 	@Override
-	public List<SysUserTopic> querySysUserTopic() {
+	public List<ItemTopic> queryItemTopic() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<SysUserTopic> list = null;
+		List<ItemTopic> list = null;
 		
 		try {
 			session.beginTransaction();
-			String hql = "from SysUser";
+			String hql = "from ItemTopic";
 			Query query = session.createQuery(hql);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public boolean addScaleItem(ScaleItem si) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.save(si);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean updateScaleItem(ScaleItem si) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.update(si);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean deleteScaleItem(ScaleItem si) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.delete(si);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public List<ScaleItem> queryScaleItem() {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<ScaleItem> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from ScaleItem";
+			Query query = session.createQuery(hql);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<ScaleItem> queryScaleItemByPageSid(int i, int pagesize, int s_ID) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<ScaleItem> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from ScaleItem where s_ID = :s_ID";
+			Query query = session.createQuery(hql);
+			query.setParameter("s_ID", s_ID);
+			query.setFirstResult(i);
+			query.setMaxResults(pagesize);
 			list = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {

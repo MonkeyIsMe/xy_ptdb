@@ -15,4 +15,8 @@ public interface ReportDAO {
 	public List<Report> getAllReport();
 	
 	public Report queryReportById(int id);
+	
+	public List<Report> getReport(int uid,int s_id);
+	
+	public List<Report> getReportByPage(int i,int pagesize);
 }

@@ -31,4 +31,6 @@ public interface ScaleDAO {
 	public boolean deleteScaleItem(ScaleItem si);
 	
 	public List<ScaleItem> queryScaleItem();
+	
+	public List<ScaleItem> queryScaleItemByPageSid(int i,int pagesize,int s_ID);
 }

@@ -13,4 +13,6 @@ public interface ReferenceDAO {
 	public boolean delete(Reference refer);
 	
 	public List<Reference> Query();
+	
+	public List<Reference> getRefer(int sid,int fid);
 }

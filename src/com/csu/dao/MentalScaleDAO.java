@@ -15,4 +15,8 @@ public interface MentalScaleDAO {
 	public List<MentalScale> query();
 	
 	public boolean checkSname(String s_name);
+	
+	public List<MentalScale> queryByPage(int i,int pagesize);
+	
+	public List<MentalScale> getMentalScaleBySkid(int sk_id);
 }

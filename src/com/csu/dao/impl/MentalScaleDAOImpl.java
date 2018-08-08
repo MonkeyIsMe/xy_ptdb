@@ -118,4 +118,53 @@ public class MentalScaleDAOImpl implements MentalScaleDAO{
 		return isExist;
 	}
 
+	@Override
+	public List<MentalScale> queryByPage(int i, int pagesize) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<MentalScale> list = null;
+
+		try {
+			session.beginTransaction();
+			String hql = "from MentalScale";
+			Query query = session.createQuery(hql);
+			query.setFirstResult(i);
+			query.setMaxResults(pagesize);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<MentalScale> getMentalScaleBySkid(int sk_id) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<MentalScale> list = null;
+
+		try {
+			session.beginTransaction();
+			String hql = "from MentalScale where sk_id = :sk_id";
+			Query query = session.createQuery(hql);
+			query.setParameter("sk_id", sk_id);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
+		
+		return list;
+	}
+
 }

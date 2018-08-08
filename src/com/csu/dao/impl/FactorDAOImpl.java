@@ -94,4 +94,27 @@ public class FactorDAOImpl implements FactorDAO{
 		return list;
 	}
 
+	@Override
+	public List<Factor> getFactorsBySid(int S_id) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<Factor> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from Factor where S_id = :S_id";
+			Query query = session.createQuery(hql);
+			query.setParameter("S_id", S_id);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
+		
+		return list;
+	}
+
 }

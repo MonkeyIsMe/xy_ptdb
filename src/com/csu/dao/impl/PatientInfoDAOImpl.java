@@ -114,9 +114,36 @@ public class PatientInfoDAOImpl implements PatientInfoDAO{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			session.getTransaction().rollback();
 			return list;
 		}
 		return list;
 	}
+
+	@Override
+	public List<PatientInfo> getPatientByPage(int i, int pagesize) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<PatientInfo> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from PatientInfo";
+			Query query = session.createQuery(hql);
+			query.setFirstResult(i);
+			query.setMaxResults(pagesize);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
+		
+		return list;
+	}
+
 
 }

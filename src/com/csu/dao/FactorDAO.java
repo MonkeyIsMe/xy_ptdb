@@ -13,4 +13,6 @@ public interface FactorDAO {
 	public boolean update(Factor fac);
 	
 	public List<Factor> query();
+	
+	public List<Factor> getFactorsBySid(int S_id);
 }

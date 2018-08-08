@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.csu.entity.SysUser;
 import com.csu.entity.SysUserTopic;
+import com.csu.entity.Topic;
 
 public interface SysDAO {
 	
@@ -22,4 +23,6 @@ public interface SysDAO {
 	public boolean updateSysUserTopic(SysUserTopic sut);
 	
 	public List<SysUserTopic> querySysUserTopic();
+	
+	public List<Topic> getUserTopic(String account);
 }
