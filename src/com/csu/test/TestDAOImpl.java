@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.csu.dao.AssayDAO;
+import com.csu.dao.ChoiceDAO;
 import com.csu.dao.FactorDAO;
 import com.csu.dao.FileInfoDAO;
 import com.csu.dao.KindDAO;
@@ -18,6 +19,7 @@ import com.csu.dao.ScaleDAO;
 import com.csu.dao.SpecimenDAO;
 import com.csu.dao.SysDAO;
 import com.csu.dao.impl.AssayDAOImpl;
+import com.csu.dao.impl.ChoiceDAOImpl;
 import com.csu.dao.impl.FactorDAOImpl;
 import com.csu.dao.impl.FileInfoDAOImpl;
 import com.csu.dao.impl.KindDAOImpl;
@@ -29,7 +31,7 @@ import com.csu.dao.impl.ReportDAOImpl;
 import com.csu.dao.impl.ResultDAOImpl;
 import com.csu.dao.impl.ScaleDAOImpl;
 import com.csu.dao.impl.SpecimenDAOImpl;
-import com.csu.dao.impl.SysDAOmpl;
+import com.csu.dao.impl.SysDAOImpl;
 import com.csu.entity.*;
 
 public class TestDAOImpl {
@@ -44,15 +46,6 @@ public class TestDAOImpl {
 		}
 	}
 	
-	@Test
-	public void getPatientInfo() {
-		int userid = 49;
-		PatientInfoDAO pid = new PatientInfoDAOImpl();
-		List<PatientInfo> list = pid.getPatientInfo(userid);
-		for(PatientInfo assay : list) {
-			System.out.println(assay.toString());
-		}
-	}
 	
 	@Test
 	public void queryRecordById() {
@@ -131,7 +124,7 @@ public class TestDAOImpl {
 	@Test
 	public void getUserTopic() {
 		String account = "124712104";
-		SysDAO sd = new SysDAOmpl();
+		SysDAO sd = new SysDAOImpl();
 		List list = sd.getUserTopic(account);
 		for(int i = 0 ; i < list.size(); i ++) {
 			Object[] obj = (Object[]) list.get(i);
@@ -202,6 +195,24 @@ public class TestDAOImpl {
 		List<MentalScale> list = msd.getMentalScaleBySkid(sk_id);
 		for(MentalScale ms : list) {
 			System.out.println(ms.toString());
+		}
+	}
+	
+	@Test
+	public void queryFkind() {
+		int id = 12;
+		KindDAO kd = new KindDAOImpl();
+		Fkind fk= kd.queryFkindById(id);
+		System.out.println(fk.toString());
+	}
+	
+	@Test
+	public void getChoiceById() {
+		int id = 5;
+		ChoiceDAO cd = new ChoiceDAOImpl();
+		List<Choice> ch = cd.getChoiceById(id);
+		for(Choice list : ch) {
+			System.out.println(list.toString());
 		}
 	}
 }

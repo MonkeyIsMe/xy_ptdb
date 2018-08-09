@@ -13,7 +13,7 @@ import com.csu.entity.SysUserTopic;
 import com.csu.entity.Topic;
 import com.csu.utils.HibernateUtil;
 
-public class SysDAOmpl implements SysDAO{
+public class SysDAOImpl implements SysDAO{
 
 	@Override
 	public boolean addSysUser(SysUser su) {

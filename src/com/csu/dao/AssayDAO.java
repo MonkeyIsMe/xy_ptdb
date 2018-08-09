@@ -15,4 +15,6 @@ public interface AssayDAO {
 	public List<Assay> getAllAssay();
 	
 	public List<Assay> getAssayById(int userid);
+	
+	public Assay getAssay(int id);
 }

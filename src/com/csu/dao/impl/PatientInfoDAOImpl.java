@@ -98,26 +98,23 @@ public class PatientInfoDAOImpl implements PatientInfoDAO{
 	}
 
 	@Override
-	public List<PatientInfo> getPatientInfo(int u_id) {
+	public PatientInfo getPatientInfo(int u_id) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
-		List<PatientInfo> list = null;
+		PatientInfo result = null;
 		
 		try {
 			session.beginTransaction();
-			String hql = "from PatientInfo where u_id = :u_id";
-			Query query = session.createQuery(hql);
-			query.setParameter("u_id", u_id);
-			list = query.list();
+			result = session.get(PatientInfo.class,u_id);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			session.getTransaction().rollback();
-			return list;
+			return result;
 		}
-		return list;
+		return result;
 	}
 
 	@Override

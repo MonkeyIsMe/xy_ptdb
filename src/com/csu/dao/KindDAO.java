@@ -24,4 +24,6 @@ public interface KindDAO {
 	public List<Skind> querySKind();
 	
 	public List<Skind> getSkindsByfid(int f_id);
+	
+	public Fkind queryFkindById(int id);
 }

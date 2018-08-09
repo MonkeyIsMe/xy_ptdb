@@ -120,4 +120,25 @@ public class AssayDAOImpl implements AssayDAO{
 		return list;
 	}
 
+	@Override
+	public Assay getAssay(int id) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		Assay result = null;
+		
+		try {
+			session.beginTransaction();
+			result = session.get(Assay.class, id);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return result;
+		}
+		
+		return result;
+	}
+
 }

@@ -202,4 +202,26 @@ public class KindDAOImpl implements KindDAO{
 		return list;
 	}
 
+	@Override
+	public Fkind queryFkindById(int id) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		Fkind result = null;
+		
+		try {
+			session.beginTransaction();
+			result = session.get(Fkind.class, id);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return result;
+		}
+		
+		return result;
+	}
+
 }

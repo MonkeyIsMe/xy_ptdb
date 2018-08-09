@@ -15,6 +15,8 @@ public interface ChoiceDAO {
 	
 	public List<Choice> QueryChoice();
 	
+	public List<Choice> getChoiceById(int I_id);
+	
 	public boolean addSubChoice(SubChoice ch);
 	
 	public boolean deleteSubChoice(SubChoice ch);
