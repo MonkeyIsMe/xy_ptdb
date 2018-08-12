@@ -6,8 +6,9 @@
 <struts>
 
 	<!-- Action必须放在指定的包名空间中 -->
-	<package name="default"  extends="struts-default" namespace="/">
+	<package name="json"  extends="json-default" namespace="/">
 		<!-- 定义login的action,其实现类为LoginAction -->
+		
 		<action name="login" class="com.csu.action.LoginAction" method="IsLogin">
 			<!-- 定义处理结果与视图资源之间的关系 -->
 			<result name="LoginSuccess" >/success.jsp</result>
@@ -15,5 +16,11 @@
 			<result name="NoAccount" >/fail.jsp</result>
 		</action>
 		
+		<action name="PatientInfo" class="com.csu.action.PatientInfoAction" method="queryPatientInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">pi</param>
+            </result>
+		</action>
 	</package>
 </struts>

@@ -77,7 +77,7 @@ public class PatientInfo implements Serializable{
 	@Column(name="builderId")
 	private String builderId;  //´´½¨ÕßId
 	
-	@OneToMany(mappedBy="patientinfo",cascade={CascadeType.ALL})
+	@OneToMany(mappedBy="patientinfo",cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	private Set<Record> record = new HashSet<Record>();
 	
 	
