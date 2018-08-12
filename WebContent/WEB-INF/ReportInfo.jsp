@@ -32,13 +32,11 @@
                         信息管理 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="SpecimenInfo.jsp">标本信息管理</a></li>
+                        <li><a href="#">标本信息管理</a></li>
                         <li class="divider"></li>
-                        <li><a href="RecordInfo.jsp">记录信息管理</a></li>
+                        <li><a href="#">记录信息管理</a></li>
                         <li class="divider"></li>
-                        <li><a href="ReportInfo.jsp">报告信息管理</a></li>
-                         <li class="divider"></li>
-                        <li><a href="ResultInfo.jsp">结果信息管理</a></li>
+                        <li><a href="#">报告信息管理</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -68,7 +66,7 @@
         </div>
         <div class="panel-body">
             <div>
-                <table id="patientlist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="reportlist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -78,8 +76,8 @@
 </body>
 <script type="text/javascript">
 
-    $('#patientlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/PatientInfo.action', // 请求后台的URL（*）
+    $('#reportlist').bootstrapTable({
+    	url : 'http://localhost/xy_ptdb/ReportInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",
@@ -91,53 +89,28 @@
  		clickToSelect : "true",
         columns:[
             {
-                field : "u_name",
+                field : "u_id",
                 title : "姓名",
                 width : "100"
             },
             {
-                field : "identity",
+                field : "s_id",
                 title : "身份证",
                 width : "100"
             },
             {
-                field : "patientId",
+                field : "t_time",
                 title : "患者编号",
                 width : "100"
             },
             {
-                field : "admissionNumber",
+                field : "isAudited",
                 title : "住院号，门诊号",
                 width : "100"
             },
             {
-                field : "testNumber",
-                title : "受试编号",
-                width : "100"
-            },
-            {
-                field : "gender",
-                title : "性别",
-                width : "100"
-            },
-            {
-                field : "nation",
-                title : "名族",
-                width : "100"
-            },
-            {
-                field : "birthday",
-                title : "出生年月",
-                width : "100"
-            },
-            {
-                field : "birthArea",
-                title : "出生地",
-                width : "100"
-            },
-            {
-                field : "builderId",
-                title : "创建者Id",
+                field : "sysID",
+                title : "执行医生",
                 width : "100"
             },
         ]

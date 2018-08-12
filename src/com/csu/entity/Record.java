@@ -104,11 +104,18 @@ public class Record implements Serializable{
 	public void setR2(String r2) {
 		this.r2 = r2;
 	}
-	public int getTopicId() {
+	
+	public Integer getTopicId() {
 		return topicId;
 	}
-	public void setTopicId(int topicId) {
+	public void setTopicId(Integer topicId) {
 		this.topicId = topicId;
+	}
+	public PatientInfo getPatientinfo() {
+		return patientinfo;
+	}
+	public void setPatientinfo(PatientInfo patientinfo) {
+		this.patientinfo = patientinfo;
 	}
 	public String getRevisitDate() {
 		return revisitDate;

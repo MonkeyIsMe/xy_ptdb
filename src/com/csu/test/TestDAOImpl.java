@@ -215,4 +215,24 @@ public class TestDAOImpl {
 			System.out.println(list.toString());
 		}
 	}
+	
+	@Test
+	public void getSubChoiceById() {
+		int id = 1;
+		ChoiceDAO cd = new ChoiceDAOImpl();
+		List<SubChoice> sub = cd.QuerySubChoiceById(id);
+		for(SubChoice cs :sub) {
+			System.out.println(cs.toString());
+		}
+	}
+	
+	@Test
+	public void queryRecord() {
+		RecordDAO rd = new RecordDAOImpl();
+		List<Record> record = rd.Query();
+		for(Record r : record) {
+			System.out.println(r.toString());
+		}
+	}
+	
 }

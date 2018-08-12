@@ -24,4 +24,6 @@ public interface ChoiceDAO {
 	public boolean updateSubChoice(SubChoice ch);
 	
 	public List<SubChoice> QuerySubChoice();
+	
+	public List<SubChoice> QuerySubChoiceById(int I_ID);
 }

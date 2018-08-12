@@ -63,12 +63,12 @@
     <div class="panel panel-default">
         <div class="panel-heading" style="padding-bottom: 10px;">
             <h3 class="panel-title">
-                <i class="glyphicon glyphicon-tasks"></i> 病人列表
+                <i class="glyphicon glyphicon-tasks"></i> 标本列表
             </h3>
         </div>
         <div class="panel-body">
             <div>
-                <table id="patientlist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="Resultlist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -78,8 +78,8 @@
 </body>
 <script type="text/javascript">
 
-    $('#patientlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/PatientInfo.action', // 请求后台的URL（*）
+    $('#Resultlist').bootstrapTable({
+    	url : 'http://localhost/xy_ptdb/ResultInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",
@@ -91,53 +91,28 @@
  		clickToSelect : "true",
         columns:[
             {
-                field : "u_name",
-                title : "姓名",
+                field : "recordId",
+                title : "诊断记录Id",
                 width : "100"
             },
             {
-                field : "identity",
-                title : "身份证",
+                field : "itemId",
+                title : "项目id",
                 width : "100"
             },
             {
-                field : "patientId",
-                title : "患者编号",
+                field : "result",
+                title : "结果",
                 width : "100"
             },
             {
-                field : "admissionNumber",
-                title : "住院号，门诊号",
+                field : "introduction",
+                title : "说明",
                 width : "100"
             },
             {
-                field : "testNumber",
-                title : "受试编号",
-                width : "100"
-            },
-            {
-                field : "gender",
-                title : "性别",
-                width : "100"
-            },
-            {
-                field : "nation",
-                title : "名族",
-                width : "100"
-            },
-            {
-                field : "birthday",
-                title : "出生年月",
-                width : "100"
-            },
-            {
-                field : "birthArea",
-                title : "出生地",
-                width : "100"
-            },
-            {
-                field : "builderId",
-                title : "创建者Id",
+                field : "remark",
+                title : "备注",
                 width : "100"
             },
         ]

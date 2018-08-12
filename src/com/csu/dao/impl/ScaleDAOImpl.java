@@ -10,6 +10,7 @@ import com.csu.dao.ScaleDAO;
 import com.csu.entity.ItemTopic;
 import com.csu.entity.Items;
 import com.csu.entity.ScaleItem;
+import com.csu.entity.SubChoice;
 import com.csu.utils.HibernateUtil;
 
 public class ScaleDAOImpl implements ScaleDAO{
@@ -280,6 +281,28 @@ public class ScaleDAOImpl implements ScaleDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return list;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<ScaleItem> queryScaleItemById(int I_ID) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<ScaleItem> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "From ScaleItem where I_ID = :I_ID";
+			Query query = session.createQuery(hql);
+			query.setParameter("I_ID", I_ID);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return list;

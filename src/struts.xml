@@ -22,5 +22,34 @@
 			  <param name="root">pi</param>
             </result>
 		</action>
+		
+		<action name="RecordInfo" class="com.csu.action.RecordInfoAction" method="queryRecordInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">record</param>
+            </result>
+		</action>
+		
+		<action name="SpecimenInfo" class="com.csu.action.SpecimenInfoAction" method="querySpecimenInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">sp</param>
+            </result>
+		</action>
+		
+		<action name="ReportInfo" class="com.csu.action.ReportInfoAction" method="queryReportInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">report</param>
+            </result>
+		</action>
+		
+		<action name="ResultInfo" class="com.csu.action.ResultInfoAction" method="queryResultInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">result</param>
+            </result>
+		</action>
+		
 	</package>
 </struts>

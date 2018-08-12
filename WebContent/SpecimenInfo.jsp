@@ -63,12 +63,12 @@
     <div class="panel panel-default">
         <div class="panel-heading" style="padding-bottom: 10px;">
             <h3 class="panel-title">
-                <i class="glyphicon glyphicon-tasks"></i> 病人列表
+                <i class="glyphicon glyphicon-tasks"></i> 标本列表
             </h3>
         </div>
         <div class="panel-body">
             <div>
-                <table id="patientlist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="Specimenlist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -78,8 +78,8 @@
 </body>
 <script type="text/javascript">
 
-    $('#patientlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/PatientInfo.action', // 请求后台的URL（*）
+    $('#Specimenlist').bootstrapTable({
+    	url : 'http://localhost/xy_ptdb/SpecimenInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",
@@ -91,53 +91,48 @@
  		clickToSelect : "true",
         columns:[
             {
-                field : "u_name",
-                title : "姓名",
+                field : "specimen_name",
+                title : "标本名称",
                 width : "100"
             },
             {
-                field : "identity",
-                title : "身份证",
+                field : "specimen_type",
+                title : "标本类型",
+                width : "100"
+            },
+            {
+                field : "specimen_place",
+                title : "地点存放",
+                width : "100"
+            },
+            {
+                field : "specimen_record",
+                title : "使用记录",
                 width : "100"
             },
             {
                 field : "patientId",
-                title : "患者编号",
+                title : "标本对应的患者编号",
                 width : "100"
             },
             {
-                field : "admissionNumber",
-                title : "住院号，门诊号",
+                field : "specimen_num",
+                title : "标本数量",
                 width : "100"
             },
             {
-                field : "testNumber",
-                title : "受试编号",
+                field : "concentration",
+                title : "标本浓度",
                 width : "100"
             },
             {
-                field : "gender",
-                title : "性别",
+                field : "latestTime",
+                title : "最近使用时间",
                 width : "100"
             },
             {
-                field : "nation",
-                title : "名族",
-                width : "100"
-            },
-            {
-                field : "birthday",
-                title : "出生年月",
-                width : "100"
-            },
-            {
-                field : "birthArea",
-                title : "出生地",
-                width : "100"
-            },
-            {
-                field : "builderId",
-                title : "创建者Id",
+                field : "description",
+                title : "备注",
                 width : "100"
             },
         ]

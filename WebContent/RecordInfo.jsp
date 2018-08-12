@@ -68,7 +68,7 @@
         </div>
         <div class="panel-body">
             <div>
-                <table id="patientlist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="recordlist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -78,8 +78,8 @@
 </body>
 <script type="text/javascript">
 
-    $('#patientlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/PatientInfo.action', // 请求后台的URL（*）
+    $('#recordlist').bootstrapTable({
+    	url : 'http://localhost/xy_ptdb/RecordInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",
@@ -91,53 +91,38 @@
  		clickToSelect : "true",
         columns:[
             {
-                field : "u_name",
-                title : "姓名",
-                width : "100"
-            },
-            {
-                field : "identity",
-                title : "身份证",
-                width : "100"
-            },
-            {
                 field : "patientId",
-                title : "患者编号",
+                title : "病人Id",
                 width : "100"
             },
             {
-                field : "admissionNumber",
-                title : "住院号，门诊号",
+                field : "diagnosisDate",
+                title : "诊断日期",
                 width : "100"
             },
             {
-                field : "testNumber",
-                title : "受试编号",
+                field : "doctorName",
+                title : "就诊医生",
                 width : "100"
             },
             {
-                field : "gender",
-                title : "性别",
+                field : "recordName",
+                title : "登记人",
                 width : "100"
             },
             {
-                field : "nation",
-                title : "名族",
+                field : "recordDate",
+                title : "登记日期",
                 width : "100"
             },
             {
-                field : "birthday",
-                title : "出生年月",
+                field : "r1",
+                title : "备用1",
                 width : "100"
             },
             {
-                field : "birthArea",
-                title : "出生地",
-                width : "100"
-            },
-            {
-                field : "builderId",
-                title : "创建者Id",
+                field : "r2",
+                title : "备用2",
                 width : "100"
             },
         ]

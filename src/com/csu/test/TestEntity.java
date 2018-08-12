@@ -79,18 +79,7 @@ public class TestEntity {
 		}
 	}
 	
-	public static void main(String[] args) {
-		SessionFactory sf = HibernateUtil.getSessionFactory();
-		Session s = sf.getCurrentSession();
-		s.beginTransaction();
-		String hql = "from MentalScale";
-		Query query = s.createQuery(hql);
-		List<MentalScale> list = query.list();
-		System.out.println(list.size());
-		for(MentalScale ms :list) {
-			System.out.println(ms.toString());
-		}
-	}
+
 	
 	@Test
 	public void getItems() {

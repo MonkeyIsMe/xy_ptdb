@@ -33,5 +33,7 @@ public interface ResultDAO {
 	
 	public List<Tresult> queryTresult();
 	
+	public List<Tresult> queryTresultById(int I_ID);
+	
 	public List<Result> queryResultsByRecordId(int recordId);
 }

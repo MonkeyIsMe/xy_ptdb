@@ -183,4 +183,26 @@ public class ChoiceDAOImpl implements ChoiceDAO{
 		return list;
 	}
 
+	@Override
+	public List<SubChoice> QuerySubChoiceById(int I_ID) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<SubChoice> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "From SubChoice where I_ID = :I_ID";
+			Query query = session.createQuery(hql);
+			query.setParameter("I_ID", I_ID);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 }

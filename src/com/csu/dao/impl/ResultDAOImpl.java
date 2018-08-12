@@ -283,4 +283,27 @@ public class ResultDAOImpl implements ResultDAO{
 		return list;
 	}
 
+	@Override
+	public List<Tresult> queryTresultById(int I_ID) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<Tresult> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from Tresult where I_ID = :I_ID";
+			Query query = session.createQuery(hql);
+			query.setParameter("I_ID", I_ID);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
+		return list;
+	}
+
 }
