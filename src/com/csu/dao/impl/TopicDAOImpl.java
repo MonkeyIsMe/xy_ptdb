@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.csu.dao.TopicDAO;
+import com.csu.entity.PatientTopic;
 import com.csu.entity.Topic;
 import com.csu.entity.TopicScale;
 import com.csu.utils.HibernateUtil;
@@ -164,6 +165,87 @@ public class TopicDAOImpl implements TopicDAO{
 		try {
 			session.beginTransaction();
 			String hql = "from TopicScale";
+			Query query = session.createQuery(hql);
+			list = query.list();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
+		}
+		return list;
+	}
+
+	@Override
+	public boolean addTopicPatient(PatientTopic pt) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.save(pt);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean deleteTopicPatient(PatientTopic pt) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.delete(pt);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean updateTopicPatient(PatientTopic pt) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			session.update(pt);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public List<PatientTopic> queryTopicPatient() {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<PatientTopic> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "from PatientTopic";
 			Query query = session.createQuery(hql);
 			list = query.list();
 		} catch (Exception e) {

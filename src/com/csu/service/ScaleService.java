@@ -1,6 +1,6 @@
 package com.csu.service;
 
-public interface ScaleEditService {
+public interface ScaleService {
 	
 	public void deleteItem(int id);
 }

@@ -235,4 +235,12 @@ public class TestDAOImpl {
 		}
 	}
 	
+	@Test
+	public void queryFkindById() {
+		int id = 6;
+		KindDAO kd = new KindDAOImpl();
+		Fkind fk =kd.queryFkindById(id);
+		System.out.println(fk.toString());
+	}
+	
 }

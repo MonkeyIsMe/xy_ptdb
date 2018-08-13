@@ -2,6 +2,7 @@ package com.csu.dao;
 
 import java.util.List;
 
+import com.csu.entity.PatientTopic;
 import com.csu.entity.Topic;
 import com.csu.entity.TopicScale;
 
@@ -22,4 +23,12 @@ public interface TopicDAO {
 	public boolean updateTopicScale(TopicScale ts);
 	
 	public List<TopicScale> QueryTopicScale();
+	
+	public boolean addTopicPatient(PatientTopic pt);
+	
+	public boolean deleteTopicPatient(PatientTopic pt);
+	
+	public boolean updateTopicPatient(PatientTopic pt);
+	
+	public List<PatientTopic> queryTopicPatient();
 }

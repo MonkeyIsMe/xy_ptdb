@@ -12,9 +12,9 @@ import com.csu.entity.Choice;
 import com.csu.entity.ScaleItem;
 import com.csu.entity.SubChoice;
 import com.csu.entity.Tresult;
-import com.csu.service.ScaleEditService;
+import com.csu.service.ScaleService;
 
-public class ScaleEditServiceImpl implements ScaleEditService{
+public class ScaleServiceImpl implements ScaleService{
 
 	@Override
 	public void deleteItem(int id) {
