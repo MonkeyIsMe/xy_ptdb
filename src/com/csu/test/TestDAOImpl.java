@@ -243,4 +243,12 @@ public class TestDAOImpl {
 		System.out.println(fk.toString());
 	}
 	
+	@Test
+	public void queryMentalScale() {
+		MentalScaleDAO msd = new MentalScaleDAOImpl();
+		List<MentalScale> list = msd.query();
+		for(MentalScale ms : list) {
+			System.out.println(ms.toString());
+		}
+	}
 }

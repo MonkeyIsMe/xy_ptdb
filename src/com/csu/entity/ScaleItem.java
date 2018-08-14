@@ -33,7 +33,7 @@ public class ScaleItem implements Serializable{
     @JoinColumn(name="S_ID")
 	private MentalScale ms;
 	
-	@OneToMany(mappedBy="si",cascade={CascadeType.ALL})
+	@OneToMany(mappedBy="si",cascade={CascadeType.ALL},fetch = FetchType.EAGER)
 	private Set<Choice> ch = new HashSet<Choice>();
 	
 	

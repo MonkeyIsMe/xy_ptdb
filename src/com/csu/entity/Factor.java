@@ -45,67 +45,88 @@ public class Factor implements Serializable{
 	
 	
 	
-	public MentalScale getFactor_ms() {
-		return factor_ms;
-	}
-	public void setFactor_ms(MentalScale factor_ms) {
-		this.factor_ms = factor_ms;
-	}
-	public int getS_ID() {
+
+	
+	public Integer getS_ID() {
 		return S_ID;
 	}
-	public void setS_ID(int s_ID) {
+
+	public void setS_ID(Integer s_ID) {
 		S_ID = s_ID;
 	}
-	public int getF_SNum() {
+
+	public Integer getF_SNum() {
 		return F_SNum;
 	}
-	public void setF_SNum(int f_SNum) {
+
+	public void setF_SNum(Integer f_SNum) {
 		F_SNum = f_SNum;
 	}
+
 	public String getF_Content() {
 		return F_Content;
 	}
+
 	public void setF_Content(String f_Content) {
 		F_Content = f_Content;
 	}
+
 	public String getF_Info() {
 		return F_Info;
 	}
+
 	public void setF_Info(String f_Info) {
 		F_Info = f_Info;
 	}
+
 	public double getF_Balance() {
 		return F_Balance;
 	}
+
 	public void setF_Balance(double f_Balance) {
 		F_Balance = f_Balance;
 	}
+
 	public double getF_Den() {
 		return F_Den;
 	}
+
 	public void setF_Den(double f_Den) {
 		F_Den = f_Den;
 	}
-	public int getF_ONum() {
+
+	public Integer getF_ONum() {
 		return F_ONum;
 	}
-	public void setF_ONum(int f_ONum) {
+
+	public void setF_ONum(Integer f_ONum) {
 		F_ONum = f_ONum;
 	}
+
 	public String getF_TYPE() {
 		return F_TYPE;
 	}
+
 	public void setF_TYPE(String f_TYPE) {
 		F_TYPE = f_TYPE;
 	}
+
 	public String getF_Formula() {
 		return F_Formula;
 	}
+
 	public void setF_Formula(String f_Formula) {
 		F_Formula = f_Formula;
 	}
-	
+
+	public MentalScale getFactor_ms() {
+		return factor_ms;
+	}
+
+	public void setFactor_ms(MentalScale factor_ms) {
+		this.factor_ms = factor_ms;
+	}
+
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();
 		jo.put("S_ID", this.S_ID);

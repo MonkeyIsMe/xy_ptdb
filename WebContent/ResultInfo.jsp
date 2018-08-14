@@ -46,11 +46,9 @@
                         量表管理 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">查看量表</a></li>
+                        <li><a href="ScaleInfo.jsp">查看量表</a></li>
                         <li class="divider"></li>
                         <li><a href="#">增加量表</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">修改量表</a></li>
                     </ul>
                 </li>
                 <li><a href="#">系统管理</a></li>

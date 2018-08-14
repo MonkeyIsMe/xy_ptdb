@@ -46,11 +46,9 @@
                         量表管理 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">查看量表</a></li>
+                        <li><a href="ScaleInfo.jsp">查看量表</a></li>
                         <li class="divider"></li>
                         <li><a href="#">增加量表</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">修改量表</a></li>
                     </ul>
                 </li>
                 <li><a href="#">系统管理</a></li>
@@ -90,6 +88,14 @@
  		pageSize : "25",
  		clickToSelect : "true",
         columns:[
+        	{
+				field : 'Number',
+				title : '编号',
+				formatter : function(value, row, index) {
+					return index + 1;
+				},
+				width : "50"
+			},
             {
                 field : "u_name",
                 title : "姓名",
@@ -140,9 +146,21 @@
                 title : "创建者Id",
                 width : "100"
             },
+        	{
+				field : "action",
+				formatter : "Formatter",
+				events : "operateEvents",
+				align : "center",
+				title : "测试--查看",
+				width : "100"
+			}
+
         ]
     });
-
+    function Formatter(value, row, index) {
+		return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
+			'<a id="pic" ><span class="glyphicon glyphicon-picture" style="cursor:pointer;"></span></a>';
+	}
 
 </script>
 </html>

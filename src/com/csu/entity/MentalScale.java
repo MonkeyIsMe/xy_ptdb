@@ -61,142 +61,161 @@ public class MentalScale implements Serializable{
 	@Column(name="updateTime")
 	private String updateTime;
 	
-	@OneToMany(mappedBy="ms",cascade={CascadeType.ALL})
+	@Transient
+	@OneToMany(mappedBy="ms",cascade={CascadeType.ALL},fetch = FetchType.EAGER)
 	private Set<ScaleItem> si = new HashSet<ScaleItem>();
 	
-	@OneToMany(mappedBy="factor_ms",cascade={CascadeType.ALL})
+	@Transient
+	@OneToMany(mappedBy="factor_ms",cascade={CascadeType.ALL},fetch = FetchType.EAGER)
 	private Set<Factor> factor = new HashSet<Factor>();
 	
 	
+
 	
-	
-	public Set<Factor> getFactor() {
-		return factor;
+	public Integer getS_ID() {
+		return S_ID;
 	}
-	public void setFactor(Set<Factor> factor) {
-		this.factor = factor;
-	}
-	public Set<ScaleItem> getSi() {
-		return si;
-	}
-	public void setSi(Set<ScaleItem> si) {
-		this.si = si;
-	}
+
 	public void setS_ID(Integer s_ID) {
 		S_ID = s_ID;
 	}
-	public void setS_FullScore(Integer s_FullScore) {
-		S_FullScore = s_FullScore;
-	}
-	public void setS_ReportInfo(Integer s_ReportInfo) {
-		S_ReportInfo = s_ReportInfo;
-	}
-	public void setS_UseSum(Integer s_UseSum) {
-		S_UseSum = s_UseSum;
-	}
-	public void setS_Value(Integer s_Value) {
-		S_Value = s_Value;
-	}
-	public void setSk_id(Integer sk_id) {
-		this.sk_id = sk_id;
-	}
-	public int getS_ID() {
-		return S_ID;
-	}
-	public void setS_ID(int s_ID) {
-		S_ID = s_ID;
-	}
+
 	public String getS_Name() {
 		return S_Name;
 	}
+
 	public void setS_Name(String s_Name) {
 		S_Name = s_Name;
 	}
+
 	public String getS_Intro() {
 		return S_Intro;
 	}
+
 	public void setS_Intro(String s_Intro) {
 		S_Intro = s_Intro;
 	}
+
 	public String getS_Guide() {
 		return S_Guide;
 	}
+
 	public void setS_Guide(String s_Guide) {
 		S_Guide = s_Guide;
 	}
+
 	public double getS_StdScroe() {
 		return S_StdScroe;
 	}
+
 	public void setS_StdScroe(double s_StdScroe) {
 		S_StdScroe = s_StdScroe;
 	}
-	public int getS_FullScore() {
+
+	public Integer getS_FullScore() {
 		return S_FullScore;
 	}
-	public void setS_FullScore(int s_FullScore) {
+
+	public void setS_FullScore(Integer s_FullScore) {
 		S_FullScore = s_FullScore;
 	}
-	public int getS_ReportInfo() {
+
+	public Integer getS_ReportInfo() {
 		return S_ReportInfo;
 	}
-	public void setS_ReportInfo(int s_ReportInfo) {
+
+	public void setS_ReportInfo(Integer s_ReportInfo) {
 		S_ReportInfo = s_ReportInfo;
 	}
+
 	public String getS_TYPE2() {
 		return S_TYPE2;
 	}
+
 	public void setS_TYPE2(String s_TYPE2) {
 		S_TYPE2 = s_TYPE2;
 	}
+
 	public String getS_TYPE3() {
 		return S_TYPE3;
 	}
+
 	public void setS_TYPE3(String s_TYPE3) {
 		S_TYPE3 = s_TYPE3;
 	}
+
 	public String getS_TYPE4() {
 		return S_TYPE4;
 	}
+
 	public void setS_TYPE4(String s_TYPE4) {
 		S_TYPE4 = s_TYPE4;
 	}
+
 	public String getS_Remark() {
 		return S_Remark;
 	}
+
 	public void setS_Remark(String s_Remark) {
 		S_Remark = s_Remark;
 	}
-	public int getS_UseSum() {
+
+	public Integer getS_UseSum() {
 		return S_UseSum;
 	}
-	public void setS_UseSum(int s_UseSum) {
+
+	public void setS_UseSum(Integer s_UseSum) {
 		S_UseSum = s_UseSum;
 	}
-	public int getS_Value() {
+
+	public Integer getS_Value() {
 		return S_Value;
 	}
-	public void setS_Value(int s_Value) {
+
+	public void setS_Value(Integer s_Value) {
 		S_Value = s_Value;
 	}
+
 	public String getS_Formula() {
 		return S_Formula;
 	}
+
 	public void setS_Formula(String s_Formula) {
 		S_Formula = s_Formula;
 	}
-	public int getSk_id() {
+
+	public Integer getSk_id() {
 		return sk_id;
 	}
-	public void setSk_id(int sk_id) {
+
+	public void setSk_id(Integer sk_id) {
 		this.sk_id = sk_id;
 	}
+
 	public String getUpdateTime() {
 		return updateTime;
 	}
+
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
-	
+
+	public Set<ScaleItem> getSi() {
+		return si;
+	}
+
+	public void setSi(Set<ScaleItem> si) {
+		this.si = si;
+	}
+
+	public Set<Factor> getFactor() {
+		return factor;
+	}
+
+	public void setFactor(Set<Factor> factor) {
+		this.factor = factor;
+	}
+
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();
 		jo.put("S_ID", this.S_ID);

@@ -66,7 +66,7 @@
         </div>
         <div class="panel-body">
             <div>
-                <table id="recordlist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="scalelist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -76,8 +76,8 @@
 </body>
 <script type="text/javascript">
 
-    $('#recordlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/RecordInfo.action', // 请求后台的URL（*）
+    $('#scalelist').bootstrapTable({
+    	url : 'http://localhost/xy_ptdb/ScaleInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",
@@ -89,38 +89,23 @@
  		clickToSelect : "true",
         columns:[
             {
-                field : "patientId",
-                title : "病人Id",
+                field : "S_Name",
+                title : "姓名",
                 width : "100"
             },
             {
-                field : "diagnosisDate",
-                title : "诊断日期",
+                field : "S_Intro",
+                title : "身份证",
                 width : "100"
             },
             {
-                field : "doctorName",
-                title : "就诊医生",
+                field : "S_Guide",
+                title : "患者编号",
                 width : "100"
             },
             {
-                field : "recordName",
-                title : "登记人",
-                width : "100"
-            },
-            {
-                field : "recordDate",
-                title : "登记日期",
-                width : "100"
-            },
-            {
-                field : "r1",
-                title : "备用1",
-                width : "100"
-            },
-            {
-                field : "r2",
-                title : "备用2",
+                field : "updateTime",
+                title : "住院号，门诊号",
                 width : "100"
             },
         ]
