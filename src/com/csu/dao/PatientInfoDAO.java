@@ -16,5 +16,7 @@ public interface PatientInfoDAO {
 	
 	public PatientInfo getPatientInfo(int u_id);
 	
+	public List<PatientInfo> getPatientInfoByPatientId(String patientId);
+	
 	public List<PatientInfo> getPatientByPage(int i,int pagesize);
 }

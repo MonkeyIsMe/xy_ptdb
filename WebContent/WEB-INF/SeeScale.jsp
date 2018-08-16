@@ -46,7 +46,7 @@
                         量表管理 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="SeeScale.jsp">查看量表</a></li>
+                        <li><a href="ScaleInfo.jsp">查看量表</a></li>
                         <li class="divider"></li>
                         <li><a href="#">增加量表</a></li>
                     </ul>
@@ -66,7 +66,7 @@
         </div>
         <div class="panel-body">
             <div>
-                <table id="patientlist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="scalelist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -76,106 +76,45 @@
 </body>
 <script type="text/javascript">
 
-    $('#patientlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/PatientInfo.action', // 请求后台的URL（*）
- 		method : "post",
- 		//toolbar : "#toolbar",
- 		pagination : "true",
- 		search : "true",
- 		showRefresh : "true",
- 		showToggle : "true",
- 		showColumns : "true",
- 		pageSize : "25",
- 		clickToSelect : "true",
-        columns:[
-        	{
-				field : 'Number',
-				title : '编号',
-				formatter : function(value, row, index) {
-					return index + 1;
-				},
-				width : "50"
-			},
-            {
-                field : "u_name",
-                title : "姓名",
-                width : "100"
-            },
-            {
-                field : "identity",
-                title : "身份证",
-                width : "100"
-            },
-            {
-                field : "patientId",
-                title : "患者编号",
-                width : "100"
-            },
-            {
-                field : "admissionNumber",
-                title : "住院号，门诊号",
-                width : "100"
-            },
-            {
-                field : "testNumber",
-                title : "受试编号",
-                width : "100"
-            },
-            {
-                field : "gender",
-                title : "性别",
-                width : "100"
-            },
-            {
-                field : "nation",
-                title : "名族",
-                width : "100"
-            },
-            {
-                field : "birthday",
-                title : "出生年月",
-                width : "100"
-            },
-            {
-                field : "birthArea",
-                title : "出生地",
-                width : "100"
-            },
-            {
-                field : "builderId",
-                title : "创建者Id",
-                width : "100"
-            },
-        	{
-				field : "action",
-				formatter : "Formatter",
-				events : "operateEvents",
-				align : "center",
-				title : "测试--查看",
-				width : "100"
-			}
+$('#scalelist').bootstrapTable({
+	url : 'http://localhost/xy_ptdb/ScaleInfo.action', // 请求后台的URL（*）
+		method : "post",
+		//toolbar : "#toolbar",
+		pagination : "true",
+		search : "true",
+		showRefresh : "true",
+		showToggle : "true",
+		showColumns : "true",
+		pageSize : "25",
+		clickToSelect : "true",
+    columns:[
+    	{
+            field : "s_ID",
+            title : "病人Id",
+            width : "100"
+        },
+        {
+            field : "s_Name",
+            title : "病人Id",
+            width : "100"
+        },
+        {
+            field : "s_Intro",
+            title : "诊断日期",
+            width : "100"
+        },
+        {
+            field : "s_Guide",
+            title : "就诊医生",
+            width : "100"
+        },
+        {
+            field : "updateTime",
+            title : "登记人",
+            width : "100"
+        },
+    ]
+});
 
-        ]
-    });
-    function Formatter(value, row, index) {
-		return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
-			'<a id="pic" ><span class="glyphicon glyphicon-picture" style="cursor:pointer;"></span></a>';
-	}
-    window.operateEvents = {
-    		'click #res' : function(e, value, row, index) {
-    			var oRow = JSON.parse(JSON.stringify(row));
-    			console.log(oRow);
-    			//alert(oRow.patientId);
-    			window.open("QueryScaleInfo.jsp?patientId="+ oRow.patientId);
-    			//window.open("ScaleInfo.jsp");
-    		},
-    		'click #pic' : function(e, value, row, index) {
-    			var oRow = JSON.parse(JSON.stringify(row));
-    			console.log(oRow);
-    			//alert(oRow.patientId);
-    			window.open("ScaleInfo.jsp?patientId="+ oRow.patientId);
-    			//window.open("ScaleInfo.jsp");
-    		}
-    }
 </script>
 </html>

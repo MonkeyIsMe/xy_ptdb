@@ -24,58 +24,58 @@ public class PatientInfo implements Serializable{
 	private String u_name;
 	
 	@Column(name="identity")
-	private String identity; //Éí·ÝÖ¤
+	private String identity; //ï¿½ï¿½ï¿½Ö¤
 	
 	@Column(name="patientId")
-	private String patientId; //»¼Õß±àºÅ
+	private String patientId; //ï¿½ï¿½ï¿½ß±ï¿½ï¿½
 	
 	@Column(name="admissionNumber")
-	private String admissionNumber; //×¡ÔººÅ£¬ÃÅÕïºÅ
+	private String admissionNumber; //×¡Ôºï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="testNumber")
-	private String testNumber; //ÊÜÊÔ±àºÅ
+	private String testNumber; //ï¿½ï¿½ï¿½Ô±ï¿½ï¿½
 	
 	@Column(name="gender")
-	private String gender;//ÐÔ±ð
+	private String gender;//ï¿½Ô±ï¿½
 	
 	@Column(name="nation")
-	private String nation;//Ãû×å
+	private String nation;//ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="birthday")
-	private String birthday;//³öÉúÄêÔÂ
+	private String birthday;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="birthArea")
-	private String birthArea;//³öÉúµØ
+	private String birthArea;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="isAdopted")
-	private String isAdopted;//ÊÇ·ñ±»ÁìÑø
+	private String isAdopted;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="motherBirthArea")
-	private String motherBirthArea;//Ç×ÉúÄ¸Ç×³öÉúµØ
+	private String motherBirthArea;//ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="motherNation")
-	private String motherNation;//Ç×ÉúÄ¸Ç×Ãû×å
+	private String motherNation;//ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="fatherBirthArea")
-	private String fatherBirthArea;//Ç×Éú¸¸Ç×³öÉúµØ
+	private String fatherBirthArea;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="fatherNation")
-	private String fatherNation;//Ç×Éú¸¸Ç×Ãû×å
+	private String fatherNation;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="hand")
-	private String hand;//×óÓÒÀûÊÖ
+	private String hand;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="relationship")
-	private String relationship; //ÓëÏÈÖ¤ÕßµÄ¹ØÏµ
+	private String relationship; //ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ßµÄ¹ï¿½Ïµ
 	
 	@Column(name="preName")
-	private String preName; //ÏÈÖ¤ÕßÐÕÃû
+	private String preName; //ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="growthArea")
-	private String growthArea; //Ó×ÄêÔÚºÎ´¦³¤´ó
+	private String growthArea; //ï¿½ï¿½ï¿½ï¿½ï¿½ÚºÎ´ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="builderId")
-	private String builderId;  //´´½¨ÕßId
+	private int builderId;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Id
 	
 	@OneToMany(mappedBy="patientinfo",cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	private Set<Record> record = new HashSet<Record>();
@@ -202,10 +202,10 @@ public class PatientInfo implements Serializable{
 	public void setGrowthArea(String growthArea) {
 		this.growthArea = growthArea;
 	}
-	public String getBuilderId() {
+	public int getBuilderId() {
 		return builderId;
 	}
-	public void setBuilderId(String builderId) {
+	public void setBuilderId(int builderId) {
 		this.builderId = builderId;
 	}
 	
@@ -240,24 +240,24 @@ public class PatientInfo implements Serializable{
 	/*
 	 * private int u_id;
 	private String u_name;
-	private String identity; //Éí·ÝÖ¤
-	private String patientId; //»¼Õß±àºÅ
-	private String admissionNumber; //×¡ÔººÅ£¬ÃÅÕïºÅ
-	private String testNumber; //ÊÜÊÔ±àºÅ
-	private String gender;//ÐÔ±ð
+	private String identity; //ï¿½ï¿½ï¿½Ö¤
+	private String patientId; //ï¿½ï¿½ï¿½ß±ï¿½ï¿½
+	private String admissionNumber; //×¡Ôºï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String testNumber; //ï¿½ï¿½ï¿½Ô±ï¿½ï¿½
+	private String gender;//ï¿½Ô±ï¿½
 	//private int age;//
-	private String nation;//Ãû×å
-	private String birthday;//³öÉúÄêÔÂ
-	private String birthArea;//³öÉúµØ
-	private String isAdopted;//ÊÇ·ñ±»ÁìÑø
-	private String motherBirthArea;//Ç×ÉúÄ¸Ç×³öÉúµØ
-	private String motherNation;//Ç×ÉúÄ¸Ç×Ãû×å
-	private String fatherBirthArea;//Ç×Éú¸¸Ç×³öÉúµØ
-	private String fatherNation;//Ç×Éú¸¸Ç×Ãû×å
-	private String hand;//×óÓÒÀûÊÖ
-	private String relationship=null; //ÓëÏÈÖ¤ÕßµÄ¹ØÏµ
-	private String preName=null; //ÏÈÖ¤ÕßÐÕÃû
-	private String growthArea; //Ó×ÄêÔÚºÎ´¦³¤´ó
-	private String builderId;  //´´½¨ÕßId
+	private String nation;//ï¿½ï¿½ï¿½ï¿½
+	private String birthday;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String birthArea;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String isAdopted;//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String motherBirthArea;//ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String motherNation;//ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String fatherBirthArea;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String fatherNation;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String hand;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String relationship=null; //ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ßµÄ¹ï¿½Ïµ
+	private String preName=null; //ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String growthArea; //ï¿½ï¿½ï¿½ï¿½ï¿½ÚºÎ´ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String builderId;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Id
 	 */
 }

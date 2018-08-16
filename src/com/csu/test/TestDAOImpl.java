@@ -115,7 +115,7 @@ public class TestDAOImpl {
 	
 	@Test
 	public void checkSname() {
-		String name = "90��֢״�嵥";
+		String name = "90��֢״�嵥";
 		MentalScaleDAO msd = new MentalScaleDAOImpl();
 		boolean flag = msd.checkSname(name);
 		System.out.println(flag);
@@ -251,4 +251,34 @@ public class TestDAOImpl {
 			System.out.println(ms.toString());
 		}
 	}
+	
+	
+	@Test
+	public void getPatientInfo() {
+		int id = 1;
+		PatientInfoDAO pid = new PatientInfoDAOImpl();
+		PatientInfo pi = pid.getPatientInfo(id);
+		System.out.println(pi.toString());
+	}
+	
+	@Test
+	public void getPatientInfoByPatientId() {
+		String id = "444654";
+		PatientInfoDAO pid = new PatientInfoDAOImpl();
+		List<PatientInfo> list = pid.getPatientInfoByPatientId(id);
+		for(PatientInfo pi : list) {
+			System.out.println(pi.toString());
+		}
+	}
+	
+	@Test
+	public void getAllPatientInfo() {
+		PatientInfoDAO pid = new PatientInfoDAOImpl();
+		List<PatientInfo> list = pid.getAllPatientInfo();
+		for(PatientInfo pi : list) {
+			System.out.println(pi.toString());
+		}
+	}
+	
+
 }

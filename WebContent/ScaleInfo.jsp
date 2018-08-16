@@ -76,41 +76,69 @@
 </body>
 <script type="text/javascript">
 
-    $('#scalelist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/ScaleInfo.action', // 请求后台的URL（*）
- 		method : "post",
- 		//toolbar : "#toolbar",
- 		pagination : "true",
- 		search : "true",
- 		showRefresh : "true",
- 		showToggle : "true",
- 		showColumns : "true",
- 		pageSize : "25",
- 		clickToSelect : "true",
-        columns:[
-            {
-                field : "S_Name",
-                title : "姓名",
-                width : "100"
-            },
-            {
-                field : "S_Intro",
-                title : "身份证",
-                width : "100"
-            },
-            {
-                field : "S_Guide",
-                title : "患者编号",
-                width : "100"
-            },
-            {
-                field : "updateTime",
-                title : "住院号，门诊号",
-                width : "100"
-            },
-        ]
-    });
+$('#scalelist').bootstrapTable({
+	url : 'http://localhost/xy_ptdb/ScaleInfo.action', // 请求后台的URL（*）
+		method : "post",
+		//toolbar : "#toolbar",
+		pagination : "true",
+		search : "true",
+		showRefresh : "true",
+		showToggle : "true",
+		showColumns : "true",
+		pageSize : "25",
+		clickToSelect : "true",
+    columns:[
+    	{
+            field : "s_ID",
+            title : "病人Id",
+            width : "100"
+        },
+        {
+            field : "s_Name",
+            title : "病人Id",
+            width : "100"
+        },
+        {
+            field : "s_Intro",
+            title : "诊断日期",
+            width : "100"
+        },
+        {
+            field : "s_Guide",
+            title : "就诊医生",
+            width : "100"
+        },
+        {
+            field : "updateTime",
+            title : "登记人",
+            width : "100"
+        },
+        {
+			field : "action",
+			formatter : "Formatter",
+			events : "operateEvents",
+			align : "center",
+			title : "测试--查看",
+			width : "100"
+		}
+    ]
+});
+function Formatter(value, row, index) {
+	return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
+		'<a id="pic" ><span class="glyphicon glyphicon-picture" style="cursor:pointer;"></span></a>';
+}
 
+var p_id = "${param.patientId}";
+window.operateEvents = {
+		'click #res' : function(e, value, row, index) {
+			var oRow = JSON.parse(JSON.stringify(row));
+			console.log(oRow);
+			console.log(p_id);
+			console.log(oRow.s_ID);
+			//alert(oRow.patientId);
+			//window.open("ScaleInfo.jsp");
+		},
+}
 
 </script>
 </html>

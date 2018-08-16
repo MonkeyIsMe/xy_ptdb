@@ -178,6 +178,8 @@ public class ChoiceDAOImpl implements ChoiceDAO{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			session.getTransaction().rollback();
+			return list;
 		}
 		
 		return list;
