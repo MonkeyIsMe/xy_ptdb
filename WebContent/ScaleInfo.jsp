@@ -39,6 +39,10 @@
                         <li><a href="ReportInfo.jsp">报告信息管理</a></li>
                          <li class="divider"></li>
                         <li><a href="ResultInfo.jsp">结果信息管理</a></li>
+                        <li class="divider"></li>
+                        <li><a href="FkindInfo.jsp">大类管理</a></li>
+                        <li class="divider"></li>
+                        <li><a href="SkindInfo.jsp">小类管理</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -46,7 +50,7 @@
                         量表管理 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="ScaleInfo.jsp">查看量表</a></li>
+                        <li><a href="SeeScale.jsp">查看量表</a></li>
                         <li class="divider"></li>
                         <li><a href="#">增加量表</a></li>
                     </ul>

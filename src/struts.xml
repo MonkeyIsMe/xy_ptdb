@@ -58,5 +58,19 @@
             </result>
 		</action>
 		
+		<action name="SkindInfo" class="com.csu.action.SkindInfoAction" method="querySkindInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">skind</param>
+            </result>
+		</action>
+		
+		<action name="FkindInfo" class="com.csu.action.FkindInfoAction" method="queryFkindInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">fkind</param>
+            </result>
+		</action>
+		
 	</package>
 </struts>
