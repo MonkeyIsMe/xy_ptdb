@@ -20,26 +20,8 @@ public class RoleMenu implements Serializable{
 	@Column(name="m_Id")
 	private int m_id;
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="r_id")
-	private Role role;
+
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="m_id")
-	private Menu menu;
-	
-	public Role getRole() {
-		return role;
-	}
-	public void setRole(Role role) {
-		this.role = role;
-	}
-	public Menu getMenu() {
-		return menu;
-	}
-	public void setMenu(Menu menu) {
-		this.menu = menu;
-	}
 	public int getId() {
 		return id;
 	}

@@ -167,4 +167,24 @@ public class MentalScaleDAOImpl implements MentalScaleDAO{
 		return list;
 	}
 
+	@Override
+	public MentalScale getMentalScaleById(int S_ID) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		MentalScale result = null;
+		
+		try {
+			session.beginTransaction();
+			result = session.get(MentalScale.class, S_ID);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return result;
+		}
+		
+		return result;
+	}
+
 }

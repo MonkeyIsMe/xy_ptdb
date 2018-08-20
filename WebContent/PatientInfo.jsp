@@ -170,7 +170,7 @@
     			var oRow = JSON.parse(JSON.stringify(row));
     			console.log(oRow);
     			//alert(oRow.patientId);
-    			window.open("QueryScaleInfo.jsp?patientId="+ oRow.patientId);
+    			window.open("SeeScale.jsp?patientId="+ oRow.patientId);
     			//window.open("ScaleInfo.jsp");
     		},
     		'click #pic' : function(e, value, row, index) {

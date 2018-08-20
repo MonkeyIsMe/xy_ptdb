@@ -32,8 +32,8 @@ public class LoginAction extends ActionSupport{
 	 
 	public String IsLogin() {
 		//HttpServletRequest reqeust= ServletActionContext.getRequest();
-		//String account=reqeust.getParameter("username");//×Ö·û´®
-		//String password=reqeust.getParameter("password");//×Ö·û´®
+		//String account=reqeust.getParameter("username");//ï¿½Ö·ï¿½ï¿½ï¿½
+		//String password=reqeust.getParameter("password");//ï¿½Ö·ï¿½ï¿½ï¿½
 		//System.out.println(account+" "+password);
 		int ans = check(username,password);
 		if(ans == 0) 

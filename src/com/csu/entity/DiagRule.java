@@ -31,16 +31,6 @@ public class DiagRule implements Serializable{
 	private String diagRuleLastModifyPerson;
 	
 	
-	@OneToMany(mappedBy="dr",cascade={CascadeType.ALL})
-	private Set<DiagType> type = new HashSet<DiagType>();
-	
-	
-	public Set<DiagType> getType() {
-		return type;
-	}
-	public void setType(Set<DiagType> type) {
-		this.type = type;
-	}
 	public int getDiagRuleId() {
 		return diagRuleId;
 	}

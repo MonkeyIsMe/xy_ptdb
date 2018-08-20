@@ -25,22 +25,9 @@ public class DiagType implements Serializable{
 	@Column(name="diagTypeIntroduction")
 	private String diagTypeIntroduction;
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="diagRuleId")
-	private DiagRule dr;
-	
-	@OneToMany(mappedBy="dt",cascade={CascadeType.ALL})
-	private Set<DiagName> name = new HashSet<>();
+
 	
 	
-	
-	
-	public DiagRule getDr() {
-		return dr;
-	}
-	public void setDr(DiagRule dr) {
-		this.dr = dr;
-	}
 	public Integer getDiagTypeId() {
 		return diagTypeId;
 	}

@@ -20,26 +20,6 @@ public class RolePermission implements Serializable{
 	@Column(name="per_Id")
 	private int per_id;
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="per_id")
-	private Permissions per;
-	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="r_id")
-	private Role rolep;
-	
-	public Permissions getPer() {
-		return per;
-	}
-	public void setPer(Permissions per) {
-		this.per = per;
-	}
-	public Role getRolep() {
-		return rolep;
-	}
-	public void setRolep(Role rolep) {
-		this.rolep = rolep;
-	}
 	public int getId() {
 		return id;
 	}

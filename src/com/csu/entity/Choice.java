@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import java.io.Serializable;
 
 import javax.persistence.*;
-//ÌâÄ¿Ñ¡Ïî±í£º¸Ã±íÖ÷ÒªÓÃÓÚ´æ´¢Ã¿Ò»¸öÌâÄ¿µÄÑ¡Ïî
+//ï¿½ï¿½Ä¿Ñ¡ï¿½ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ú´æ´¢Ã¿Ò»ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ñ¡ï¿½ï¿½
 
 @Entity
 @Table(name="tab_choice")
@@ -13,32 +13,20 @@ public class Choice implements Serializable{
 	
 	@Id
 	@Column(name="I_id")
-	private int I_ID; //¶ÔÓ¦µÄÌâÄ¿±àºÅ
+	private int I_ID; //ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½
 	
 	@Column(name="C_Num")
-	private int C_Num; //Ñ¡Ïî±àºÅ
+	private int C_Num; //Ñ¡ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="C_Content")
-	private String C_Content; //Ñ¡ÏîÄÚÈİ
+	private String C_Content; //Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="C_Score")
-	private int C_Score; //Ñ¡Ïî·ÖÖµ
+	private int C_Score; //Ñ¡ï¿½ï¿½ï¿½Öµ
 	
 	@Column(name="C_SubChoice")
-	private String C_SubChoice; //×ÓÑ¡Ïî
+	private String C_SubChoice; //ï¿½ï¿½Ñ¡ï¿½ï¿½
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: ÉèÖÃÁËÑÓ³Ù¼ÓÔØ £¬Ä¬ÈÏÎªÁ¢¼´¼ÓÔØ£¬²»ÉèÖÃÔò»áºÍdept±íÍâÁ¬½Ó²éÑ¯
-    @JoinColumn(name="I_ID")
-	private ScaleItem si;
-	
-	
-	
-	public ScaleItem getSi() {
-		return si;
-	}
-	public void setSi(ScaleItem si) {
-		this.si = si;
-	}
 	public int getI_ID() {
 		return I_ID;
 	}
@@ -89,11 +77,11 @@ public class Choice implements Serializable{
 
 
 /*
- * private int I_ID; //¶ÔÓ¦µÄÌâÄ¿±àºÅ
-	private int C_Num; //Ñ¡Ïî±àºÅ
-	private String C_Content; //Ñ¡ÏîÄÚÈİ
-	private int C_Score; //Ñ¡Ïî·ÖÖµ
-	private String C_SubChoice; //×ÓÑ¡Ïî
+ * private int I_ID; //ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½
+	private int C_Num; //Ñ¡ï¿½ï¿½ï¿½ï¿½
+	private String C_Content; //Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int C_Score; //Ñ¡ï¿½ï¿½ï¿½Öµ
+	private String C_SubChoice; //ï¿½ï¿½Ñ¡ï¿½ï¿½
  */
 /*
 CREATE TABLE `tab_choice` (

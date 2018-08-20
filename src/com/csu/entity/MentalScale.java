@@ -61,13 +61,7 @@ public class MentalScale implements Serializable{
 	@Column(name="updateTime")
 	private String updateTime;
 	
-	@Transient
-	@OneToMany(mappedBy="ms",cascade={CascadeType.ALL},fetch = FetchType.EAGER)
-	private Set<ScaleItem> si = new HashSet<ScaleItem>();
 	
-	@Transient
-	@OneToMany(mappedBy="factor_ms",cascade={CascadeType.ALL},fetch = FetchType.EAGER)
-	private Set<Factor> factor = new HashSet<Factor>();
 	
 	
 
@@ -200,21 +194,7 @@ public class MentalScale implements Serializable{
 		this.updateTime = updateTime;
 	}
 
-	public Set<ScaleItem> getSi() {
-		return si;
-	}
 
-	public void setSi(Set<ScaleItem> si) {
-		this.si = si;
-	}
-
-	public Set<Factor> getFactor() {
-		return factor;
-	}
-
-	public void setFactor(Set<Factor> factor) {
-		this.factor = factor;
-	}
 
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();

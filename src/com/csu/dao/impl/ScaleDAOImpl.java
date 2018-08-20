@@ -287,7 +287,7 @@ public class ScaleDAOImpl implements ScaleDAO{
 	}
 
 	@Override
-	public List<ScaleItem> queryScaleItemById(int I_ID) {
+	public List<ScaleItem> queryScaleItemById(int s_ID) {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
@@ -295,9 +295,9 @@ public class ScaleDAOImpl implements ScaleDAO{
 		
 		try {
 			session.beginTransaction();
-			String hql = "From ScaleItem where I_ID = :I_ID";
+			String hql = "From ScaleItem where s_ID = :s_ID";
 			Query query = session.createQuery(hql);
-			query.setParameter("I_ID", I_ID);
+			query.setParameter("s_ID", s_ID);
 			list = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {

@@ -19,4 +19,6 @@ public interface MentalScaleDAO {
 	public List<MentalScale> queryByPage(int i,int pagesize);
 	
 	public List<MentalScale> getMentalScaleBySkid(int sk_id);
+	
+	public MentalScale getMentalScaleById(int S_ID);
 }

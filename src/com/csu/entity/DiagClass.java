@@ -20,18 +20,8 @@ public class DiagClass implements Serializable{
 	@Column(name="DiagNameId")
 	private Integer diagNameId;
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="diagNameId")
-	private DiagName dn;
 	
 	
-	
-	public DiagName getDn() {
-		return dn;
-	}
-	public void setDn(DiagName dn) {
-		this.dn = dn;
-	}
 	public Integer getDiagClassId() {
 		return diagClassId;
 	}

@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
-//系统用户表：该表用于保存系统的用户，用于登录使用
+//系统锟矫伙拷锟斤拷锟矫憋拷锟斤拷锟节憋拷锟斤拷系统锟斤拷锟矫伙拷锟斤拷锟斤拷锟节碉拷录使锟斤拷
 
 @Entity
 @Table(name="tab_sysuser")
@@ -18,10 +18,10 @@ public class SysUser implements Serializable{
 	private Integer u_id;
 	
 	@Column(name="u_account")
-	private String u_account; //用户名
+	private String u_account; //锟矫伙拷锟斤拷
 	
 	@Column(name="u_password")
-	private String u_password; //登录密码
+	private String u_password; //锟斤拷录锟斤拷锟斤拷
 	
 	@Column(name="dept_Id")
 	private Integer dept_id;
@@ -29,29 +29,8 @@ public class SysUser implements Serializable{
 	@Column(name="u_sort")
 	private String u_sort;
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="dept_id")
-	private Dept dept;
-	
-	@OneToMany(mappedBy="sysuser",cascade={CascadeType.ALL})
-	private Set<UserMsg> um = new HashSet<UserMsg>();
-	
-	@OneToMany(mappedBy="sysu",cascade={CascadeType.ALL})
-	private Set<UserRole> uesrrole = new HashSet<UserRole>();
 	
 	
-	public Set<UserMsg> getUm() {
-		return um;
-	}
-	public void setUm(Set<UserMsg> um) {
-		this.um = um;
-	}
-	public Dept getDept() {
-		return dept;
-	}
-	public void setDept(Dept dept) {
-		this.dept = dept;
-	}
 	public Integer getU_id() {
 		return u_id;
 	}
@@ -99,8 +78,8 @@ public class SysUser implements Serializable{
 	
 	/*
 	 * private Integer u_id;
-	private String u_account; //用户名
-	private String u_password; //登录密码
+	private String u_account; //锟矫伙拷锟斤拷
+	private String u_password; //锟斤拷录锟斤拷锟斤拷
 	private Integer dept_id;
 	private String u_sort;
 	 */

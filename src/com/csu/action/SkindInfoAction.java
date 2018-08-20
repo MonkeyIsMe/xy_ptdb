@@ -50,6 +50,12 @@ public class SkindInfoAction extends ActionSupport{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		/*HttpServletRequest reqeust= ServletActionContext.getRequest();
+		HttpServletRequest req = ServletActionContext.getRequest();
+		HttpSession session  = req.getSession();
+		String uid = (String) session.getAttribute("u_id");
+		String patientId = (String) session.getAttribute("patientId");
+		System.out.println(uid+" "+"2222222222222222222222"+" "+patientId);*/
         out.println(arr.toString());
         out.flush(); 
         out.close(); 

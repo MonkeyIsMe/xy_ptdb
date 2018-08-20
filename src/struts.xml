@@ -72,5 +72,20 @@
             </result>
 		</action>
 		
+		
+		<action name="ScaleSee" class="com.csu.action.ScaleTestAction" method="queryScaleItem">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">si</param>
+            </result>
+		</action>
+		
+		<action name="queryChoice" class="com.csu.action.GetChoiceAction" method="queryChoice">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">ch</param>
+            </result>
+		</action>
+		
 	</package>
 </struts>

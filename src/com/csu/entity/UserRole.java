@@ -20,28 +20,11 @@ public class UserRole implements Serializable{
 	@Column(name="r_Id")
 	private int r_id;
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="r_id")
-	private Role roleu;
-	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="u_id")
-	private SysUser sysu;
+
 	
 	
 	
-	public Role getRoleu() {
-		return roleu;
-	}
-	public void setRoleu(Role roleu) {
-		this.roleu = roleu;
-	}
-	public SysUser getSysu() {
-		return sysu;
-	}
-	public void setSysu(SysUser sysu) {
-		this.sysu = sysu;
-	}
+
 	public int getId() {
 		return id;
 	}

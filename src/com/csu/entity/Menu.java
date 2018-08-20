@@ -28,15 +28,6 @@ public class Menu implements Serializable{
 	@Column(name="superiormenu_id")
 	private int superiormenu_id;
 	
-	@OneToMany(mappedBy="menu",cascade={CascadeType.ALL})
-	private Set<RoleMenu> rolemenu = new HashSet<RoleMenu>();
-	
-	public Set<RoleMenu> getRolemenu() {
-		return rolemenu;
-	}
-	public void setRolemenu(Set<RoleMenu> rolemenu) {
-		this.rolemenu = rolemenu;
-	}
 	public int getM_id() {
 		return m_id;
 	}

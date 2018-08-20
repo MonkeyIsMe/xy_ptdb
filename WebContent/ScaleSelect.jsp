@@ -18,6 +18,11 @@
     <link href="table/bootstrap-table.css">
 </head>
 <body>
+<% String u_id = request.getParameter("u_id"); 
+   String patientId = request.getParameter("patientId");
+   session.setAttribute("u_id",u_id);   
+   session.setAttribute("patientId",patientId);  //在开始测试时候有用
+%>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -39,6 +44,10 @@
                         <li><a href="ReportInfo.jsp">报告信息管理</a></li>
                          <li class="divider"></li>
                         <li><a href="ResultInfo.jsp">结果信息管理</a></li>
+                        <li class="divider"></li>
+                        <li><a href="FkindInfo.jsp">大类管理</a></li>
+                        <li class="divider"></li>
+                        <li><a href="SkindInfo.jsp">小类管理</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -46,7 +55,7 @@
                         量表管理 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="ScaleInfo.jsp">查看量表</a></li>
+                        <li><a href="SeeScale.jsp">查看量表</a></li>
                         <li class="divider"></li>
                         <li><a href="#">增加量表</a></li>
                     </ul>
@@ -66,7 +75,7 @@
         </div>
         <div class="panel-body">
             <div>
-                <table id="scalelist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="skindlist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -76,45 +85,65 @@
 </body>
 <script type="text/javascript">
 
-$('#scalelist').bootstrapTable({
-	url : 'http://localhost/xy_ptdb/ScaleInfo.action', // 请求后台的URL（*）
-		method : "post",
-		//toolbar : "#toolbar",
-		pagination : "true",
-		search : "true",
-		showRefresh : "true",
-		showToggle : "true",
-		showColumns : "true",
-		pageSize : "25",
-		clickToSelect : "true",
-    columns:[
-    	{
-            field : "s_ID",
-            title : "病人Id",
-            width : "100"
-        },
-        {
-            field : "s_Name",
-            title : "病人Id",
-            width : "100"
-        },
-        {
-            field : "s_Intro",
-            title : "诊断日期",
-            width : "100"
-        },
-        {
-            field : "s_Guide",
-            title : "就诊医生",
-            width : "100"
-        },
-        {
-            field : "updateTime",
-            title : "登记人",
-            width : "100"
-        },
-    ]
-});
+    $('#skindlist').bootstrapTable({
+    	url : 'http://localhost/xy_ptdb/SkindInfo.action', // 请求后台的URL（*）
+ 		method : "post",
+ 		//toolbar : "#toolbar",
+ 		pagination : "true",
+ 		search : "true",
+ 		showRefresh : "true",
+ 		showToggle : "true",
+ 		showColumns : "true",
+ 		pageSize : "25",
+ 		clickToSelect : "true",
+        columns:[
+        	{
+				field : 'Number',
+				title : '编号',
+				formatter : function(value, row, index) {
+					return index + 1;
+				},
+				width : "50"
+			},
+            {
+                field : "sk_id",
+                title : "姓名",
+                width : "100"
+            },
+            {
+                field : "f_id",
+                title : "身份证",
+                width : "100"
+            },
+            {
+                field : "name",
+                title : "患者编号",
+                width : "100"
+            },
+        	{
+				field : "action",
+				formatter : "Formatter",
+				events : "operateEvents",
+				align : "center",
+				title : "测试--查看",
+				width : "100"
+			}
 
+        ]
+    });
+    function Formatter(value, row, index) {
+		return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
+			'<a id="pic" ><span class="glyphicon glyphicon-picture" style="cursor:pointer;"></span></a>';
+	}
+    var p_id = "${param.patientId}";
+    var u_id = "${param.u_id}";
+    window.operateEvents = {
+    		'click #res' : function(e, value, row, index) {
+    			var oRow = JSON.parse(JSON.stringify(row));
+    			console.log(oRow);
+    			console.log(u_id);
+    			console.log(p_id);
+    		},
+    }
 </script>
 </html>

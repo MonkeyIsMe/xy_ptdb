@@ -28,20 +28,8 @@ public class DiagName implements Serializable{
 	@Column(name="diagPoint")
 	private String diagPoint;
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="diagTypeId")
-	private DiagType dt;
-	
-	@OneToMany(mappedBy="dn",cascade={CascadeType.ALL})
-	private Set<DiagClass> dc = new HashSet<DiagClass>();
 	
 	
-	public DiagType getType() {
-		return dt;
-	}
-	public void setType(DiagType type) {
-		this.dt = type;
-	}
 	public Integer getDiagNameId() {
 		return diagNameId;
 	}

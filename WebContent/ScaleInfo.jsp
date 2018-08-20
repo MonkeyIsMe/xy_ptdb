@@ -136,9 +136,7 @@ var p_id = "${param.patientId}";
 window.operateEvents = {
 		'click #res' : function(e, value, row, index) {
 			var oRow = JSON.parse(JSON.stringify(row));
-			console.log(oRow);
-			console.log(p_id);
-			console.log(oRow.s_ID);
+			window.open("ScaleSelect.jsp?patientId=" + p_id + "&u_id=" + oRow.s_ID);
 			//alert(oRow.patientId);
 			//window.open("ScaleInfo.jsp");
 		},

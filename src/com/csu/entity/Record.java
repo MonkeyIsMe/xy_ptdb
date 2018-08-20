@@ -15,25 +15,25 @@ public class Record implements Serializable{
 	private int Id;
 	
 	@Column(name="patientId")
-	private int patientId; //²¡ÈËId
+	private int patientId; //ï¿½ï¿½ï¿½ï¿½Id
 	
 	@Column(name="diagnosisDate")
-	private String diagnosisDate; //Õï¶ÏÈÕÆÚ
+	private String diagnosisDate; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="doctorName")
-	private String doctorName; //¾ÍÕïÒ½Éú
+	private String doctorName; //ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ï¿½
 	
 	@Column(name="recordName")
-	private String recordName; //µÇ¼ÇÈË
+	private String recordName; //ï¿½Ç¼ï¿½ï¿½ï¿½
 	
 	@Column(name="recordDate")
-	private String recordDate; //µÇ¼ÇÈÕÆÚ
+	private String recordDate; //ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="r1")
-	private String r1; //±¸ÓÃ1
+	private String r1; //ï¿½ï¿½ï¿½ï¿½1
 	
 	@Column(name="r2")
-	private String r2; //±¸ÓÃ2
+	private String r2; //ï¿½ï¿½ï¿½ï¿½2
 	
 	@Column(name="topicId")
 	private Integer topicId; //
@@ -44,18 +44,6 @@ public class Record implements Serializable{
 	@Column(name="sysuserId")
 	private int sysuserId; //
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: ÉèÖÃÁËÑÓ³Ù¼ÓÔØ £¬Ä¬ÈÏÎªÁ¢¼´¼ÓÔØ£¬²»ÉèÖÃÔò»áºÍdept±íÍâÁ¬½Ó²éÑ¯
-    @JoinColumn(name="u_id")
-	private PatientInfo patientinfo;
-	
-	
-	
-	public PatientInfo getPi() {
-		return patientinfo;
-	}
-	public void setPi(PatientInfo patientinfo) {
-		this.patientinfo = patientinfo;
-	}
 	public int getId() {
 		return Id;
 	}
@@ -111,12 +99,6 @@ public class Record implements Serializable{
 	public void setTopicId(Integer topicId) {
 		this.topicId = topicId;
 	}
-	public PatientInfo getPatientinfo() {
-		return patientinfo;
-	}
-	public void setPatientinfo(PatientInfo patientinfo) {
-		this.patientinfo = patientinfo;
-	}
 	public String getRevisitDate() {
 		return revisitDate;
 	}
@@ -152,13 +134,13 @@ public class Record implements Serializable{
 
 	/*
 	 * private int Id;
-	private int patientId; //²¡ÈËId
-	private String diagnosisDate; //Õï¶ÏÈÕÆÚ
-	private String doctorName; //¾ÍÕïÒ½Éú
-	private String recordName; //µÇ¼ÇÈË
-	private String recordDate; //µÇ¼ÇÈÕÆÚ
-	private String r1; //±¸ÓÃ1
-	private String r2; //±¸ÓÃ2
+	private int patientId; //ï¿½ï¿½ï¿½ï¿½Id
+	private String diagnosisDate; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String doctorName; //ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ï¿½
+	private String recordName; //ï¿½Ç¼ï¿½ï¿½ï¿½
+	private String recordDate; //ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String r1; //ï¿½ï¿½ï¿½ï¿½1
+	private String r2; //ï¿½ï¿½ï¿½ï¿½2
 	private int topicId; //
 	private String revisitDate;  //
 	private int sysuserId; //

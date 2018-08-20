@@ -31,15 +31,6 @@ public class Dept implements Serializable{
 	@Column(name="dept_sort")
 	private int dept_sort;
 	
-	@OneToMany(mappedBy="dept",cascade={CascadeType.ALL})
-	private Set<SysUser> su = new HashSet<SysUser>();
-	
-	public Set<SysUser> getSu() {
-		return su;
-	}
-	public void setSu(Set<SysUser> su) {
-		this.su = su;
-	}
 	public int getDept_id() {
 		return dept_id;
 	}

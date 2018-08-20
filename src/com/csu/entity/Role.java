@@ -28,34 +28,7 @@ public class Role implements Serializable{
 	@Column(name="r_sort")
 	private int r_sort;
 	
-	@OneToMany(mappedBy="role",cascade={CascadeType.ALL})
-	private Set<RoleMenu> menu = new HashSet<RoleMenu>();
 	
-	@OneToMany(mappedBy="rolep",cascade={CascadeType.ALL})
-	private Set<RolePermission> permission = new HashSet<RolePermission>();
-	
-	@OneToMany(mappedBy="roleu",cascade={CascadeType.ALL})
-	private Set<UserRole> user = new HashSet<UserRole>();
-	
-	
-	public Set<UserRole> getUser() {
-		return user;
-	}
-	public void setUser(Set<UserRole> user) {
-		this.user = user;
-	}
-	public Set<RolePermission> getPermission() {
-		return permission;
-	}
-	public void setPermission(Set<RolePermission> permission) {
-		this.permission = permission;
-	}
-	public Set<RoleMenu> getMenu() {
-		return menu;
-	}
-	public void setMenu(Set<RoleMenu> menu) {
-		this.menu = menu;
-	}
 	public int getR_id() {
 		return r_id;
 	}

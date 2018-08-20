@@ -32,11 +32,17 @@
                         信息管理 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">标本信息管理</a></li>
+                        <li><a href="SpecimenInfo.jsp">标本信息管理</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">记录信息管理</a></li>
+                        <li><a href="RecordInfo.jsp">记录信息管理</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">报告信息管理</a></li>
+                        <li><a href="ReportInfo.jsp">报告信息管理</a></li>
+                         <li class="divider"></li>
+                        <li><a href="ResultInfo.jsp">结果信息管理</a></li>
+                        <li class="divider"></li>
+                        <li><a href="FkindInfo.jsp">大类管理</a></li>
+                        <li class="divider"></li>
+                        <li><a href="SkindInfo.jsp">小类管理</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -44,11 +50,9 @@
                         量表管理 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">查看量表</a></li>
+                        <li><a href="SeeScale.jsp">查看量表</a></li>
                         <li class="divider"></li>
                         <li><a href="#">增加量表</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">修改量表</a></li>
                     </ul>
                 </li>
                 <li><a href="#">系统管理</a></li>
@@ -66,7 +70,7 @@
         </div>
         <div class="panel-body">
             <div>
-                <table id="reportlist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="scalelist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -76,45 +80,57 @@
 </body>
 <script type="text/javascript">
 
-    $('#reportlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/ReportInfo.action', // 请求后台的URL（*）
- 		method : "post",
- 		//toolbar : "#toolbar",
- 		pagination : "true",
- 		search : "true",
- 		showRefresh : "true",
- 		showToggle : "true",
- 		showColumns : "true",
- 		pageSize : "25",
- 		clickToSelect : "true",
-        columns:[
-            {
-                field : "u_id",
-                title : "姓名",
-                width : "100"
-            },
-            {
-                field : "s_id",
-                title : "身份证",
-                width : "100"
-            },
-            {
-                field : "t_time",
-                title : "患者编号",
-                width : "100"
-            },
-            {
-                field : "isAudited",
-                title : "住院号，门诊号",
-                width : "100"
-            },
-            {
-                field : "sysID",
-                title : "执行医生",
-                width : "100"
-            },
-        ]
-    });
+$('#scalelist').bootstrapTable({
+	url : 'http://localhost/xy_ptdb/ScaleInfo.action', // 请求后台的URL（*）
+		method : "post",
+		//toolbar : "#toolbar",
+		pagination : "true",
+		search : "true",
+		showRefresh : "true",
+		showToggle : "true",
+		showColumns : "true",
+		pageSize : "25",
+		clickToSelect : "true",
+    columns:[
+    	{
+            field : "s_ID",
+            title : "ID",
+            width : "100"
+        },
+        {
+            field : "s_Name",
+            title : "名字",
+            width : "100"
+        },
+        {
+            field : "s_Intro",
+            title : "基本说明",
+            width : "100"
+        },
+        {
+            field : "s_Guide",
+            title : "指导语",
+            width : "100"
+        },
+        {
+            field : "updateTime",
+            title : "更新时间",
+            width : "100"
+        },
+        {
+			field : "action",
+			formatter : "Formatter",
+			events : "operateEvents",
+			align : "center",
+			title : "测试--查看",
+			width : "100"
+		}
+    ]
+});
+function Formatter(value, row, index) {
+	return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
+		'<a id="pic" ><span class="glyphicon glyphicon-picture" style="cursor:pointer;"></span></a>';
+}
 
 
 </script>

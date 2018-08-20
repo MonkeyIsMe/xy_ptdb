@@ -281,4 +281,15 @@ public class TestDAOImpl {
 	}
 	
 
+	
+	@Test
+	public void ScaleTest() {
+		for(int i = 5;i<=94;i++) {
+			ChoiceDAO cd = new ChoiceDAOImpl();
+			List<Choice> ch = cd.getChoiceById(i);
+			for(Choice list :ch) {
+				System.out.println(list.toString());
+			}
+		}
+	}
 }

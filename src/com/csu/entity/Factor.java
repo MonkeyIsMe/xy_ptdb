@@ -39,9 +39,6 @@ public class Factor implements Serializable{
 	private String F_Formula;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="S_ID")
-	private MentalScale factor_ms;
 	
 	
 	
@@ -119,13 +116,6 @@ public class Factor implements Serializable{
 		F_Formula = f_Formula;
 	}
 
-	public MentalScale getFactor_ms() {
-		return factor_ms;
-	}
-
-	public void setFactor_ms(MentalScale factor_ms) {
-		this.factor_ms = factor_ms;
-	}
 
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();

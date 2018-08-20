@@ -25,10 +25,7 @@
 <property name="current_session_context_class">thread</property>		
 
 
-		<!-- 将hibernate生成的sql语句打印到控制台 -->
-		<property name="hibernate.show_sql">true</property>
-		<!-- 将hibernate生成的sql语句格式化(语法缩进) -->
-		<property name="hibernate.format_sql">true</property>
+		
 		<!-- 
 		## auto schema export  自动导出表结构. 自动建表
 		#hibernate.hbm2ddl.auto create		自动建表.每次框架运行都会创建新的表.以前表将会被覆盖,表数据会丢失.(开发环境中测试使用)

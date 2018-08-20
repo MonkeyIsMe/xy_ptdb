@@ -28,15 +28,6 @@ public class Permissions implements Serializable{
 	@Column(name="per_sort")
 	private int per_sort;
 	
-	@OneToMany(mappedBy="per",cascade={CascadeType.ALL})
-	private Set<RolePermission> permission = new HashSet<RolePermission>();
-	
-	public Set<RolePermission> getPermission() {
-		return permission;
-	}
-	public void setPermission(Set<RolePermission> permission) {
-		this.permission = permission;
-	}
 	public int getPer_id() {
 		return per_id;
 	}

@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
-//Á¿±íÌâÄ¿±í£º¸Ã±íÓÃÓÚ´æ´¢Ã¿Ò»¸öÁ¿±í¶ÔÓ¦µÄÌâÄ¿£¬°üÀ¨ÌâÄ¿µÄÄÚÈİ£¬·ÖÖµµÈĞÅÏ¢
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½Ú´æ´¢Ã¿Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½İ£ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ï¢
 
 @Entity
 @Table(name="tab_scaleitem")
@@ -18,38 +18,21 @@ public class ScaleItem implements Serializable{
 	private int I_ID;
 	
 	@Column(name="s_ID")
-	private int s_ID; //Á¿±í±àºÅ
+	private int s_ID; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="I_Content")
-	private String I_Content; //ÌâÄ¿ÄÚÈİ
+	private String I_Content; //ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="I_Factor")
-	private int I_Factor;  //Òò×Ó
+	private int I_Factor;  //ï¿½ï¿½ï¿½ï¿½
 	
 	@Column(name="I_TYPE")
-	private String I_TYPE;  //ÀàĞÍ
+	private String I_TYPE;  //ï¿½ï¿½ï¿½ï¿½
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: ÉèÖÃÁËÑÓ³Ù¼ÓÔØ £¬Ä¬ÈÏÎªÁ¢¼´¼ÓÔØ£¬²»ÉèÖÃÔò»áºÍdept±íÍâÁ¬½Ó²éÑ¯
-    @JoinColumn(name="S_ID")
-	private MentalScale ms;
-	
-	@OneToMany(mappedBy="si",cascade={CascadeType.ALL},fetch = FetchType.EAGER)
-	private Set<Choice> ch = new HashSet<Choice>();
+
 	
 	
 	
-	public Set<Choice> getCh() {
-		return ch;
-	}
-	public void setCh(Set<Choice> ch) {
-		this.ch = ch;
-	}
-	public MentalScale getMs() {
-		return ms;
-	}
-	public void setMs(MentalScale ms) {
-		this.ms = ms;
-	}
 	public int getI_ID() {
 		return I_ID;
 	}

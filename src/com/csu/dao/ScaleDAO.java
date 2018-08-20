@@ -32,7 +32,7 @@ public interface ScaleDAO {
 	
 	public List<ScaleItem> queryScaleItem();
 	
-	public List<ScaleItem> queryScaleItemById(int I_ID);
+	public List<ScaleItem> queryScaleItemById(int s_ID);
 	
 	public List<ScaleItem> queryScaleItemByPageSid(int i,int pagesize,int s_ID);
 }

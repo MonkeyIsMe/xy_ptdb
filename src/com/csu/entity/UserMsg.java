@@ -25,17 +25,9 @@ public class UserMsg implements Serializable{
 	
 	@Column(name="u_mail")
 	private String u_mail;
+
 	
-	@ManyToOne(fetch=FetchType.LAZY) //fentch: 设置了延迟加载 ，默认为立即加载，不设置则会和dept表外连接查询
-    @JoinColumn(name="u_id")
-	private SysUser sysuser;
-	
-	public SysUser getSysuser() {
-		return sysuser;
-	}
-	public void setSysuser(SysUser sysuser) {
-		this.sysuser = sysuser;
-	}
+
 	public int getU_id() {
 		return u_id;
 	}
