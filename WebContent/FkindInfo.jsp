@@ -25,7 +25,7 @@
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">病人管理</a></li>
+                <li><a href="AddPatient.jsp">病人管理</a></li>
                 <li><a href="#">课题管理</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -37,7 +37,7 @@
                         <li><a href="RecordInfo.jsp">记录信息管理</a></li>
                         <li class="divider"></li>
                         <li><a href="ReportInfo.jsp">报告信息管理</a></li>
-                         <li class="divider"></li>
+                        <li class="divider"></li>
                         <li><a href="ResultInfo.jsp">结果信息管理</a></li>
                         <li class="divider"></li>
                         <li><a href="FkindInfo.jsp">大类管理</a></li>
@@ -59,7 +59,6 @@
             </ul>
         </div>
     </div>
-</nav>
 </nav>
 <div class="container" style="width: 1400px">
     <div class="panel panel-default">

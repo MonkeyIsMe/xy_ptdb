@@ -11,13 +11,10 @@ import javax.persistence.*;
 @Table(name="tab_choice")
 public class Choice implements Serializable{
 	
-	@Id
-	@Column(name="I_id")
-	private int I_ID; //��Ӧ����Ŀ���
+	@EmbeddedId
+	private ChoicePK cpk;
 	
-	@Column(name="C_Num")
-	private int C_Num; //ѡ����
-	
+
 	@Column(name="C_Content")
 	private String C_Content; //ѡ������
 	
@@ -27,18 +24,6 @@ public class Choice implements Serializable{
 	@Column(name="C_SubChoice")
 	private String C_SubChoice; //��ѡ��
 	
-	public int getI_ID() {
-		return I_ID;
-	}
-	public void setI_ID(int i_ID) {
-		I_ID = i_ID;
-	}
-	public int getC_Num() {
-		return C_Num;
-	}
-	public void setC_Num(int c_Num) {
-		C_Num = c_Num;
-	}
 	public String getC_Content() {
 		return C_Content;
 	}
@@ -58,10 +43,15 @@ public class Choice implements Serializable{
 		C_SubChoice = c_SubChoice;
 	}
 	
+	public ChoicePK getCpk() {
+		return cpk;
+	}
+	public void setCpk(ChoicePK cpk) {
+		this.cpk = cpk;
+	}
+	
 	public JSONObject toJSON() {
 		JSONObject jo = new JSONObject();
-		jo.put("I_ID", this.I_ID);
-		jo.put("C_Num", this.C_Num);
 		jo.put("C_Content", this.C_Content);
 		jo.put("C_Score", this.C_Score);
 		jo.put("C_SubChoice", this.C_SubChoice);

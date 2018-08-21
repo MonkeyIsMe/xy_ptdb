@@ -28,6 +28,7 @@
 
 
 var t = 0;
+var x = 0;
 $.ajax({ 
     url:'http://localhost/xy_ptdb/ScaleSee.action',
     type: "POST",
@@ -36,7 +37,7 @@ $.ajax({
     success: function(data) {
     	
     	for (var i = 0; i < data.length; i++){
-    	    $("div").append('<span id="showdataid'+i+'">'+data[i].i_Content+'</span>'+'<br>'+"<br>");
+    	    $("div").append('<span id="showdataid'+i+'">'+data[i].i_Content+'</span>'+'<br>');
     	    var id = data[i].i_ID;
     	    //将除第一个以外的题目置为隐藏
     	    /* if( i != 0){
@@ -53,7 +54,7 @@ $.ajax({
     	        	for (var j = 0 ; j < date.length; j++){
     	        	    //$("#showdataid"+i).append('<br>'+'<span id ="span'+i+'">'+date[j].c_Content+'</span>'+'<br>');
     	        	    /* <input id="r1" type="radio" value="0" name="gender">男</input> */
-    	        	    $("#showdataid"+i).append('<input type="radio" name="select" id ="span'+(t++)+'">'+date[j].c_Content+'<br>');
+    	        	    $("#showdataid"+i).append('<input type="radio" name="select'+i+'" id ="span'+(t++)+'">'+date[j].c_Content+'<br>');
     	        	}
     	    }
     	    }); 

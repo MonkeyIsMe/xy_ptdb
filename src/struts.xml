@@ -9,12 +9,12 @@
 	<package name="json"  extends="json-default" namespace="/">
 		<!-- 定义login的action,其实现类为LoginAction -->
 		
-		<action name="login" class="com.csu.action.LoginAction" method="IsLogin">
-			<!-- 定义处理结果与视图资源之间的关系 -->
+		<!-- <action name="login" class="com.csu.action.LoginAction" method="IsLogin">
+			定义处理结果与视图资源之间的关系
 			<result name="LoginSuccess" >/success.jsp</result>
 			<result name="WrongPassword" >/fail.jsp</result>
 			<result name="NoAccount" >/fail.jsp</result>
-		</action>
+		</action> -->
 		
 		<action name="PatientInfo" class="com.csu.action.PatientInfoAction" method="queryPatientInfo">
 			<!-- 定义处理结果与视图资源之间的关系 -->
@@ -85,6 +85,19 @@
 			 <result name="success" type="json">
 			  <param name="root">ch</param>
             </result>
+		</action>
+		
+		<action name="DoScale" class="com.csu.action.DoScaleTestAction" method="queryScaleItem">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">si</param>
+            </result>
+		</action>
+		
+		<action name="AddPatient" class="com.csu.action.AddPatientAction" method="getPatient">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success"></result>
+			 <result name="error"></result>
 		</action>
 		
 	</package>
