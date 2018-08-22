@@ -75,7 +75,7 @@ public class PatientInfo implements Serializable{
 	private String growthArea; //�����ںδ�����
 	
 	@Column(name="builderId")
-	private int builderId;  //������Id
+	private String builderId;  //������Id
 	
 	public int getU_id() {
 		return u_id;
@@ -191,10 +191,10 @@ public class PatientInfo implements Serializable{
 	public void setGrowthArea(String growthArea) {
 		this.growthArea = growthArea;
 	}
-	public int getBuilderId() {
+	public String getBuilderId() {
 		return builderId;
 	}
-	public void setBuilderId(int builderId) {
+	public void setBuilderId(String builderId) {
 		this.builderId = builderId;
 	}
 	

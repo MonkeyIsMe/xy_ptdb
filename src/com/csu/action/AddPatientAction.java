@@ -1,19 +1,27 @@
 package com.csu.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
+import org.json.JSONObject;
 
 import com.csu.dao.PatientInfoDAO;
 import com.csu.dao.impl.PatientInfoDAOImpl;
 import com.csu.entity.PatientInfo;
 import com.opensymphony.xwork2.ActionSupport;
 
+import net.sf.json.JSONArray;
+
 public class AddPatientAction extends ActionSupport{
 	
-	public String getPatient() {
+	public String getPatient() throws IOException {
 		HttpServletRequest request= ServletActionContext.getRequest();
+
 		
 		String u_name = request.getParameter("u_name");
 		String identity = request.getParameter("identity");
@@ -34,8 +42,6 @@ public class AddPatientAction extends ActionSupport{
 		String preName = request.getParameter("preName");
 		String growthArea = request.getParameter("growthArea");
 		String builderId = request.getParameter("builderId");
-		int id = Integer.parseInt(builderId);
-		
 		//System.out.println(u_name+" "+patientId);
 		PatientInfo pi = new PatientInfo();
 		pi.setU_name(u_name);
@@ -56,10 +62,24 @@ public class AddPatientAction extends ActionSupport{
 		pi.setRelationship(relationship);
 		pi.setPreName(preName);
 		pi.setGrowthArea(growthArea);
-		pi.setBuilderId(id);
+		pi.setBuilderId(builderId);
 		
+		PrintWriter out = null;
+		try {
+			out = ServletActionContext.getResponse().getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//JSONObject jo = new JSONObject();
+		//jo.put("success", "success");
 		PatientInfoDAO pd = new PatientInfoDAOImpl();
 		if(pd.add(pi)) {
+			//JSONArray arr = JSONArray.fromObject(jo);
+			//out.println(arr.toString());
+			out.println("success");
+	        out.flush(); 
+	        out.close(); 
 			return SUCCESS;
 		}
 		else return ERROR;
