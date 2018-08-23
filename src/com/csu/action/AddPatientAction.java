@@ -80,7 +80,7 @@ public class AddPatientAction extends ActionSupport{
 			out.println("success");
 	        out.flush(); 
 	        out.close(); 
-			return SUCCESS;
+			return null;
 		}
 		else return ERROR;
 	}

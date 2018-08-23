@@ -213,6 +213,9 @@
 <div style="margin-left:45%">
     <input id="to" class="btn btn-default" type="submit" value="提交">
 </div>
+    <div id="alert_login" class="alert-danger alert alert-login"
+     style="position: relative; top: 52%; margin: 20px auto;width: 500px;height: 50px;">
+</div>
 <script src="js/patient.js"></script>
 </body>
 </html>

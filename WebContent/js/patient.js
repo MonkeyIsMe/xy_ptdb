@@ -2,6 +2,10 @@
  * 
  */
 
+$("document").ready(function () {
+    $("#alert_login").fadeOut(0);
+});
+
 $("#to").click(function () {
     addpatient();
 });
@@ -51,9 +55,24 @@ function addpatient(){
 			gender:gender,
 		},
 		function(data){
-			alert(data);
+			data = data.replace(/^\s*/, "").replace(/\s*$/, "");
+			//alert(data);
+			if(data == "success"){
+				//alert(111);
+				setAlertText("<strong>提示：</strong>添加成功.");
+			}
 		}
 	);
+}
+
+function setAlertText(text) {
+    var html_text = text;
+    var login_alert = $("div[id='alert_login']");
+    login_alert.fadeOut(0);
+    login_alert.empty();
+    login_alert.html(html_text);
+    login_alert.fadeIn(1500);
+    login_alert.fadeOut(1000);
 }
 
 /*

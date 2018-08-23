@@ -113,13 +113,7 @@ public class TestDAOImpl {
 		System.out.println(re.toString());
 	}
 	
-	@Test
-	public void checkSname() {
-		String name = "90��֢״�嵥";
-		MentalScaleDAO msd = new MentalScaleDAOImpl();
-		boolean flag = msd.checkSname(name);
-		System.out.println(flag);
-	}
+
 	
 	@Test
 	public void getUserTopic() {
