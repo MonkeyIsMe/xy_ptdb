@@ -35,7 +35,7 @@ public class GetChoiceAction extends ActionSupport{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String id = request.getParameter("id");
 		int i_id = Integer.parseInt(id);
-		System.out.println("第"+id+"个");
+		//System.out.println("第"+id+"个");
 		ch = query(i_id);
 		JSONArray arr = JSONArray.fromObject(ch);
 		PrintWriter out = null;
