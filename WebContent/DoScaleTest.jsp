@@ -15,33 +15,36 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div>
+<% String scale_id = request.getParameter("scale_id"); 
+   session.setAttribute("scale_id",scale_id);
+%>
+<div style="width:400px">
     <div class="alert alert-info">
         <div id="problem"></div>
     </div>
     <div class="btn-group" data-toggle="buttons">
 
-        <label class="btn btn-primary" style="width:100px">
+        <label class="btn btn-primary" style="width:400px">
             A<input type="radio" name="options" id="option1">
             <div id="op1"></div>
         </label><br><br>
 
-        <label class="btn btn-primary" style="width:100px">
+        <label class="btn btn-primary" style="width:400px">
             B<input type="radio" name="options" id="option2">
             <div id="op2"></div>
         </label><br><br>
 
-        <label class="btn btn-primary" style="width:100px">
+        <label class="btn btn-primary" style="width:400px">
             C<input type="radio" name="options" id="option3">
             <div id="op3"></div>
         </label><br><br>
         
-        <label class="btn btn-primary" style="width:100px">
+        <label class="btn btn-primary" style="width:400px">
             D<input type="radio" name="options" id="option4">
             <div id="op4"></div>
         </label><br><br>
         
-        <label class="btn btn-primary" style="width:100px">
+        <label class="btn btn-primary" style="width:400px">
             E<input type="radio" name="options" id="option5">
             <div id="op5"></div>
         </label><br><br>
