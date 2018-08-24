@@ -18,41 +18,37 @@
 <% String scale_id = request.getParameter("scale_id"); 
    session.setAttribute("scale_id",scale_id);
 %>
-<div style="width:400px">
+<div style="width:500px">
     <div class="alert alert-info">
-        <div id="problem"></div>
+        <div id="problem" style="margin-left: 35%"></div>
     </div>
     <div class="btn-group" data-toggle="buttons">
 
-        <label class="btn btn-primary" style="width:400px">
-            A<input type="radio" name="options" id="option1">
-            <div id="op1"></div>
-        </label><br><br>
+        <button type="button" class="btn btn-info" id="buttonA" style="width:500px">
+	        <div style="float:left;margin-left: 36%">A.</div>
+	        <div id="option1" style="float:left;margin-left: 10px"></div>
+        </button><br><br>
 
-        <label class="btn btn-primary" style="width:400px">
-            B<input type="radio" name="options" id="option2">
-            <div id="op2"></div>
-        </label><br><br>
+       <button type="button" class="btn btn-info" id="buttonB" style="width:500px">
+	        <div style="float:left;margin-left: 36%">B.</div>
+	        <div id="option2" style="float:left;margin-left: 10px"></div>
+       </button><br><br>
 
-        <label class="btn btn-primary" style="width:400px">
-            C<input type="radio" name="options" id="option3">
-            <div id="op3"></div>
-        </label><br><br>
+       <button type="button" class="btn btn-info" id="buttonC" style="width:500px">
+            <div style="float:left;margin-left: 36%">C.</div>
+        	<div id="option3" style="float:left;margin-left: 10px"></div>
+       </button><br><br>
         
-        <label class="btn btn-primary" style="width:400px">
-            D<input type="radio" name="options" id="option4">
-            <div id="op4"></div>
-        </label><br><br>
+       <button type="button" class="btn btn-info" id="buttonD" style="width:500px">
+	        <div style="float:left;margin-left: 36%">D.</div>
+	        <div id="option4" style="float:left;margin-left: 10px"></div>
+       </button><br><br>
         
-        <label class="btn btn-primary" style="width:400px">
-            E<input type="radio" name="options" id="option5">
-            <div id="op5"></div>
-        </label><br><br>
+      <button type="button" class="btn btn-info" id="buttonE" style="width:500px">
+	        <div style="float:left;margin-left: 36%">E.</div>
+	        <div id="option5" style="float:left;margin-left: 10px"></div>
+      </button><br><br>
     </div>
-</div>
-<div>
-    <button type="button" class="btn btn-default btn-lg " id="first">上一题</button>
-    <button type="button" class="btn btn-default btn-lg " id="next">下一题</button>
 </div>
 <script src="js/DoScaleTest.js"></script>
 </body>
