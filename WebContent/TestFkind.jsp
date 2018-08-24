@@ -101,12 +101,12 @@
 			},
             {
                 field : "f_id",
-                title : "姓名",
+                title : "大类编号",
                 width : "100"
             },
             {
                 field : "name",
-                title : "身份证",
+                title : "大类名字",
                 width : "100"
             },
         	{

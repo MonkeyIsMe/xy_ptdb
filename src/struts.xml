@@ -108,5 +108,12 @@
             </result>
 		</action>
 		
+		<action name="QueryAssay" class="com.csu.action.AssayInfoAction" method="queryAssay">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">assay</param>
+            </result>
+		</action>
+		
 	</package>
 </struts>

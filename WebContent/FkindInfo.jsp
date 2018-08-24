@@ -106,7 +106,7 @@
             },
             {
                 field : "name",
-                title : "身份证",
+                title : "测试大类名字",
                 width : "100"
             },
         	{

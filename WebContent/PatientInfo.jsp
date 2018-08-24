@@ -155,15 +155,16 @@
 				formatter : "Formatter",
 				events : "operateEvents",
 				align : "center",
-				title : "测试--查看",
-				width : "100"
+				title : "查看--测试--数据",
+				width : "150"
 			}
 
         ]
     });
     function Formatter(value, row, index) {
-		return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
-			'<a id="pic" ><span class="glyphicon glyphicon-picture" style="cursor:pointer;"></span></a>';
+		return '<a id="res"><span class="glyphicon glyphicon-user" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
+			'<a id="pic" ><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
+			'<a id="assay" ><span class="glyphicon glyphicon-th" style="cursor:pointer;"></span></a>';
 	}
     window.operateEvents = {
     		'click #res' : function(e, value, row, index) {
@@ -178,6 +179,13 @@
     			console.log(oRow);
     			//alert(oRow.patientId);
     			window.open("ScaleInfo.jsp?patientId="+ oRow.patientId);
+    			//window.open("ScaleInfo.jsp");
+    		},
+    		'click #assay' : function(e, value, row, index) {
+    			var oRow = JSON.parse(JSON.stringify(row));
+    			console.log(oRow);
+    			//alert(oRow.patientId);
+    			window.open("AssayInfo.jsp?patientId="+ oRow.patientId);
     			//window.open("ScaleInfo.jsp");
     		}
     }

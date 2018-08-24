@@ -101,17 +101,17 @@
 			},
             {
                 field : "sk_id",
-                title : "姓名",
+                title : "小类编号",
                 width : "100"
             },
             {
                 field : "f_id",
-                title : "身份证",
+                title : "所对应大类编号",
                 width : "100"
             },
             {
                 field : "name",
-                title : "患者编号",
+                title : "小类名字",
                 width : "100"
             },
         	{

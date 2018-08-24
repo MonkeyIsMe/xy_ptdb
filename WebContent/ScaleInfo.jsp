@@ -93,17 +93,17 @@ $('#scalelist').bootstrapTable({
     columns:[
     	{
             field : "s_ID",
-            title : "病人Id",
+            title : "量表编号",
             width : "100"
         },
         {
             field : "s_Name",
-            title : "病人Id",
+            title : "量表名字",
             width : "100"
         },
         {
             field : "s_Intro",
-            title : "诊断日期",
+            title : "诊量表说明",
             width : "100"
         },
         {
@@ -113,7 +113,7 @@ $('#scalelist').bootstrapTable({
         },
         {
             field : "updateTime",
-            title : "登记人",
+            title : "量表指导语",
             width : "100"
         },
         {

@@ -93,22 +93,22 @@ $('#scalelist').bootstrapTable({
     columns:[
     	{
             field : "s_ID",
-            title : "ID",
+            title : "量表编号",
             width : "100"
         },
         {
             field : "s_Name",
-            title : "名字",
+            title : "量表名字",
             width : "100"
         },
         {
             field : "s_Intro",
-            title : "基本说明",
+            title : "量表基本说明",
             width : "100"
         },
         {
             field : "s_Guide",
-            title : "指导语",
+            title : "量表指导语",
             width : "100"
         },
         {
