@@ -80,7 +80,7 @@
 <script type="text/javascript">
 
 $('#scalelist').bootstrapTable({
-	url : 'http://localhost/xy_ptdb/ScaleInfo.action', // 请求后台的URL（*）
+	url : 'ScaleInfo.action', // 请求后台的URL（*）
 		method : "post",
 		//toolbar : "#toolbar",
 		pagination : "true",

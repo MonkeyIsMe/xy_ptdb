@@ -80,7 +80,7 @@
 <script type="text/javascript">
 
     $('#fkindlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/FkindInfo.action', // 请求后台的URL（*）
+    	url : 'FkindInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",

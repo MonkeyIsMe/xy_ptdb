@@ -81,7 +81,7 @@
 <script type="text/javascript">
 
     $('#patientlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/PatientInfo.action', // 请求后台的URL（*）
+    	url : 'PatientInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",

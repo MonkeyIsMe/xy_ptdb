@@ -32,7 +32,7 @@ function addpatient(){
 	var gender = $("#gender").val();
 
 	$.post(
-		"http://localhost/xy_ptdb/AddPatient.action",
+		"AddPatient.action",
 		{
 			u_name:u_name,
 			identity:identity,

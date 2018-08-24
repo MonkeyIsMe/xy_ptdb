@@ -11,7 +11,7 @@ function nextScale(){
 function Scale(){
 	t++;
 	$.ajax({ 
-	    url:'http://localhost/xy_ptdb/DoScale.action',
+	    url:'DoScale.action',
 	    type: "POST",
 	    async: false,
 	    dataType: "json",
@@ -22,7 +22,7 @@ function Scale(){
 	    	//获取量表的长度
 	    	scale_length = data.length;
 	    	$.ajax({ 
-		        url:'http://localhost/xy_ptdb/queryChoice.action',
+		        url:'queryChoice.action',
 		        type: "POST",
 		        async: false,
 		        dataType: "json",
@@ -50,7 +50,7 @@ var t = 0;
 var scale_length;
 
 $.ajax({ 
-    url:'http://localhost/xy_ptdb/DoScale.action',
+    url:'DoScale.action',
     type: "POST",
     async: false,
     dataType: "json",
@@ -106,7 +106,7 @@ $("#first").click(function () {
 function pre_one(){
 	t--;
 	$.ajax({ 
-	    url:'http://localhost/xy_ptdb/DoScale.action',
+	    url:'DoScale.action',
 	    type: "POST",
 	    async: false,
 	    dataType: "json",
@@ -117,7 +117,7 @@ function pre_one(){
 	    	//获取量表的长度
 	    	scale_length = data.length;
 	    	$.ajax({ 
-		        url:'http://localhost/xy_ptdb/queryChoice.action',
+		        url:'queryChoice.action',
 		        type: "POST",
 		        async: false,
 		        dataType: "json",

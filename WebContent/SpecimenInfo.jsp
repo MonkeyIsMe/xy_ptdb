@@ -80,7 +80,7 @@
 <script type="text/javascript">
 
     $('#Specimenlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/SpecimenInfo.action', // 请求后台的URL（*）
+    	url : 'SpecimenInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",

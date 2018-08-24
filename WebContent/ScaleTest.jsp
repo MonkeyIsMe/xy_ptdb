@@ -30,7 +30,7 @@
 var t = 0;
 var x = 0;
 $.ajax({ 
-    url:'http://localhost/xy_ptdb/ScaleSee.action',
+    url:'ScaleSee.action',
     type: "POST",
     async: false,
     dataType: "json",

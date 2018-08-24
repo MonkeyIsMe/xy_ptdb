@@ -80,7 +80,7 @@
 <script type="text/javascript">
 
     $('#skindlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/SkindInfo.action', // 请求后台的URL（*）
+    	url : 'SkindInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",

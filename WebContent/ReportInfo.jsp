@@ -80,7 +80,7 @@
 <script type="text/javascript">
 
     $('#recordlist').bootstrapTable({
-    	url : 'http://localhost/xy_ptdb/ReportInfo.action', // 请求后台的URL（*）
+    	url : 'ReportInfo.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",
