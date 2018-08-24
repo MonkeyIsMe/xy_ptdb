@@ -101,5 +101,12 @@
 			 <result name="error"></result>
 		</action>
 		
+		<action name="TestSkind" class="com.csu.action.TestSkindInfoAction" method="queryTestSkindInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">skind</param>
+            </result>
+		</action>
+		
 	</package>
 </struts>
