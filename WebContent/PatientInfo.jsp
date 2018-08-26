@@ -185,7 +185,7 @@
     			var oRow = JSON.parse(JSON.stringify(row));
     			console.log(oRow);
     			//alert(oRow.patientId);
-    			window.open("AssayInfo.jsp?patientId="+ oRow.patientId);
+    			window.open("SeePatientInfo.jsp?patientId="+ oRow.patientId);
     			//window.open("ScaleInfo.jsp");
     		}
     }

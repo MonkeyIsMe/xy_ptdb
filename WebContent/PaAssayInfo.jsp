@@ -21,49 +21,8 @@
 <% String use_id = request.getParameter("patientId"); 
    session.setAttribute("use_id",use_id);
 %>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">心理测评系统</a>
-        </div>
-        <div class="collapse navbar-collapse" id="example-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="AddPatient.jsp">病人管理</a></li>
-                <li><a href="#">课题管理</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        信息管理 <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="SpecimenInfo.jsp">标本信息管理</a></li>
-                        <li class="divider"></li>
-                        <li><a href="RecordInfo.jsp">记录信息管理</a></li>
-                        <li class="divider"></li>
-                        <li><a href="ReportInfo.jsp">报告信息管理</a></li>
-                        <li class="divider"></li>
-                        <li><a href="ResultInfo.jsp">结果信息管理</a></li>
-                        <li class="divider"></li>
-                        <li><a href="FkindInfo.jsp">大类管理</a></li>
-                        <li class="divider"></li>
-                        <li><a href="SkindInfo.jsp">小类管理</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        量表管理 <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="SeeScale.jsp">查看量表</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">增加量表</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">系统管理</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container" style="width: 1400px">
+
+<div class="container" style="width: 1300px">
     <div class="panel panel-default">
         <div class="panel-heading" style="padding-bottom: 10px;">
             <h3 class="panel-title">
@@ -105,37 +64,37 @@
             {
                 field : "FPGlucose",
                 title : "空腹血糖",
-                width : "100"
+                width : "80"
             },
             {
                 field : "twoHourGlucose",
                 title : "2小时后血糖",
-                width : "100"
+                width : "80"
             },
             {
                 field : "ftriglycerides",
                 title : "空腹甘油三酯",
-                width : "100"
+                width : "80"
             },
             {
                 field : "hdLipoprotein",
                 title : "高密度脂蛋白",
-                width : "100"
+                width : "80"
             },
             {
                 field : "bmi",
                 title : "体重（KG）/身高（米）",
-                width : "100"
+                width : "80"
             },
             {
                 field : "bloodPressure",
                 title : "血压",
-                width : "100"
+                width : "80"
             },
             {
                 field : "assayDate",
                 title : "创建日期",
-                width : "100"
+                width : "80"
             },
         	{
 				field : "action",

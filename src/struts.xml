@@ -121,5 +121,19 @@
             </result>
 		</action>
 		
+		<action name="PaRecordInfo" class="com.csu.action.PaRecordInfo" method="queryRecordInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			 <param name="root">record</param>
+            </result>
+		</action>
+		
+		<action name="PaSpecimenInfo" class="com.csu.action.PaSpecimenInfo" method="querySpecimenInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			 <param name="root">sp</param>
+            </result>
+		</action>
+		
 	</package>
 </struts>
