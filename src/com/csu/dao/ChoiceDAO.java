@@ -26,4 +26,6 @@ public interface ChoiceDAO {
 	public List<SubChoice> QuerySubChoice();
 	
 	public List<SubChoice> QuerySubChoiceById(int I_ID);
+	
+	public List<Choice> getChoice(int I_ID,int C_Num);
 }

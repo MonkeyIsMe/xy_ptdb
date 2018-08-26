@@ -287,5 +287,33 @@ public class TestDAOImpl {
 		}
 	}
 	
+	@Test
+	public void getChoice() {
+		int id = 5;
+		int num = 5;
+		ChoiceDAO cd = new ChoiceDAOImpl();
+		List<Choice> list = cd.getChoice(id, num);
+		for(Choice ch : list) {
+			System.out.println(ch.toString());
+		}
+	}
 	
+	@Test
+	public void queryScaleItem() {
+		int id = 9;
+		ScaleDAO sd = new ScaleDAOImpl();
+		ScaleItem si = sd.queryScaleItem(id);
+		System.out.println(si.toString());
+	}
+	
+	@Test
+	public void queryTresultByTwoId() {
+		int uid = 1;
+		int sid = 85;
+		ResultDAO rd = new ResultDAOImpl();
+		List<Tresult> list = rd.queryTresultByTwoId(uid, sid);
+		for(Tresult result :list) {
+			System.out.println(result.toString());
+		}
+	}
 }

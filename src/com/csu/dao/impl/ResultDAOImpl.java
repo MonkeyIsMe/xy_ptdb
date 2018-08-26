@@ -306,4 +306,27 @@ public class ResultDAOImpl implements ResultDAO{
 		return list;
 	}
 
+	@Override
+	public List<Tresult> queryTresultByTwoId(int U_ID, int S_ID) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<Tresult> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "From Tresult where U_ID = ? and S_ID = ?";
+			Query query = session.createQuery(hql);
+			query.setParameter(0, U_ID);
+			query.setParameter(1, S_ID);
+			list = query.list();
+            session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
+		return list;
+	}
+
 }

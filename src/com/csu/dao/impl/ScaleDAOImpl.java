@@ -308,4 +308,22 @@ public class ScaleDAOImpl implements ScaleDAO{
 		return list;
 	}
 
+	@Override
+	public ScaleItem queryScaleItem(int I_ID) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		ScaleItem result = null;
+		try {
+			session.beginTransaction();
+			result = session.get(ScaleItem.class, I_ID);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return result;
+		}
+		return result;
+	}
+
 }

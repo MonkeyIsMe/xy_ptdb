@@ -36,4 +36,7 @@ public interface ResultDAO {
 	public List<Tresult> queryTresultById(int I_ID);
 	
 	public List<Result> queryResultsByRecordId(int recordId);
+	
+	public List<Tresult> queryTresultByTwoId(int U_ID,int S_ID);
+	
 }

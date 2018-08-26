@@ -115,5 +115,11 @@
             </result>
 		</action>
 		
+		<action name="CreateReport" class="com.csu.action.ReportAction" method="SendReport">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+            </result>
+		</action>
+		
 	</package>
 </struts>
