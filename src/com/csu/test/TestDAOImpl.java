@@ -316,4 +316,15 @@ public class TestDAOImpl {
 			System.out.println(result.toString());
 		}
 	}
+	
+	@Test
+	public void queryScaleitemByFactor() {
+		int id = 3;
+		int factor = 1025;
+		ScaleDAO sd = new ScaleDAOImpl();
+		List<ScaleItem> list = sd.queryScaleItemByFactor(id, factor);
+		for(ScaleItem si : list) {
+			System.out.println(si.toString());
+		}
+	}
 }

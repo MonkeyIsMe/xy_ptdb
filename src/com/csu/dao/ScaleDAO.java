@@ -36,5 +36,7 @@ public interface ScaleDAO {
 	
 	public ScaleItem queryScaleItem(int I_ID);
 	
+	public List<ScaleItem> queryScaleItemByFactor(int s_ID,int I_Factor);
+	
 	public List<ScaleItem> queryScaleItemByPageSid(int i,int pagesize,int s_ID);
 }

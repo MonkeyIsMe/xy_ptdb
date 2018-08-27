@@ -326,4 +326,27 @@ public class ScaleDAOImpl implements ScaleDAO{
 		return result;
 	}
 
+	@Override
+	public List<ScaleItem> queryScaleItemByFactor(int s_ID, int I_Factor) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<ScaleItem> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "From ScaleItem where s_ID = ? and I_Factor = ?";
+			Query query = session.createQuery(hql);
+			query.setParameter(0, s_ID);
+			query.setParameter(1, I_Factor);
+			list = query.list();
+            session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
+		return list;
+	}
+
 }
