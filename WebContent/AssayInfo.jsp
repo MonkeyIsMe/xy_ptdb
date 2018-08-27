@@ -18,9 +18,6 @@
     <link href="table/bootstrap-table.css">
 </head>
 <body>
-<% String fkind_id = request.getParameter("fkind_id"); 
-   session.setAttribute("fkind_id",fkind_id);
-%>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -67,7 +64,7 @@
         </div>
     </div>
 </nav>
-<div class="container" style="width: 1400px">
+<div class="container" style="width: 1300px">
     <div class="panel panel-default">
         <div class="panel-heading" style="padding-bottom: 10px;">
             <h3 class="panel-title">
@@ -76,7 +73,7 @@
         </div>
         <div class="panel-body">
             <div>
-                <table id="skindlist" class="table table-bordered table-hover table-striped" data-toggle="table">
+                <table id="assaylist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>
         </div>
@@ -86,8 +83,8 @@
 </body>
 <script type="text/javascript">
 
-    $('#skindlist').bootstrapTable({
-    	url : 'TestSkind.action', // 请求后台的URL（*）
+    $('#assaylist').bootstrapTable({
+    	url : 'GetAssay.action', // 请求后台的URL（*）
  		method : "post",
  		//toolbar : "#toolbar",
  		pagination : "true",
@@ -107,33 +104,59 @@
 				width : "50"
 			},
             {
-                field : "sk_id",
-                title : "小类编号",
-                width : "100"
+                field : "FPGlucose",
+                title : "空腹血糖",
+                width : "80"
             },
             {
-                field : "f_id",
-                title : "对应大类编号",
-                width : "100"
+                field : "twoHourGlucose",
+                title : "2小时后血糖",
+                width : "80"
             },
             {
-                field : "name",
-                title : "小类名字",
-                width : "100"
+                field : "ftriglycerides",
+                title : "空腹甘油三酯",
+                width : "80"
+            },
+            {
+                field : "hdLipoprotein",
+                title : "高密度脂蛋白",
+                width : "80"
+            },
+            {
+                field : "bmi",
+                title : "体重（KG）/身高（米）",
+                width : "80"
+            },
+            {
+                field : "bloodPressure",
+                title : "血压",
+                width : "80"
+            },
+            {
+                field : "assayDate",
+                title : "创建日期",
+                width : "80"
             },
         	{
 				field : "action",
 				formatter : "Formatter",
 				events : "operateEvents",
 				align : "center",
-				title : "测试",
+				title : "添加",
 				width : "100"
 			}
 
         ]
     });
     function Formatter(value, row, index) {
-		return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;'
+		return '<a id="res"><span class="glyphicon glyphicon-plus" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;';
 	}
+    window.operateEvents = {
+    		'click #res' : function(e, value, row, index) {
+    			var oRow = JSON.parse(JSON.stringify(row));
+    			console.log(oRow);
+    		}
+    }
 </script>
 </html>

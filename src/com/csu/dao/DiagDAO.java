@@ -39,5 +39,5 @@ public interface DiagDAO {
 	
 	public boolean deleteDiagType(DiagClass diagtype);
 	
-	public List<DiagType> querDiagType();
+	public List<DiagType> queryDiagType();
 }

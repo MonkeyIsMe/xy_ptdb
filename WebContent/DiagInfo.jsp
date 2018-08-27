@@ -2,9 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html;">
-<meta charset="utf-8">
-<title>心理测评系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- 可选的Bootstrap主题文件（一般不使用） -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
@@ -16,11 +15,13 @@
     <script src="table/bootstrap-table-zh-CN.js"></script>
     <script src="table/bootstrap-table.js"></script>
     <link href="table/bootstrap-table.css">
+    
+       <link rel="stylesheet" href="css/man-maincss.css" type="text/css">
+
+    <script type="text/javascript" src="js/diag.js"></script>	
+    
 </head>
 <body>
-<% String fkind_id = request.getParameter("fkind_id"); 
-   session.setAttribute("fkind_id",fkind_id);
-%>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -67,73 +68,44 @@
         </div>
     </div>
 </nav>
-<div class="container" style="width: 1400px">
-    <div class="panel panel-default">
-        <div class="panel-heading" style="padding-bottom: 10px;">
-            <h3 class="panel-title">
-                <i class="glyphicon glyphicon-tasks"></i> 病人列表
-            </h3>
-        </div>
-        <div class="panel-body">
-            <div>
-                <table id="skindlist" class="table table-bordered table-hover table-striped" data-toggle="table">
-                </table>
+<div class="contain" id="contain">
+    <div class="middle" id="middle">
+        <div class="left" id="left">
+
+            <div class="list-group left-list">
+                <a href="#" class="list-group-item" id="list_tbl1" onclick="MenuDisplay_1()">诊断规则</a>
+
+                <a href="#" class="list-group-item" id="list_tbl2" onclick="MenuDisplay_2()">诊断类别</a>
+
+                <a href="#" class="list-group-item" id="list_tbl3" onclick="MenuDisplay_3()">诊断名字</a>
+
+ 				<a href="#" class="list-group-item" id="list_tbl3" onclick="MenuDisplay_4()">诊断类型</a>
             </div>
+        </div>
+
+        <div class="right" id="right">
+
+            <IFRAME src="DiagRuleInfo.jsp" id="Drule" frameBorder=0 width="1310px"
+                    height="681px">
+            </IFRAME>
+            
+            <IFRAME src="DiagTypeInfo.jsp" id="Dtype" frameBorder=0 width="1310px"
+                    height="681px" style="display: none">
+            </IFRAME>
+            
+			<IFRAME src="DiagNameInfo.jsp" id="Dname" frameBorder=0 width="1310px"
+                    height="681px" style="display: none">
+            </IFRAME>
+
+
+            <IFRAME src="DiagClassInfo.jsp" id="Dclass" frameBorder=0 width="1310px"
+                    height="681px" style="display: none">
+            </IFRAME>
+            
+
         </div>
 
     </div>
 </div>
 </body>
-<script type="text/javascript">
-
-    $('#skindlist').bootstrapTable({
-    	url : 'TestSkind.action', // 请求后台的URL（*）
- 		method : "post",
- 		//toolbar : "#toolbar",
- 		pagination : "true",
- 		search : "true",
- 		showRefresh : "true",
- 		showToggle : "true",
- 		showColumns : "true",
- 		pageSize : "25",
- 		clickToSelect : "true",
-        columns:[
-        	{
-				field : 'Number',
-				title : '编号',
-				formatter : function(value, row, index) {
-					return index + 1;
-				},
-				width : "50"
-			},
-            {
-                field : "sk_id",
-                title : "小类编号",
-                width : "100"
-            },
-            {
-                field : "f_id",
-                title : "对应大类编号",
-                width : "100"
-            },
-            {
-                field : "name",
-                title : "小类名字",
-                width : "100"
-            },
-        	{
-				field : "action",
-				formatter : "Formatter",
-				events : "operateEvents",
-				align : "center",
-				title : "测试",
-				width : "100"
-			}
-
-        ]
-    });
-    function Formatter(value, row, index) {
-		return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;'
-	}
-</script>
 </html>

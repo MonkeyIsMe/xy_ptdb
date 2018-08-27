@@ -108,7 +108,7 @@
             </result>
 		</action>
 		
-		<action name="QueryAssay" class="com.csu.action.AssayInfoAction" method="queryAssay">
+		<action name="QueryAssay" class="com.csu.action.PaAssayInfoAction" method="queryAssay">
 			<!-- 定义处理结果与视图资源之间的关系 -->
 			 <result name="success" type="json">
 			  <param name="root">assay</param>
@@ -132,6 +132,41 @@
 			<!-- 定义处理结果与视图资源之间的关系 -->
 			 <result name="success" type="json">
 			 <param name="root">sp</param>
+            </result>
+		</action>
+		
+		<action name="GetAssay" class="com.csu.action.AssayInfoAction" method="queryAssayInfo">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			  <param name="root">assay</param>
+            </result>
+		</action>
+		
+		<action name="queryDiagType" class="com.csu.action.DiagInfoAction" method="queryDiagType">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			 <param name="root">diag_type</param>
+            </result>
+		</action>
+		
+		<action name="queryDiagRule" class="com.csu.action.DiagInfoAction" method="queryDiagRule">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			 <param name="root">diag_rule</param>
+            </result>
+		</action>
+		
+		<action name="queryDiagClass" class="com.csu.action.DiagInfoAction" method="queryDiagClass">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			 <param name="root">diag_class</param>
+            </result>
+		</action>
+		
+		<action name="queryDiagName" class="com.csu.action.DiagInfoAction" method="queryDiagName">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
+			 <param name="root">diag_name</param>
             </result>
 		</action>
 		

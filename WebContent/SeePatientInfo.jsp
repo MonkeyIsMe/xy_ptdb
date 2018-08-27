@@ -28,7 +28,7 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">心理测评系统</a>
+            <a class="navbar-brand" href="PatientInfo.jsp">心理测评系统</a>
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav">
@@ -50,6 +50,10 @@
                         <li><a href="FkindInfo.jsp">大类管理</a></li>
                         <li class="divider"></li>
                         <li><a href="SkindInfo.jsp">小类管理</a></li>
+                        <li class="divider"></li>
+                        <li><a href="AssayInfo.jsp">病人详细信息管理</a></li>
+                         <li class="divider"></li>
+                        <li><a href="DiagInfo.jsp">诊断信息管理</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

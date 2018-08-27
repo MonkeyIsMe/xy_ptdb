@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import net.sf.json.JSONArray;
 
-public class AssayInfoAction extends ActionSupport{
+public class PaAssayInfoAction extends ActionSupport{
 	
 	private List<Assay> assay;
 
@@ -28,9 +28,13 @@ public class AssayInfoAction extends ActionSupport{
 		this.assay = assay;
 	}
 	
-	public String queryAssayInfo() {
+	public String queryAssay() {
 		ServletActionContext.getResponse().setContentType("text/html; charset=utf-8");
-		assay = query();
+		HttpServletRequest request= ServletActionContext.getRequest();
+		HttpSession session  = request.getSession();
+		String use_id = (String) session.getAttribute("patientId");
+		System.out.println(use_id);
+		assay = query(use_id);
 		JSONArray arr = JSONArray.fromObject(assay);
 		PrintWriter out = null;
 		try {
@@ -46,11 +50,12 @@ public class AssayInfoAction extends ActionSupport{
 		return SUCCESS;
 	}
 
-	private List<Assay> query() {
+	private List<Assay> query(String use_id) {
 		// TODO Auto-generated method stub
 		List<Assay> list = null;
 		AssayDAO ad = new AssayDAOImpl();
-		list = ad.getAllAssay();
+		int id = Integer.parseInt(use_id);
+		list = ad.getAssayById(id);
 		return list;
 	}
 	

@@ -322,7 +322,7 @@ public class DiagDAOImpl implements DiagDAO{
 	}
 
 	@Override
-	public List<DiagType> querDiagType() {
+	public List<DiagType> queryDiagType() {
 		// TODO Auto-generated method stub
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
