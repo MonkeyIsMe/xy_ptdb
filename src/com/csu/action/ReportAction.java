@@ -22,6 +22,14 @@ public class ReportAction extends ActionSupport{
 		//System.out.println(score);
 		//System.out.println(score.length());
 		
+		//记录每一题的得分
+		int [] cal = new int [score.length()];
+		
+		for(int i = 0 ;i<score.length() ; i++) {
+			int val = score.charAt(i) - '0';
+			cal[i] = val;
+		}
+		
 		//获取题目编号
 		HttpServletRequest reqeust= ServletActionContext.getRequest();
 		HttpServletRequest req = ServletActionContext.getRequest();
@@ -31,7 +39,9 @@ public class ReportAction extends ActionSupport{
 		
 		//获取题目
 		ScaleDAO sd = new ScaleDAOImpl();
-		List<ScaleItem> si = sd.queryScaleItemById(scale);
+		List<ScaleItem> list = sd.queryScaleItemById(scale);
+		int scale_size = list.size();
+		
 		
 		
 	}

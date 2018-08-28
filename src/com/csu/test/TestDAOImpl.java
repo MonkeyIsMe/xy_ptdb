@@ -327,4 +327,15 @@ public class TestDAOImpl {
 			System.out.println(si.toString());
 		}
 	}
+	
+	@Test
+	public void queryScaleitemByOrder() {
+		int id = 3;
+		ScaleDAO sd = new ScaleDAOImpl();
+		List<ScaleItem> list =sd.queryScaleItemByOrder(id);
+		System.out.println(list.size());
+		for(ScaleItem si : list) {
+			System.out.println(si.toString());
+		}
+	}
 }

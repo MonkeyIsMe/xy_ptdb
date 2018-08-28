@@ -349,4 +349,28 @@ public class ScaleDAOImpl implements ScaleDAO{
 		return list;
 	}
 
+	@Override
+	public List<ScaleItem> queryScaleItemByOrder(int s_ID) {
+		// TODO Auto-generated method stub
+		
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		List<ScaleItem> list = null;
+		
+		try {
+			session.beginTransaction();
+			String hql = "From ScaleItem where S_ID = ? order by I_Factor asc";
+			Query query = session.createQuery(hql);
+			query.setParameter(0, s_ID);
+			list = query.list();
+			//session.getTransaction().commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return list;
+		}
+		
+		return list;
+	}
+
 }
