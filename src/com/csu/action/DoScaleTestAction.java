@@ -42,7 +42,7 @@ public class DoScaleTestAction extends ActionSupport{
         out.println(arr.toString());
         out.flush(); 
         out.close(); 
-		System.out.println(si.size());
+		//System.out.println(si.size());
 		return SUCCESS;
 		
 	}
