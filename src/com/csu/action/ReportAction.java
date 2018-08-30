@@ -43,8 +43,9 @@ public class ReportAction extends ActionSupport{
 		HttpServletRequest reqeust = ServletActionContext.getRequest();
 		HttpSession session  = reqeust.getSession();
 		String scale_id = (String) session.getAttribute("scale_id");
+		String patientId = (String) session.getAttribute("use_id");
 		int scale = Integer.parseInt(scale_id);
-		
+		System.out.println(patientId);
 		//获取题目总集合
 		ScaleDAO sd = new ScaleDAOImpl();
 		List<ScaleItem> list = sd.queryScaleItemByOrder(scale);
@@ -97,29 +98,41 @@ public class ReportAction extends ActionSupport{
 			System.out.println(val[i]+" "+cnt);
 		}*/
 		
-		String comments = "指导意见:\n";
+		String comments = "指导意见<br>";
 		for(int i = 0 ; i < cnt ; i++) {
 			//System.out.println(i);
 			int f_num = i + 1;
 			ReferenceDAO rd = new ReferenceDAOImpl();
 			List<Reference> refer_list = rd.getRefer(scale, f_num);
 			List<Factor> factor_list = fd.getFactor(scale, f_num);
+			comments += f_num;
+			comments += ".";
+			comments += "内容：  ";
 			comments += factor_list.get(0).getF_Content();
-			comments +="\n";
+			comments += "<br>";
+			comments += "说明：  ";
 			comments += factor_list.get(0).getF_Info();
-			comments +="\n";
+			comments += "<br>";
+			comments += "得分：  ";
+			comments += val[i];
+			comments += "<br>";
 			for(int j = 0 ; j < refer_list.size() ; j++) {
 				Reference refer = refer_list.get(j);
 				//System.out.println(refer.getR_Score2() + " " + refer.getR_Score1() +" "+ val[i]);
 				if(val[i] <= refer.getR_Score2() && val[i] >= refer.getR_Score1()) {
 					//System.out.println(222);
+					comments += "建议意见：";
 					comments += refer.getR_Suggestion();
-					comments +="\n";
+					comments += "<br>";
 					break;
 				}
 			}
 		}
+		comments += "总分：";
+		comments += ans;
 		session.setAttribute("comments", comments);
+		session.setAttribute("s_id", scale_id);
+		session.setAttribute("p_id", patientId);
 		
 		PrintWriter out = null;
 		try {

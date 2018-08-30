@@ -18,6 +18,9 @@
     <link href="table/bootstrap-table.css">
 </head>
 <body>
+<% String use_id = request.getParameter("patientId"); 
+   session.setAttribute("use_id",use_id);
+%>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
