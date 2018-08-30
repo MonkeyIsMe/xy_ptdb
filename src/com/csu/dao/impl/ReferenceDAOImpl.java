@@ -105,7 +105,7 @@ public class ReferenceDAOImpl implements ReferenceDAO{
 			Query query = session.createQuery(hql);
 			query.setParameter(0, sid);
 			query.setParameter(1, fid);
-			System.out.println(sid + " "+ fid);
+			//System.out.println(sid + " "+ fid);
 			refer = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {

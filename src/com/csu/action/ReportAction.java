@@ -1,5 +1,7 @@
 package com.csu.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,16 +10,19 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import com.csu.dao.FactorDAO;
+import com.csu.dao.ReferenceDAO;
 import com.csu.dao.ScaleDAO;
 import com.csu.dao.impl.FactorDAOImpl;
+import com.csu.dao.impl.ReferenceDAOImpl;
 import com.csu.dao.impl.ScaleDAOImpl;
 import com.csu.entity.Factor;
+import com.csu.entity.Reference;
 import com.csu.entity.ScaleItem;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ReportAction extends ActionSupport{
 	
-	public void SendReport() {
+	public String SendReport() {
 		HttpServletRequest request= ServletActionContext.getRequest();
 		//获取每道题的分数
 		String score = request.getParameter("score");
@@ -35,9 +40,8 @@ public class ReportAction extends ActionSupport{
 		//System.out.println(cal.length);
 		
 		//获取题目编号
-		HttpServletRequest reqeust= ServletActionContext.getRequest();
-		HttpServletRequest req = ServletActionContext.getRequest();
-		HttpSession session  = req.getSession();
+		HttpServletRequest reqeust = ServletActionContext.getRequest();
+		HttpSession session  = reqeust.getSession();
 		String scale_id = (String) session.getAttribute("scale_id");
 		int scale = Integer.parseInt(scale_id);
 		
@@ -89,9 +93,47 @@ public class ReportAction extends ActionSupport{
 			cnt++;
 			}
 		//System.out.println(cnt);
-		for(int i = 0 ; i < cnt ;i++) {
+		/*for(int i = 0 ; i < cnt ;i++) {
 			System.out.println(val[i]+" "+cnt);
+		}*/
+		
+		String comments = "指导意见:\n";
+		for(int i = 0 ; i < cnt ; i++) {
+			//System.out.println(i);
+			int f_num = i + 1;
+			ReferenceDAO rd = new ReferenceDAOImpl();
+			List<Reference> refer_list = rd.getRefer(scale, f_num);
+			List<Factor> factor_list = fd.getFactor(scale, f_num);
+			comments += factor_list.get(0).getF_Content();
+			comments +="\n";
+			comments += factor_list.get(0).getF_Info();
+			comments +="\n";
+			for(int j = 0 ; j < refer_list.size() ; j++) {
+				Reference refer = refer_list.get(j);
+				//System.out.println(refer.getR_Score2() + " " + refer.getR_Score1() +" "+ val[i]);
+				if(val[i] <= refer.getR_Score2() && val[i] >= refer.getR_Score1()) {
+					//System.out.println(222);
+					comments += refer.getR_Suggestion();
+					comments +="\n";
+					break;
+				}
+			}
 		}
+		session.setAttribute("comments", comments);
+		
+		PrintWriter out = null;
+		try {
+			out = ServletActionContext.getResponse().getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		out.println("success");
+		out.flush(); 
+        out.close(); 
+		//System.out.println(comments);
+		//System.out.println(111);
+		return null;
 	}
 	
 }

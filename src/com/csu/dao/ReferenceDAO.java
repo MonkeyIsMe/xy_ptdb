@@ -15,4 +15,6 @@ public interface ReferenceDAO {
 	public List<Reference> Query();
 	
 	public List<Reference> getRefer(int sid,int fid);
+	
+	
 }

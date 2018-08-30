@@ -117,17 +117,28 @@ function next(x){
 	//alert(t);
 	if(t == scale_length){
 		//alert("1."+" "+t);
-		$.ajax({
+/*		$.ajax({
 			url:'CreateReport.action',
 			type:"POST",
 			data:{
 				score:score,
 			},
-			dataType: "json",
 			success:function(data){
-				alert(1111);
+				alert(data);
 			}
-		});
+		});*/
+		$.post(
+			"CreateReport.action",
+			{
+				score:score,
+			},
+			function(data){
+				//alert(data);
+				//window.loaction.href= 'SeeReport.jsp';
+				//window.open("SeeReport.jsp");
+				window.self.location = "SeeReport.jsp";
+			}
+		);
 	}
 	else if(t < scale_length){
 		//alert(t);

@@ -15,4 +15,6 @@ public interface FactorDAO {
 	public List<Factor> query();
 	
 	public List<Factor> getFactorsBySid(int S_id);
+	
+	public List<Factor> getFactor(int s_id,int f_id);
 }

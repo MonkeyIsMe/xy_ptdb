@@ -338,4 +338,15 @@ public class TestDAOImpl {
 			System.out.println(si.toString());
 		}
 	}
+	
+	@Test
+	public void queryFactor() {
+		int sid = 3;
+		int fid = 1;
+		FactorDAO fd = new FactorDAOImpl();
+		List<Factor> list = fd.getFactor(sid, fid);
+		for(Factor fa : list) {
+			System.out.println(fa.toString());
+		}
+	}
 }
