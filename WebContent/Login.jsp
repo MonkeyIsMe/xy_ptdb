@@ -22,7 +22,6 @@
 <body>
 <h1 style="font-family: cursive;font-size: 30px;color: white;margin-top: 100px">心理测试系统</h1>
 <div class="container w3layouts agileits" style="width: 500px">
-    <form action="login.action" method="post">
         <div class="login w3layouts agileits" style="margin-left: 25%">
             <h2 style="margin-left: 28%;font-family: serif;font-size: 30px;color: white;">登录界面</h2>
             <input type="text" name="account" placeholder="用户名"  style="width: 250px" id="account">
@@ -33,7 +32,6 @@
                 <input type="submit" value="登 录" style="margin-left: 25%" id="submit-btn">
             </div>
         </div>
-    </form>
 </div>
 <div id="alert_login" class="alert-danger alert alert-login"
      style="position: relative; top: 52%; margin: 0 auto;width: 500px;height: 50px">

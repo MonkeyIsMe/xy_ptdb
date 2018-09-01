@@ -1,5 +1,7 @@
 package com.csu.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -41,23 +43,35 @@ public class LoginAction extends ActionSupport{
 	
 	String checkcode;
 	
-	public String IsLogin() {
+	public void IsLogin() {
 		HttpServletRequest request= ServletActionContext.getRequest();
-		//String Paccount=reqeust.getParameter("login_code");//�ַ���
-		//String password=reqeust.getParameter("password");//�ַ���
-		//System.out.println(account+" "+password+" "+login_code);
+		String account=request.getParameter("account");//�ַ���
+		String password=request.getParameter("password");
+		String login_code=request.getParameter("login_code");//�ַ���
+		System.out.println(account+" "+password+" "+login_code);
 		HttpSession session  = request.getSession();
 		checkcode = (String)session.getAttribute("checkCode");
 		System.out.println(checkcode );
 		int ans = check(account,password,login_code);
-		if(ans == 0) 
-			return "WrongPassword";
-		else if(ans == 1) 
-			return "LoginSuccess";
-		else if(ans == -1)
-			return "NoAccount";
-		else 
-			return "WrongCode";
+		
+		PrintWriter out = null;
+		try {
+			out = ServletActionContext.getResponse().getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(ans == 0) {
+			out.println("WrongPassword");
+		}
+		else if(ans == 1) {
+			out.println("LoginSuccess");
+		}
+		else if(ans == -1) {
+			out.println("NoAccount");
+		}
+		else out.println("WrongCode");
+		
 	}
 	
 	public int check(String username, String pwd,String code) {
@@ -65,21 +79,22 @@ public class LoginAction extends ActionSupport{
 		SysDAO sd = new SysDAOImpl();
 		int flag = -1;
 		List<SysUser> list = sd.querySysUser();
-		if(checkcode.equals(code)) {
 			for(SysUser su : list) {
 				System.out.println(su.toString());
 				if(username.equals(su.getU_account()) && pwd.equals(su.getU_password())) {
-					flag = 1;
-					break;
+					if(login_code.equals(checkcode)) {
+						flag = 1;
+						break;
+					}
+					else {
+						flag = -2;
+						break;
+					}
 				}
 				else if(username.equals(su.getU_account()) && !pwd.equals(su.getU_password())) {
 					flag = 0;
 				}
 			}
-		}
-		else {
-			flag = -2;
-		}
 		return flag;
 	}
 	
