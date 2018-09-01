@@ -80,6 +80,10 @@ public class ReportAction extends ActionSupport{
 		//System.out.println(scale_size);
 		//System.out.println(t);
 		//提取每一个题目
+		int f = fac[0];
+		List<ScaleItem> first =sd.queryScaleItemByFactor(scale, f);
+		int f_id = first.get(0).getI_ID();
+		System.out.println(f_id);
 		for(int i = 0 ;i < t ;i++) {
 			int i_factor = fac[i];
 			//System.out.println("1."+i+" "+t);
@@ -89,7 +93,7 @@ public class ReportAction extends ActionSupport{
 				ScaleItem fac_item = fac_scale.get(j);
 				int id = fac_item.getI_ID();
 				//System.out.println(id+"   "+cnt+"  "+(id-5));
-				val[cnt] += cal[(id-5)];
+				val[cnt] += cal[(id-f_id)];
 				}
 			cnt++;
 			}

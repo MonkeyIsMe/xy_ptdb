@@ -14,11 +14,27 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+
+	#panel{
+	        text-align: center; /*让div内部文字居中*/
+	        background-color: #fff;
+	        border-radius: 20px;
+	        width: 300px;
+	        height: 350px;
+	        margin: auto;
+	        position: absolute;
+	        top: 0;
+	        left: 0;
+	        right: 0;
+	        bottom: 0;
+	    }
+</style>
 <body>
 <% String scale_id = request.getParameter("scale_id"); 
    session.setAttribute("scale_id",scale_id);
 %>
-<div style="width:500px">
+<div style="width:500px" id="panel">
     <div class="alert alert-info">
         <div id="problem" style="margin-left: 35%"></div>
     </div>

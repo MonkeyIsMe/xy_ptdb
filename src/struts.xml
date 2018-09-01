@@ -9,12 +9,11 @@
 	<package name="json"  extends="json-default" namespace="/">
 		<!-- 定义login的action,其实现类为LoginAction -->
 		
-		<!-- <action name="login" class="com.csu.action.LoginAction" method="IsLogin">
-			定义处理结果与视图资源之间的关系
-			<result name="LoginSuccess" >/success.jsp</result>
-			<result name="WrongPassword" >/fail.jsp</result>
-			<result name="NoAccount" >/fail.jsp</result>
-		</action> -->
+		
+		<action name="login" class="com.csu.action.LoginAction" method="IsLogin">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="LoginSuccess" >/PatientInfo.jsp</result>
+		</action>
 		
 		<action name="PatientInfo" class="com.csu.action.PatientInfoAction" method="queryPatientInfo">
 			<!-- 定义处理结果与视图资源之间的关系 -->
@@ -167,6 +166,12 @@
 			<!-- 定义处理结果与视图资源之间的关系 -->
 			 <result name="success" type="json">
 			 <param name="root">diag_name</param>
+            </result>
+		</action>
+		
+		<action name="SendCode" class="com.csu.action.CodeAction" method="SendCode">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="success" type="json">
             </result>
 		</action>
 		
