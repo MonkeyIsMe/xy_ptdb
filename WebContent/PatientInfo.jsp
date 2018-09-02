@@ -75,7 +75,25 @@
 
     </div>
 </div>
-
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    是否确定删除改用户
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" id="delete">确定 </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 </body>
 <script type="text/javascript">
 
@@ -119,7 +137,7 @@
 				formatter : "Formatter",
 				events : "operateEvents",
 				align : "center",
-				title : "查看-测试",
+				title : "查看-测试-删除",
 				width : "120"
 			}
 
@@ -127,7 +145,8 @@
     });
     function Formatter(value, row, index) {
 		return '<a id="res"><span class="glyphicon glyphicon-user" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
-			'<a id="pic" ><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;';
+			'<a id="pic" ><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;'+
+			'<a id="minus" ><span class="glyphicon glyphicon-minus" data-toggle="modal" data-target="#myModal" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;';
 	}
     window.operateEvents = {
     		'click #res' : function(e, value, row, index) {
@@ -144,6 +163,33 @@
     			window.open("ScaleInfo.jsp?patientId="+ oRow.patientId);
     			//window.open("ScaleInfo.jsp");
     		},
+    		'click #minus' : function(e, value, row, index) {
+/*     			var oRow = JSON.parse(JSON.stringify(row));
+    			console.log(oRow);
+    			//alert(oRow.patientId);
+    			window.open("ScaleInfo.jsp?patientId="+ oRow.patientId); */
+    			//window.open("ScaleInfo.jsp");
+    			var oRow = JSON.parse(JSON.stringify(row));
+    			$("#delete").click(function(){
+    				DeletePatient(oRow.u_id);
+    			});
+    			
+    		},
+    }
+    
+    function DeletePatient(p_id){
+    //alert(p_id);
+      	$.post(
+    			"DeletePatient.action",
+    			{
+    				p_id:p_id,
+    			},
+    			function(data){
+    				data = data.replace(/^\s*/, "").replace(/\s*$/, "");
+    				if(data == "SUCCESS") alert("删除成功");
+    				window.location.replace("PatientInfo.jsp")
+    			}
+    	) 
     }
     
     var phoneWidth =  parseInt(window.screen.width);

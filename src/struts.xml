@@ -175,6 +175,11 @@
             </result>
 		</action>
 		
+		<action name="DeletePatient" class="com.csu.action.DeletePatientAction" method="delete">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="SUCCESS"></result>
+		</action>
+		
 		
 	</package>
 </struts>
