@@ -22,7 +22,7 @@
    session.setAttribute("use_id",use_id);
 %>
 
-<div class="container" style="width: 1300px">
+<div class="container" style="width: 100%">
     <div class="panel panel-default">
         <div class="panel-heading" style="padding-bottom: 10px;">
             <h3 class="panel-title">

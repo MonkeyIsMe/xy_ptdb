@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta charset="utf-8">
 <title>心理测评系统</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -21,21 +22,17 @@
 <% String use_id = request.getParameter("patientId"); 
    session.setAttribute("use_id",use_id);
 %>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="PatientInfo.jsp">心理测评系统</a>
-        </div>
-        <div class="collapse navbar-collapse" id="example-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="AddPatient.jsp">病人管理</a></li>
-                <li><a href="#">课题管理</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        信息管理 <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="SpecimenInfo.jsp">标本信息管理</a></li>
+<div>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="navbar-header"><a href="PatientInfo.jsp" style="font-size:15px">心理测评系统</a></li>
+  <li role="presentation"><a href="AddPatient.jsp">病人管理</a></li>
+  <li role="presentation"><a href="#">课题管理</a></li>
+   <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      信息管理  <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+       <li><a href="SpecimenInfo.jsp">标本信息管理</a></li>
                         <li class="divider"></li>
                         <li><a href="RecordInfo.jsp">记录信息管理</a></li>
                         <li class="divider"></li>
@@ -48,26 +45,24 @@
                         <li><a href="SkindInfo.jsp">小类管理</a></li>
                         <li class="divider"></li>
                         <li><a href="AssayInfo.jsp">病人详细信息管理</a></li>
-                         <li class="divider"></li>
+                        <li class="divider"></li>
                         <li><a href="DiagInfo.jsp">诊断信息管理</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        量表管理 <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="SeeScale.jsp">查看量表</a></li>
+    </ul>
+  </li>
+   <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      量表管理 <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+       <li><a href="SeeScale.jsp">查看量表</a></li>
                         <li class="divider"></li>
                         <li><a href="#">增加量表</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">系统管理</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container" style="width: 1400px">
+    </ul>
+  </li>
+  <li role="presentation"><a href="#">系统管理</a></li>
+</ul>
+</div>
+<div class="container" style="width: 100%">
     <div class="panel panel-default">
         <div class="panel-heading" style="padding-bottom: 10px;">
             <h3 class="panel-title">
