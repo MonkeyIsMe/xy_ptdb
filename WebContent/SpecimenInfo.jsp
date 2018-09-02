@@ -91,52 +91,64 @@
         columns:[
             {
                 field : "specimen_name",
-                title : "标本名称",
-                width : "100"
+                title : "名称",
+                width : "20"
             },
             {
                 field : "specimen_type",
-                title : "标本类型",
-                width : "100"
+                title : "类型",
+                width : "80"
             },
             {
                 field : "specimen_place",
                 title : "地点存放",
-                width : "100"
+                width : "80"
             },
             {
                 field : "specimen_record",
-                title : "使用记录",
-                width : "100"
+                title : "记录",
+                width : "80"
             },
             {
                 field : "patientId",
-                title : "标本对应的患者编号",
-                width : "100"
+                title : "编号",
+                width : "80"
             },
             {
                 field : "specimen_num",
-                title : "标本数量",
-                width : "100"
+                title : "数量",
+                width : "80"
             },
             {
                 field : "concentration",
-                title : "标本浓度",
-                width : "100"
+                title : "浓度",
+                width : "80"
             },
             {
                 field : "latestTime",
                 title : "最近使用时间",
-                width : "100"
+                width : "80"
             },
             {
                 field : "description",
                 title : "备注",
-                width : "100"
+                width : "80"
             },
         ]
     });
 
-
+    var phoneWidth =  parseInt(window.screen.width);
+    var phoneScale = phoneWidth/640;
+    var ua = navigator.userAgent;
+    if (/Android (\d+\.\d+)/.test(ua)){
+        var version = parseFloat(RegExp.$1);
+        if(version>2.3){
+            document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+        }else{
+            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+    }
 </script>
 </html>

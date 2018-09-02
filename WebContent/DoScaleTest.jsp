@@ -36,37 +36,51 @@
 %>
 <div style="width:500px" id="panel">
     <div class="alert alert-info">
-        <div id="problem" style="margin-left: 35%"></div>
+        <div id="problem" style="text-align:center"></div>
     </div>
     <div class="btn-group" data-toggle="buttons">
 
         <button type="button" class="btn btn-info" id="buttonA" style="width:500px">
-	        <div style="float:left;margin-left: 36%">A.</div>
+	        <div style="float:left;margin-left: 45%">A.</div>
 	        <div id="option1" style="float:left;margin-left: 10px"></div>
         </button><br><br>
 
        <button type="button" class="btn btn-info" id="buttonB" style="width:500px">
-	        <div style="float:left;margin-left: 36%">B.</div>
+	        <div style="float:left;margin-left: 45%">B.</div>
 	        <div id="option2" style="float:left;margin-left: 10px"></div>
        </button><br><br>
 
        <button type="button" class="btn btn-info" id="buttonC" style="width:500px">
-            <div style="float:left;margin-left: 36%">C.</div>
+            <div style="float:left;margin-left: 45%">C.</div>
         	<div id="option3" style="float:left;margin-left: 10px"></div>
        </button><br><br>
         
        <button type="button" class="btn btn-info" id="buttonD" style="width:500px">
-	        <div style="float:left;margin-left: 36%">D.</div>
+	        <div style="float:left;margin-left: 45%">D.</div>
 	        <div id="option4" style="float:left;margin-left: 10px"></div>
        </button><br><br>
         
       <button type="button" class="btn btn-info" id="buttonE" style="width:500px">
-	        <div style="float:left;margin-left: 36%">E.</div>
+	        <div style="float:left;margin-left: 45%">E.</div>
 	        <div id="option5" style="float:left;margin-left: 10px"></div>
       </button><br><br>
     </div>
 </div>
 <script src="js/DoScaleTest.js"></script>
 </body>
-
+<script>
+var phoneWidth =  parseInt(window.screen.width);
+var phoneScale = phoneWidth/640;
+var ua = navigator.userAgent;
+if (/Android (\d+\.\d+)/.test(ua)){
+    var version = parseFloat(RegExp.$1);
+    if(version>2.3){
+        document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+    }else{
+        document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+    }
+} else {
+    document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+}
+</script>
 <html>

@@ -17,7 +17,7 @@
     <link href="table/bootstrap-table.css">
 </head>
 <body>
-<div class="container" style="width: 100%">
+<div class="container" style="width: 1300px">
     <div class="panel panel-default">
         <div class="panel-heading" style="padding-bottom: 10px;">
             <h3 class="panel-title">
@@ -87,6 +87,18 @@
         ]
     });
 
-
+    var phoneWidth =  parseInt(window.screen.width);
+    var phoneScale = phoneWidth/640;
+    var ua = navigator.userAgent;
+    if (/Android (\d+\.\d+)/.test(ua)){
+        var version = parseFloat(RegExp.$1);
+        if(version>2.3){
+            document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+        }else{
+            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+    }
 </script>
 </html>

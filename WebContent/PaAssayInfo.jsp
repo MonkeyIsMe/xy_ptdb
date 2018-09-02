@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta http-equiv="Content-Type" content="text/html;">
 <meta charset="utf-8">
 <title>心理测评系统</title>
@@ -22,7 +23,7 @@
    session.setAttribute("use_id",use_id);
 %>
 
-<div class="container" style="width: 100%">
+<div class="container" style="width: 1000px">
     <div class="panel panel-default">
         <div class="panel-heading" style="padding-bottom: 10px;">
             <h3 class="panel-title">
@@ -116,5 +117,20 @@
     			console.log(oRow);
     		}
     }
+    
+    var phoneWidth =  parseInt(window.screen.width);
+    var phoneScale = phoneWidth/640;
+    var ua = navigator.userAgent;
+    if (/Android (\d+\.\d+)/.test(ua)){
+        var version = parseFloat(RegExp.$1);
+        if(version>2.3){
+            document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+        }else{
+            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+    }
+    
 </script>
 </html>

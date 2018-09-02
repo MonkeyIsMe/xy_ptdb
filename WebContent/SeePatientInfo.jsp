@@ -67,22 +67,18 @@
 </div>
 <div class="contain" id="contain">
     <div class="middle" id="middle">
-        <div class="left" id="left">
+        <div class="left" id="left" style="float:left">
 
             <div class="list-group left-list">
                 <a href="#" class="list-group-item" id="list_tbl1" onclick="MenuDisplay_1()">病人详细信息</a>
-
                 <a href="#" class="list-group-item" id="list_tbl2" onclick="MenuDisplay_2()">病人记录信息</a>
-
 
                 <a href="#" class="list-group-item" id="list_tbl3" onclick="MenuDisplay_3()">病人标本信息</a>
 
 
             </div>
         </div>
-
-        <div class="right" id="right">
-
+        <div class="right" id="right" style="float:left">
 			 <IFRAME src="PaAssayInfo.jsp" id="AssayInfo" frameBorder=0 width="1310px"
                     height="681px">
             </IFRAME>
@@ -100,4 +96,19 @@
     </div>
 </div>
 </body>
+<script>
+var phoneWidth =  parseInt(window.screen.width);
+var phoneScale = phoneWidth/640;
+var ua = navigator.userAgent;
+if (/Android (\d+\.\d+)/.test(ua)){
+    var version = parseFloat(RegExp.$1);
+    if(version>2.3){
+        document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+    }else{
+        document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+    }
+} else {
+    document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+}
+</script>
 </html>

@@ -119,7 +119,7 @@
 				formatter : "Formatter",
 				events : "operateEvents",
 				align : "center",
-				title : "查看-测试-数据",
+				title : "查看-测试",
 				width : "120"
 			}
 
@@ -127,8 +127,7 @@
     });
     function Formatter(value, row, index) {
 		return '<a id="res"><span class="glyphicon glyphicon-user" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
-			'<a id="pic" ><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
-			'<a id="assay" ><span class="glyphicon glyphicon-th" style="cursor:pointer;"></span></a>';
+			'<a id="pic" ><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;';
 	}
     window.operateEvents = {
     		'click #res' : function(e, value, row, index) {
@@ -145,13 +144,6 @@
     			window.open("ScaleInfo.jsp?patientId="+ oRow.patientId);
     			//window.open("ScaleInfo.jsp");
     		},
-    		'click #assay' : function(e, value, row, index) {
-    			var oRow = JSON.parse(JSON.stringify(row));
-    			console.log(oRow);
-    			//alert(oRow.patientId);
-    			window.open("SeePatientInfo.jsp?patientId="+ oRow.patientId);
-    			//window.open("ScaleInfo.jsp");
-    		}
     }
     
     var phoneWidth =  parseInt(window.screen.width);
