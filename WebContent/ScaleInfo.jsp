@@ -78,6 +78,30 @@
 
     </div>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    量表信息
+                </h4>
+                <h6>基本情况
+                <div id="intro"></div>
+                </h6>
+                <h6>指导语
+                <div  id="guide"></div>
+                </h6>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="test">开始测试 </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 </body>
 <script type="text/javascript">
 
@@ -114,7 +138,7 @@ $('#scalelist').bootstrapTable({
     ]
 });
 function Formatter(value, row, index) {
-	return '<a id="res"><span class="glyphicon glyphicon-list-alt" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
+	return '<a id="res"><span class="glyphicon glyphicon-list-alt" data-toggle="modal" data-target="#myModal" style="cursor:pointer;"></span></a>&nbsp;&nbsp;&nbsp;' +
 		'<a id="pic" ><span class="glyphicon glyphicon-picture" style="cursor:pointer;"></span></a>';
 }
 
@@ -122,11 +146,29 @@ var p_id = "${param.patientId}";
 window.operateEvents = {
 		'click #res' : function(e, value, row, index) {
 			var oRow = JSON.parse(JSON.stringify(row));
-			window.open("DoScaleTest.jsp?patientId=" + p_id + "&scale_id=" + oRow.s_ID);
-			//alert(oRow.patientId);
-			//window.open("ScaleInfo.jsp");
+			m_id = oRow.s_ID;
+			$.post(
+					"GetMental.action",
+					{
+						m_id:m_id,
+					},
+					function(data){
+						//alert(data);
+						//alert(data.S_Intro);
+						$("#intro").prepend(data.S_Intro);
+						$("#guide").prepend(data.S_Guide);
+					},
+					'json'
+			)
+			//window.open("DoScaleTest.jsp?patientId=" + p_id + "&scale_id=" + oRow.s_ID);
+			$("#test").click(function(){
+				//window.open("DoScaleTest.jsp?patientId=" + p_id + "&scale_id=" + oRow.s_ID);
+				window.self.location = "DoScaleTest.jsp?patientId=" + p_id +  '&scale_id=' + oRow.s_ID;
+			});
 		},
 }
+
+
 var phoneWidth =  parseInt(window.screen.width);
 var phoneScale = phoneWidth/640;
 var ua = navigator.userAgent;

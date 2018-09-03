@@ -180,6 +180,10 @@
 			 <result name="SUCCESS"></result>
 		</action>
 		
+		<action name="GetMental" class="com.csu.action.QueryMentalScale" method="getMental">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			 <result name="SUCCESS"></result>
+		</action>
 		
 	</package>
 </struts>
