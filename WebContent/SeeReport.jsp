@@ -106,7 +106,6 @@
 	MentalScaleDAO msd = new MentalScaleDAOImpl();
 	MentalScale ms = msd.getMentalScaleById(id);
 	String scale_name = ms.getS_Name(); 
-	
 %>
 <body>
 <div style="text-align: center;">
@@ -133,6 +132,8 @@
 </body>
 <script type="text/javascript">
 
+var p_id = <%= patientId%>;
+
     $("#pdf").click(function () {
         DownloadPdf();
     })
@@ -153,12 +154,13 @@
         myDate.toLocaleDateString();    //获取当前日期
         var mytime=myDate.toLocaleTimeString();    //获取当前时间
         myDate.toLocaleString( );      //获取日期与时间----如果涉及到时分秒，直接使用即可。
-
         var pdf = new jsPDF('p', 'mm', 'a4');
         var print_content = $('#ol_article_content');
         var filename = myDate;
-
-
+        console.log(filename);
+        filename = filename + "+";
+        filename = filename + p_id;
+        console.log(filename);
 
 
         $('#ol_article_content').css("background", "#fff")
