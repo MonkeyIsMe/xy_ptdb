@@ -13,6 +13,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+    <script type="text/javascript" src="./js/canvg2.js"></script>
+    <script type="text/javascript" src="./js/html2canvas.js"></script>
+    <script type="text/javascript" src="./js/jsPdf.debug.js"></script>
+    <script type="text/javascript" src="./js/jspdf.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style>
 
@@ -24,6 +35,7 @@
     }
 
     #head{
+    	border-top:solid;
         width: 100%;
         height: 40px;
         border-bottom:solid;
@@ -67,6 +79,14 @@
         font-size: 20px;
         font-family: Consolas;
     }
+    
+    #pdf{
+    	text-align: center;
+    }
+    
+    #result{
+    	font-size:30px;
+    }
 
 </style>
 <%
@@ -89,7 +109,11 @@
 	
 %>
 <body>
+<div style="text-align: center;">
+<button id="pdf">DOWNLOAD PDF</button>
+</div>
 <div id="contianer">
+<div id="ol_article_content">
     <div id="head">
         <div id="to_name">
             <div class="font" style="float: left;">名字：</div>
@@ -105,5 +129,48 @@
     </div>
     <div id="result"><%= comments%></div>
 </div>
+</div>
 </body>
+<script type="text/javascript">
+
+    $("#pdf").click(function () {
+        DownloadPdf();
+    })
+
+    function DownloadPdf() {
+
+        var myDate = new Date();
+        myDate.getYear();      //获取当前年份(2位)
+        myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+        myDate.getMonth();      //获取当前月份(0-11,0代表1月)
+        myDate.getDate();      //获取当前日(1-31)
+        myDate.getDay();        //获取当前星期X(0-6,0代表星期天)
+        myDate.getTime();      //获取当前时间(从1970.1.1开始的毫秒数)
+        myDate.getHours();      //获取当前小时数(0-23)
+        myDate.getMinutes();    //获取当前分钟数(0-59)
+        myDate.getSeconds();    //获取当前秒数(0-59)
+        myDate.getMilliseconds(); //获取当前毫秒数(0-999)
+        myDate.toLocaleDateString();    //获取当前日期
+        var mytime=myDate.toLocaleTimeString();    //获取当前时间
+        myDate.toLocaleString( );      //获取日期与时间----如果涉及到时分秒，直接使用即可。
+
+        var pdf = new jsPDF('p', 'mm', 'a4');
+        var print_content = $('#ol_article_content');
+        var filename = myDate;
+
+
+
+
+        $('#ol_article_content').css("background", "#fff")
+
+        // 分页
+        var options = { pagesplit: true };
+
+        pdf.addHTML($('#ol_article_content'), options, function(){
+            pdf.output("save", filename)
+        })
+    }
+
+
+</script>
 </html>

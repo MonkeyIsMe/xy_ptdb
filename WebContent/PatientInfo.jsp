@@ -67,7 +67,7 @@
             </h3>
         </div>
         <div class="panel-body">
-            <div style="font-size:5px">
+            <div>
                 <table id="patientlist" class="table table-bordered table-hover table-striped" data-toggle="table">
                 </table>
             </div>

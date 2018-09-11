@@ -5,7 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>登录界面</title>
     <!-- Meta-Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="css/login.css" type="text/css">
     <!-- //Meta-Tags -->
@@ -24,12 +23,19 @@
 <div class="container w3layouts agileits" style="width: 500px">
         <div class="login w3layouts agileits" style="margin-left: 25%">
             <h2 style="margin-left: 28%;font-family: serif;font-size: 30px;color: white;">登录界面</h2>
-            <input type="text" name="account" placeholder="用户名"  style="width: 250px" id="account">
-            <input type="password" name="password" placeholder="密码" style="width: 250px" id="password">
-			<input type="text" name="login_code" class="form-control" id="login_code" maxlength="4" autocomplete="off" style="width: 80px" placeholder="验证码">
-            <img src="SendCode.action" class="veri-code" id="code_img" style="margin-left:10px">
-            <div class="send-button w3layouts agileits">
-                <input type="submit" value="登 录" style="margin-left: 25%" id="submit-btn">
+            <div>
+                <input type="text" name="account" placeholder="用户名"  style="width: 250px" id="account">
+            </div>
+            <div>
+            	<input type="password" name="password" placeholder="密码" style="width: 250px" id="password">
+            </div>
+            <div>
+            	<input type="text" name="login_code" class="form-control" id="login_code" maxlength="4" 
+            	autocomplete="off" style="width: 250px" placeholder="验证码">
+            	<img src="SendCode.action" class="veri-code" id="code_img" style="margin-left:10px;width:250px;height:30px">
+            </div>
+            <div class="send-button w3layouts agileits" style="margin-top:20px;width:300px;margin-left:40px">
+                <input type="submit" value="登 录"  align="right" id="submit-btn">
             </div>
         </div>
 </div>
