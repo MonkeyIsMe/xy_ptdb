@@ -26,8 +26,8 @@ public class ReportAction extends ActionSupport{
 		HttpServletRequest request= ServletActionContext.getRequest();
 		//获取每道题的分数
 		String score = request.getParameter("score");
-		//System.out.println(score);
-		//System.out.println(score.length());
+		System.out.println(score);
+		System.out.println(score.length());
 		//记录每一题的得分
 		int [] cal = new int [score.length()];
 		//记录总得分
@@ -45,10 +45,11 @@ public class ReportAction extends ActionSupport{
 		String scale_id = (String) session.getAttribute("scale_id");
 		String patientId = (String) session.getAttribute("use_id");
 		int scale = Integer.parseInt(scale_id);
-		System.out.println(patientId);
+		//System.out.println(patientId);
 		//获取题目总集合
 		ScaleDAO sd = new ScaleDAOImpl();
 		List<ScaleItem> list = sd.queryScaleItemByOrder(scale);
+		System.out.println(scale);
 		int scale_size = list.size();
 		
 		//查询结论综合
@@ -83,7 +84,7 @@ public class ReportAction extends ActionSupport{
 		int f = fac[0];
 		List<ScaleItem> first =sd.queryScaleItemByFactor(scale, f);
 		int f_id = first.get(0).getI_ID();
-		System.out.println(f_id);
+		//System.out.println(f_id);
 		for(int i = 0 ;i < t ;i++) {
 			int i_factor = fac[i];
 			//System.out.println("1."+i+" "+t);
@@ -93,6 +94,7 @@ public class ReportAction extends ActionSupport{
 				ScaleItem fac_item = fac_scale.get(j);
 				int id = fac_item.getI_ID();
 				//System.out.println(id+"   "+cnt+"  "+(id-5));
+				//System.out.println("id="+(id-f_id)+" "+id+" "+f_id);
 				val[cnt] += cal[(id-f_id)];
 				}
 			cnt++;

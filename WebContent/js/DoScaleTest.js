@@ -16,6 +16,7 @@ var score = "";
 	    dataType: "json",
 	    success: function(data) {
 	    	var id = data[0].i_ID;
+	    	//alert(id);
 	    	$("#problem").prepend(data[0].i_Content);
 	    	//获取量表的长度
 	    	scale_length = data.length;
@@ -26,7 +27,7 @@ var score = "";
 		        dataType: "json",
 		        data:{"id":id},
 		        success: function(date) {
-		        	//alert(date);
+		        	//alert(date.length);
 		        	//alert(t);
 		        	if(date.length == 4){
 		        		$("#option1").prepend(date[0].c_Content);

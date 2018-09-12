@@ -85,15 +85,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
-                <h4 class="modal-title" id="myModalLabel">
+                <h3 class="modal-title" id="myModalLabel">
                     量表信息
-                </h4>
-                <h6>基本情况
+                </h3>
+                <h3>基本情况
                 <div id="intro"></div>
-                </h6>
-                <h6>指导语
+                </h3>
+                <h3>指导语
                 <div  id="guide"></div>
-                </h6>
+                </h3>
                 
             </div>
             <div class="modal-footer">

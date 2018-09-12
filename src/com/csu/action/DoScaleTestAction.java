@@ -54,6 +54,7 @@ public class DoScaleTestAction extends ActionSupport{
 		HttpServletRequest req = ServletActionContext.getRequest();
 		HttpSession session  = req.getSession();
 		String scale_id = (String) session.getAttribute("scale_id");
+		//System.out.println("scale_id="+scale_id);
 		//System.out.println(scale_id);
 		int scale = Integer.parseInt(scale_id);
 		//int uid = (int) session.getAttribute("test");

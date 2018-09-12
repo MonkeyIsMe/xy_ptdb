@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -34,7 +35,12 @@ public class GetChoiceAction extends ActionSupport{
 		ServletActionContext.getResponse().setContentType("text/html; charset=utf-8");
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String id = request.getParameter("id");
-		int i_id = Integer.parseInt(id);
+		HttpServletRequest reqeust= ServletActionContext.getRequest();
+		HttpServletRequest req = ServletActionContext.getRequest();
+		HttpSession session  = req.getSession();
+		String scale_id = (String) session.getAttribute("scale_id");
+		//System.out.println("scale_id+++==="+scale_id);
+		int i_id = Integer.parseInt(scale_id);
 		//System.out.println("第"+id+"个");
 		ch = query(i_id);
 		JSONArray arr = JSONArray.fromObject(ch);
@@ -57,6 +63,10 @@ public class GetChoiceAction extends ActionSupport{
 		List<Choice> list = null;
 		ChoiceDAO cd = new ChoiceDAOImpl();
 		list = cd.getChoiceById(i_id);
+		//System.out.println("i_id="+i_id);
+		//for(Choice ch : list) {
+			//System.out.println(ch.toString());
+		//}
 		return list;
 	}
 }

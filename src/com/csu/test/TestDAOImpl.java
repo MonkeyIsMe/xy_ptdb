@@ -349,4 +349,24 @@ public class TestDAOImpl {
 			System.out.println(fa.toString());
 		}
 	}
+	
+	@Test
+	public void getChoicebyId() {
+		int id = 12;
+		List<Choice> list = null;
+		ChoiceDAO cd = new ChoiceDAOImpl();
+		list = cd.getChoiceById(id);
+		for(Choice ch : list) {
+			System.out.println(ch.toString());
+		}
+	}
+	
+	
+	@Test
+	public void getScaleLength() {
+		int id = 12;
+		ScaleDAO sd = new ScaleDAOImpl();
+		List<ScaleItem> list = sd.queryScaleItemById(id);
+		System.out.println(list.size());
+	}
 }
